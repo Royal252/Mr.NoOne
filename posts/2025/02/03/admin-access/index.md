@@ -5,7 +5,7 @@
 
 The site appeared as follows, with a login screen:
 
-![login](images/site_presentation.png)
+![login](/images/site_presentation.png)
 
 After completing the registration and login phase, you would enter a completely empty dashboard where the only available action was to log out. That’s when I realized that registering was pointless. Inspecting the page source, I found a strange comment:
 
