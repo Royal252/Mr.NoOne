@@ -11,9 +11,7 @@
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/posts/2025/02/03/admin-access/</guid>
-    <description><![CDATA[Initial Analysis The site appeared as follows, with a login screen:
-After completing the registration and login phase, you would enter a completely empty dashboard where the only available action was to log out. That’s when I realized that registering was pointless. Inspecting the page source, I found a strange comment:
-the comment revealed an email, most likely belonging to the account containing the flag. Continuing to explore the site since it was a black-box challenge without any files I found the &ldquo;Forgot Password&rdquo; section:]]></description>
+    <description><![CDATA[A detailed write-up of the Web challenge Admin Access from KnightCTF - 2025]]></description>
 </item>
 </channel>
 </rss>
