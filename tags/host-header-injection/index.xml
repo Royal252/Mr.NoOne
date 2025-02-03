@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Host Header Injection - Tag - mH4ck3r0n3&#39;s Blog</title>
-        <link>http://localhost:1313/tags/host-header-injection/</link>
+        <link>https://mh4ck3r0n3.github.io/tags/host-header-injection/</link>
         <description>Host Header Injection - Tag - mH4ck3r0n3&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/tags/host-header-injection/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/host-header-injection/" rel="self" type="application/rss+xml" /><item>
     <title>Admin Access</title>
-    <link>http://localhost:1313/posts/2025/02/03/admin-access/</link>
+    <link>https://mh4ck3r0n3.github.io/posts/2025/02/03/admin-access/</link>
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
-    <guid>http://localhost:1313/posts/2025/02/03/admin-access/</guid>
+    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/03/admin-access/</guid>
     <description><![CDATA[Initial Analysis The site appeared as follows, with a login screen:
 After completing the registration and login phase, you would enter a completely empty dashboard where the only available action was to log out. That’s when I realized that registering was pointless. Inspecting the page source, I found a strange comment:
 the comment revealed an email, most likely belonging to the account containing the flag. Continuing to explore the site since it was a black-box challenge without any files I found the &ldquo;Forgot Password&rdquo; section:]]></description>
