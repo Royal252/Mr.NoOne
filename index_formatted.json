@@ -6,42 +6,6 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "A detailed write-up of the Web challenge ciao Connect from KnightCTF - 2025",
-        "date": "02/04/2025",
-        "objectID": "/posts/2025/02/04/ciao/",
-        "tags": [
-          "Web Security",
-          "Insecure Authentication",
-          "ciao"
-        ],
-        "title": "Ciao",
-        "uri": "/posts/2025/02/04/ciao/"
-      }
-    },
-    {
-      "action": "updateObject",
-      "body": {
-        "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
-        ],
-        "content": "ciaooooooooooo ",
-        "date": "02/04/2025",
-        "objectID": "/posts/2025/02/04/ciao/:0:0",
-        "tags": [
-          "Web Security",
-          "Insecure Authentication",
-          "ciao"
-        ],
-        "title": "Ciao",
-        "uri": "/posts/2025/02/04/ciao/"
-      }
-    },
-    {
-      "action": "updateObject",
-      "body": {
-        "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
-        ],
         "content": "A detailed write-up of the Web challenge Knight Connect from KnightCTF - 2025",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/knight-connect/",
