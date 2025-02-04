@@ -102,6 +102,6 @@ requests.post("http://45.56.68.122:7474/forgot-password", data={"email":"kctf202
 ```
 
 ### Flag
-```
+{{< admonition danger "Flag" >}}
 KCTF{PaSsW0rD_ReSet_p0is0n1ng_iS_FuN}
-```
+{{< /admonition >}}

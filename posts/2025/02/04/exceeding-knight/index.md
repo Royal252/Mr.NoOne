@@ -124,7 +124,6 @@ So, all I had to do was enter `1000000000000000000` (just adding a simple zero) 
 ![Manual Flag](/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png "Manual Flag")
 
 ### Flag
-
-```
+{{< admonition danger "Flag" >}}
 KCTF{_Y0U_sH0UlD_re4D_m0r3_Cod3_}
-```
+{{< /admonition >}}

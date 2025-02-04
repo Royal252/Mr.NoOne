@@ -70,10 +70,9 @@
 > - [exploit](/resources/KnightCTF-2025/KnightCal/exploit.py)
 
 ## 🚩 Flag Capture
-
->```
+>{{< admonition danger "Flag" >}}
 > KCTF{_c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH_}
->```
+>{{< /admonition >}}
 >
 >### Proof of Execution
 > ![Automated Flag](/images/KnightCTF-2025/KnightCal/automated_flag.png "Automated Flag")

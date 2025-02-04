@@ -75,7 +75,6 @@ print("\nFLAG: " + re.search(r'KCTF{[a-f0-9]+}', requests.get(url + base64.b64en
 ```
 
 ### Flag
-
-```
+{{< admonition danger "Flag" >}}
 KCTF{d38787fb0741bd0efdad8ed01f037740}
-```
+{{< /admonition >}}

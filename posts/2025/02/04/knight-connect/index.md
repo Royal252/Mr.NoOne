@@ -140,9 +140,9 @@
 > - [exploit](/resources/KnightCTF-2025/Knight-Connect/exploit.php)
 
 ## 🚩 Flag Capture
->```
-> KCTF{_congrat5_KNIGHT_y0U_hack3d_mY_Acc0Un7_}
->```
+>{{< admonition danger "Flag" >}}
+>KCTF{_congrat5_KNIGHT_y0U_hack3d_mY_Acc0Un7_}
+>{{< /admonition >}}
 >
 >### Proof of Execution
 >![Automated Flag](/images/KnightCTF-2025/Knight-Connect/automated_flag.png "Automated Flag")
