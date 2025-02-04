@@ -182,7 +182,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "Approach The exploit is very simple: it\u2019s a POST request to the page where I pass the parameter expression=7195, which is the correct combination. Then, I extract the flag from the response text using bs4: exploit ",
+        "content": "Approach The exploit is very simple: it\u2019s a POST request to the page where I pass the parameter expression=7195, which is the correct combination. Then, I extract the flag from the response text using bs4: \u00a0Exploit ",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/knightcal/:6:1",
         "tags": [
@@ -400,7 +400,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "Provided Files Files: attached files ",
+        "content": "Provided Files Files: \u00a0Attached Files ",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/knight-connect/:3:1",
         "tags": [
@@ -544,7 +544,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "Approach I wrote the exploit in PHP because I had issues with token composition using bcrypt in Python. This exploit takes the admin\u2019s email, which has the flag in their profile, and then creates a valid token with a timestamp less than one hour old. It then generates a URL with a valid token to access the admin profile, and through a cURL function in PHP, it makes a request to the page, extracting the flag via a regex. I used the following commands for the requirements and the run: sudo apt install php sudo apt-get install php-curl php exploit.php exploit ",
+        "content": "Approach I wrote the exploit in PHP because I had issues with token composition using bcrypt in Python. This exploit takes the admin\u2019s email, which has the flag in their profile, and then creates a valid token with a timestamp less than one hour old. It then generates a URL with a valid token to access the admin profile, and through a cURL function in PHP, it makes a request to the page, extracting the flag via a regex. I used the following commands for the requirements and the run: sudo apt install php sudo apt-get install php-curl php exploit.php \u00a0Exploit ",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/knight-connect/:7:1",
         "tags": [

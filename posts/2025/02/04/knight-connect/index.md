@@ -26,7 +26,7 @@
 
 >### Provided Files
 >Files: 
->- [attached files](/resources/KnightCTF-2025/Knight-Connect/KnightConnect_Source.zip)
+>- [:(far fa-file-archive fa-fw): Attached Files](/resources/KnightCTF-2025/Knight-Connect/KnightConnect_Source.zip)
 
 
 ## 🔍 Initial Analysis
@@ -137,7 +137,7 @@
 >   php exploit.php
 >   ```
 > 
-> - [exploit](/resources/KnightCTF-2025/Knight-Connect/exploit.php)
+> - [:(far fa-file-archive fa-fw): Exploit](/resources/KnightCTF-2025/Knight-Connect/exploit.php)
 
 ## 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}

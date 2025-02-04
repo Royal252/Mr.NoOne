@@ -67,7 +67,7 @@
 >### Approach
 > The exploit is very simple: it's a POST request to the page where I pass the parameter expression=7195, which is the correct combination. Then, I extract the flag from the response text using bs4:
 > 
-> - [exploit](/resources/KnightCTF-2025/KnightCal/exploit.py)
+> - [:(far fa-file-archive fa-fw): Exploit](/resources/KnightCTF-2025/KnightCal/exploit.py)
 
 ## 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
