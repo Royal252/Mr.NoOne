@@ -1,6 +1,6 @@
 # About Me
 
-<br><br>
+<br>
 Hi, I'm Matteo Maccarone, a passionate computer science enthusiast with a particular interest in cybersecurity. I've always aimed to combine my curiosity with a passion for cybersecurity, approaching every new project with enthusiasm and dedication.
 
 ## Who Am I
