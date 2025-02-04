@@ -3,20 +3,36 @@
         <title>Tags - Tag - mH4ck3r0n3&#39;s Blog</title>
         <link>https://mh4ck3r0n3.github.io/tags/</link>
         <description>Tags - Tag - mH4ck3r0n3&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>Insecure Deserialization</title>
-    <link>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</link>
-    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Feb 2025 11:20:22 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Improper Error Handling</title>
+    <link>https://mh4ck3r0n3.github.io/tags/improper-error-handling/</link>
+    <pubDate>Tue, 04 Feb 2025 11:20:22 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</guid>
+    <guid>https://mh4ck3r0n3.github.io/tags/improper-error-handling/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Laravel</title>
+    <link>https://mh4ck3r0n3.github.io/tags/laravel/</link>
+    <pubDate>Tue, 04 Feb 2025 11:20:22 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/laravel/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Web Security</title>
     <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
-    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
+    <pubDate>Tue, 04 Feb 2025 11:20:22 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Insecure Deserialization</title>
+    <link>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</link>
+    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -33,6 +49,14 @@
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://mh4ck3r0n3.github.io/tags/password-reset-poisoning/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>PyYAML</title>
+    <link>https://mh4ck3r0n3.github.io/tags/pyyaml/</link>
+    <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/pyyaml/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
