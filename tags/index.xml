@@ -3,7 +3,23 @@
         <title>Tags - Tag - mH4ck3r0n3&#39;s Blog</title>
         <link>https://mh4ck3r0n3.github.io/tags/</link>
         <description>Tags - Tag - mH4ck3r0n3&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Insecure Deserialization</title>
+    <link>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</link>
+    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Web Security</title>
+    <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
+    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Host Header Injection</title>
     <link>https://mh4ck3r0n3.github.io/tags/host-header-injection/</link>
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
@@ -12,11 +28,11 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Web Security</title>
-    <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
+    <title>Password Reset Poisoning</title>
+    <link>https://mh4ck3r0n3.github.io/tags/password-reset-poisoning/</link>
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
+    <guid>https://mh4ck3r0n3.github.io/tags/password-reset-poisoning/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

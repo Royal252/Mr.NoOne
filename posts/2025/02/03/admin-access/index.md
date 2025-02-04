@@ -5,15 +5,15 @@
 
 The site appeared as follows, with a login screen:
 
-![login](/images/KnightCTF-2025/site_presentation.png)
+![login](/images/KnightCTF-2025/Admin-Access/site_presentation.png)
 
 After completing the registration and login phase, you would enter a completely empty dashboard where the only available action was to log out. That’s when I realized that registering was pointless. Inspecting the page source, I found a strange comment:
 
-![comment](/images/KnightCTF-2025/admin_email.png)
+![comment](/images/KnightCTF-2025/Admin-Access/admin_email.png)
 
 the comment revealed an email, most likely belonging to the account containing the flag. Continuing to explore the site since it was a black-box challenge without any files I found the "Forgot Password" section:
 
-![forgot](/images/KnightCTF-2025/forgot_password.png)
+![forgot](/images/KnightCTF-2025/Admin-Access/forgot_password.png)
 
 Where it was possible to specify an email to reset a password. At this point, I thought about resetting the password for the account associated with the email I had found earlier. And I considered a Host Header Injection.
 
@@ -27,7 +27,7 @@ ngrok http 80
 
 And then, using Burp Suite, I modified the Host header to `Host: ngrok_link`. By sending the request with the modified Host header through ngrok, I was able to extract the reset token from the previously sent "Forgot Password" request with the email kctf2025@knightctf.com:
 
-![intercept](/images/KnightCTF-2025/intercept.png)
+![intercept](/images/KnightCTF-2025/Admin-Access/intercept.png)
 
 After extracting the valid token, I reset the password using the obtained link and logged in with the account using the following credentials:
 
@@ -36,7 +36,7 @@ username: kctf2025
 password: new_password
 ```
 
-![flag](/images/KnightCTF-2025/manual_flag.png)
+![flag](/images/KnightCTF-2025/Admin-Access/manual_flag.png)
 
 ### Automated Exploit
 
