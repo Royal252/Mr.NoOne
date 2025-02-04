@@ -16,7 +16,7 @@
 >| 👤 Author | NomanProdhan | [Profile]() |
 >| 🎮 Solves | 49 | XX% solve rate |
 >| 📅 Date | 20-01-2025 | KnightCTF - 2025 Day X |
->| 🦾 Solved By | mH4ck3r0n3 | Team: QnQSec |
+>| 🦾 Solved By | Bebo07 | Team: QnQSec |
 
 ## 📝 Challenge Information
 
