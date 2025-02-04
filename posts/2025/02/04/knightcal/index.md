@@ -1,9 +1,9 @@
 # KnightCal
 
-
+<!--more-->
 # 🌐 KnightCal
 
-![challenge_presentation](/images/KnightCTF-2025/KnightCal/challenge_presentation.png)
+![Challenge Presentation](/images/KnightCTF-2025/KnightCal/challenge_presentation.png "Challenge Presentation")
 
 >## 📊 Challenge Overview
 >
@@ -36,11 +36,11 @@
 >### First Steps
 > Initially, the website appears as follows:
 > 
-> ![site_presentation](/images/KnightCTF-2025/KnightCal/site_presentation.png)
+> ![Site Presentation](/images/KnightCTF-2025/KnightCal/site_presentation.png "Site Presentation")
 > 
 > by trying to enter something in the numeric input box and submitting, I get letters in the file name:
 > 
-> ![step_1](/images/KnightCTF-2025/KnightCal/step_1.png)
+> ![Submit Try](/images/KnightCTF-2025/KnightCal/step_1.png "Submit Try")
 > 
 > so, I assume it's about finding the correct combination to print the contents of the file `flag.txt`. 
 
@@ -55,13 +55,13 @@
 >   
 > After a couple of attempts, I came up with this:
 >   
->   ![step_2](/images/KnightCTF-2025/KnightCal/step_2.png)
+>   ![Second Attempt](/images/KnightCTF-2025/KnightCal/step_2.png "Second Attempt")
 >   
 > continuing to experiment, I found the correct combination, `7195`, which allowed me to read the `flag.txt` file.
 >
 >>#### Flag capture
 >  
->   ![manual_flag](/images/KnightCTF-2025/KnightCal/manual_flag.png)
+>   ![Manual Flag](/images/KnightCTF-2025/KnightCal/manual_flag.png "Manual Flag")
 
 ## 🛠️ Exploitation Process
 >### Approach
@@ -76,7 +76,7 @@
 >```
 >
 >### Proof of Execution
-> ![automated_flag](/images/KnightCTF-2025/KnightCal/automated_flag.png)
+> ![Automated Flag](/images/KnightCTF-2025/KnightCal/automated_flag.png "Automated Flag")
 >*Screenshot of successful exploitation*
 
 ## 🔧 Tools Used

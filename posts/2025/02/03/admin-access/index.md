@@ -1,19 +1,19 @@
 # Admin Access
 
-
+<!--more-->
 ### Initial Analysis
 
 The site appeared as follows, with a login screen:
 
-![login](/images/KnightCTF-2025/Admin-Access/site_presentation.png)
+![Site Presentation](/images/KnightCTF-2025/Admin-Access/site_presentation.png "Site Presentation")
 
 After completing the registration and login phase, you would enter a completely empty dashboard where the only available action was to log out. That’s when I realized that registering was pointless. Inspecting the page source, I found a strange comment:
 
-![comment](/images/KnightCTF-2025/Admin-Access/admin_email.png)
+![Admin Email](/images/KnightCTF-2025/Admin-Access/admin_email.png "Admin Email")
 
 the comment revealed an email, most likely belonging to the account containing the flag. Continuing to explore the site since it was a black-box challenge without any files I found the "Forgot Password" section:
 
-![forgot](/images/KnightCTF-2025/Admin-Access/forgot_password.png)
+![Forgot Password](/images/KnightCTF-2025/Admin-Access/forgot_password.png "Forgot Password")
 
 Where it was possible to specify an email to reset a password. At this point, I thought about resetting the password for the account associated with the email I had found earlier. And I considered a Host Header Injection.
 
@@ -27,7 +27,7 @@ ngrok http 80
 
 And then, using Burp Suite, I modified the Host header to `Host: ngrok_link`. By sending the request with the modified Host header through ngrok, I was able to extract the reset token from the previously sent "Forgot Password" request with the email kctf2025@knightctf.com:
 
-![intercept](/images/KnightCTF-2025/Admin-Access/intercept.png)
+![Intercept](/images/KnightCTF-2025/Admin-Access/intercept.png "Intercept")
 
 After extracting the valid token, I reset the password using the obtained link and logged in with the account using the following credentials:
 
@@ -36,7 +36,7 @@ username: kctf2025
 password: new_password
 ```
 
-![flag](/images/KnightCTF-2025/Admin-Access/manual_flag.png)
+![Manual Flag](/images/KnightCTF-2025/Admin-Access/manual_flag.png "Manual Flag")
 
 ### Automated Exploit
 

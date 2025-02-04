@@ -1,14 +1,15 @@
 # Baby Injection
 
+<!--more-->
 ### Challenge Description
 
-![description](/images/KnightCTF-2025/Baby-Injection/challenge_presentation.png)
+![Challenge Presentation](/images/KnightCTF-2025/Baby-Injection/challenge_presentation.png "Challenge Presentation")
 
 ### Initial Analysis
 
 The site appears as follows:
 
-![site](/images/KnightCTF-2025/Baby-Injection/site_presentation.png)
+![Site Presentation](/images/KnightCTF-2025/Baby-Injection/site_presentation.png "Site Presentation")
 
 The first thing that immediately stands out is the site's URL:
 
@@ -57,7 +58,7 @@ http://172.105.121.246:5990/eWFtbDogcHl0aG9uL29iamVjdC9hcHBseTpzdWJwcm9jZXNzLmdl
 
 By opening the URL, the command was executed on the server, listing the directories, and in doing so, I found the flag:
 
-![flag](/images/KnightCTF-2025/Baby-Injection/manual_flag.png)
+![Manual Flag](/images/KnightCTF-2025/Baby-Injection/manual_flag.png "Manual Flag")
 
 ### Automated Exploit
 

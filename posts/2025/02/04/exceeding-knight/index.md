@@ -1,15 +1,15 @@
 # Exceeding Knight
 
-
+<!--more-->
 ### Challenge Description
 
-![description](/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png)
+![Challenge Presentation](/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png "Challenge Presentation")
 
 ### Initial Analysis
 
 The site appeared as follows:
 
-![site](/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png)
+![Site Presentation](/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png "Site Presentation")
 
 There was nothing interesting here, so I began reading the attached files. The first thing I did was read the `web.php` file located in the `routes` folder. I found the following routes:
 
@@ -121,7 +121,7 @@ class CalculatorController extends Controller
 
 So, all I had to do was enter `1000000000000000000` (just adding a simple zero) in the `num1` parameter to trigger the exception. This caused the detailed error page to return, which contained the flag inside it:
 
-![flag](/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png)
+![Manual Flag](/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png "Manual Flag")
 
 ### Flag
 

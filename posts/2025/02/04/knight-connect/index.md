@@ -1,9 +1,9 @@
 # Knight Connect
 
-
+<!--more-->
 # 🌐 Knight Connect
 
-![challenge_presentation](/images/KnightCTF-2025/Knight-Connect/challenge_presentation.png)
+![Challenge Presentation](/images/KnightCTF-2025/Knight-Connect/challenge_presentation.png "Challenge Presentation")
 
 >## 📊 Challenge Overview
 >
@@ -34,11 +34,11 @@
 >### First Steps
 > The site initially appeared as follows:
 > 
-> ![site_presentation](/images/KnightCTF-2025/Knight-Connect/site_presentation.png)
+> ![Site Presentation](/images/KnightCTF-2025/Knight-Connect/site_presentation.png "Site Presentation")
 > 
 > with a login screen. After completing the registration and login, I was redirected to the following page:
 > 
-> ![site_presentation2](/images/KnightCTF-2025/Knight-Connect/site_presentation2.png)
+> ![Home Page](/images/KnightCTF-2025/Knight-Connect/site_presentation2.png "Home Page")
 > 
 > I couldn't find anything else on the site, so I started reading the attached files. At first, I was overwhelmed and didn't know where to look due to the number of files present. The first thing that came to mind was to forge some session cookies since the `APP_KEY` of Laravel was in the `.env` file. Also, because it required the session to be set to `is_admin` in order to display the flag. We can see this from the following lines of code in the `index.blade.php` file under the `resources/views/users` folder:
 > 
@@ -50,7 +50,7 @@
 > 
 > but then I discovered that it wasn't the right path. However, I realized that I needed to get an administrator account to be able to read the flag. In the `web.php` file under the `resources/routes` folder, I found all the routes of the site, including one that seemed a bit suspicious: `/contact`. Visiting it redirected me to the following page:
 > 
-> ![contact](/images/KnightCTF-2025/Knight-Connect/contact.png)
+> ![Contact](/images/KnightCTF-2025/Knight-Connect/contact.png "Contact")
 > 
 > where the administrator accounts and their respective emails were displayed. Spoiler: only one of these was valid, which was `nomanprodhan@knightconnect.com` (the username of the challenge creator). I then continued looking at other files, but I was interested in how authentication was being handled, so I searched for the authentication file, which was named `AuthController.php` under the `Http/Controllers` folder. Here I found the vulnerability—there were two functions that allowed you to request a login link for an account, which created a token formed by combining the email and a timestamp at that moment, all encrypted using the bcrypt function. The other function allowed you to log in using that generated link by passing the token as a parameter:
 > 
@@ -125,7 +125,7 @@
 >
 >>#### Flag capture
 >   
->   ![manual_flag](/images/KnightCTF-2025/Knight-Connect/manual_flag.png)
+>   ![Manual Flag](/images/KnightCTF-2025/Knight-Connect/manual_flag.png "Manual Flag")
 
 ## 🛠️ Exploitation Process
 >### Approach
@@ -145,7 +145,7 @@
 >```
 >
 >### Proof of Execution
->![automated_flag](/images/KnightCTF-2025/Knight-Connect/automated_flag.png)
+>![Automated Flag](/images/KnightCTF-2025/Knight-Connect/automated_flag.png "Automated Flag")
 >*Screenshot of successful exploitation*
 
 ## 🔧 Tools Used

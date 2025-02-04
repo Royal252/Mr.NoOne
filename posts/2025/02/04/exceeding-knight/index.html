@@ -37,7 +37,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/04\/exceeding-knight\/"
-        },"genre": "posts","keywords": "Web Security, Improper Error Handling, Laravel","wordcount":  509 ,
+        },"genre": "posts","keywords": "Web Security, Improper Error Handling, Laravel","wordcount":  515 ,
         "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/04\/exceeding-knight\/","datePublished": "2025-02-04T11:20:22+01:00","dateModified": "2025-02-04T11:20:22+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -113,7 +113,7 @@
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/knightctf-2025/web/">
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web
                                 </a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="02/04/2025">02/04/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;509 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="02/04/2025">02/04/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;515 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -137,24 +137,28 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="challenge-description">Challenge Description</h3>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png"
-        data-srcset="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png, /images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png 1.5x, /images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png"
-        title="description" /></p>
+<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png"
+            data-srcset="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png, /images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png 1.5x, /images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Exceeding-Knight/challenge_presentation.png" />
+    </a><figcaption class="image-caption">Challenge Presentation</figcaption>
+    </figure></p>
 <h3 id="initial-analysis">Initial Analysis</h3>
 <p>The site appeared as follows:</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png"
-        data-srcset="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png, /images/KnightCTF-2025/Exceeding-Knight/site_presentation.png 1.5x, /images/KnightCTF-2025/Exceeding-Knight/site_presentation.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png"
-        title="site" /></p>
+<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png" title="Site Presentation" data-thumbnail="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png"
+            data-srcset="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png, /images/KnightCTF-2025/Exceeding-Knight/site_presentation.png 1.5x, /images/KnightCTF-2025/Exceeding-Knight/site_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Exceeding-Knight/site_presentation.png" />
+    </a><figcaption class="image-caption">Site Presentation</figcaption>
+    </figure></p>
 <p>There was nothing interesting here, so I began reading the attached files. The first thing I did was read the <code>web.php</code> file located in the <code>routes</code> folder. I found the following routes:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -351,14 +355,16 @@
 </div>
 </div><h3 id="exploit">Exploit</h3>
 <p>So, all I had to do was enter <code>1000000000000000000</code> (just adding a simple zero) in the <code>num1</code> parameter to trigger the exception. This caused the detailed error page to return, which contained the flag inside it:</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png"
-        data-srcset="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png, /images/KnightCTF-2025/Exceeding-Knight/manual_flag.png 1.5x, /images/KnightCTF-2025/Exceeding-Knight/manual_flag.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png"
-        title="flag" /></p>
+<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png" title="Manual Flag" data-thumbnail="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png"
+            data-srcset="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png, /images/KnightCTF-2025/Exceeding-Knight/manual_flag.png 1.5x, /images/KnightCTF-2025/Exceeding-Knight/manual_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Exceeding-Knight/manual_flag.png" />
+    </a><figcaption class="image-caption">Manual Flag</figcaption>
+    </figure></p>
 <h3 id="flag">Flag</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

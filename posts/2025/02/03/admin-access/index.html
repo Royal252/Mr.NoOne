@@ -38,7 +38,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/03\/admin-access\/"
-        },"genre": "posts","keywords": "Web Security, Host Header Injection, Password Reset Poisoning, PyYAML","wordcount":  397 ,
+        },"genre": "posts","keywords": "Web Security, Host Header Injection, Password Reset Poisoning, PyYAML","wordcount":  406 ,
         "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/03\/admin-access\/","datePublished": "2025-02-03T12:35:19+01:00","dateModified": "2025-02-03T12:35:19+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -114,7 +114,7 @@
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/knightctf-2025/web/">
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web
                                 </a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="02/03/2025">02/03/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;397 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="02/03/2025">02/03/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;406 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -139,32 +139,38 @@
 </nav></div>
             </div><div class="content" id="content"><h3 id="initial-analysis">Initial Analysis</h3>
 <p>The site appeared as follows, with a login screen:</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Admin-Access/site_presentation.png"
-        data-srcset="/images/KnightCTF-2025/Admin-Access/site_presentation.png, /images/KnightCTF-2025/Admin-Access/site_presentation.png 1.5x, /images/KnightCTF-2025/Admin-Access/site_presentation.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Admin-Access/site_presentation.png"
-        title="login" /></p>
+<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Admin-Access/site_presentation.png" title="Site Presentation" data-thumbnail="/images/KnightCTF-2025/Admin-Access/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Admin-Access/site_presentation.png"
+            data-srcset="/images/KnightCTF-2025/Admin-Access/site_presentation.png, /images/KnightCTF-2025/Admin-Access/site_presentation.png 1.5x, /images/KnightCTF-2025/Admin-Access/site_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Admin-Access/site_presentation.png" />
+    </a><figcaption class="image-caption">Site Presentation</figcaption>
+    </figure></p>
 <p>After completing the registration and login phase, you would enter a completely empty dashboard where the only available action was to log out. That’s when I realized that registering was pointless. Inspecting the page source, I found a strange comment:</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Admin-Access/admin_email.png"
-        data-srcset="/images/KnightCTF-2025/Admin-Access/admin_email.png, /images/KnightCTF-2025/Admin-Access/admin_email.png 1.5x, /images/KnightCTF-2025/Admin-Access/admin_email.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Admin-Access/admin_email.png"
-        title="comment" /></p>
+<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Admin-Access/admin_email.png" title="Admin Email" data-thumbnail="/images/KnightCTF-2025/Admin-Access/admin_email.png" data-sub-html="<h2>Admin Email</h2><p>Admin Email</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Admin-Access/admin_email.png"
+            data-srcset="/images/KnightCTF-2025/Admin-Access/admin_email.png, /images/KnightCTF-2025/Admin-Access/admin_email.png 1.5x, /images/KnightCTF-2025/Admin-Access/admin_email.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Admin-Access/admin_email.png" />
+    </a><figcaption class="image-caption">Admin Email</figcaption>
+    </figure></p>
 <p>the comment revealed an email, most likely belonging to the account containing the flag. Continuing to explore the site since it was a black-box challenge without any files I found the &ldquo;Forgot Password&rdquo; section:</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Admin-Access/forgot_password.png"
-        data-srcset="/images/KnightCTF-2025/Admin-Access/forgot_password.png, /images/KnightCTF-2025/Admin-Access/forgot_password.png 1.5x, /images/KnightCTF-2025/Admin-Access/forgot_password.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Admin-Access/forgot_password.png"
-        title="forgot" /></p>
+<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Admin-Access/forgot_password.png" title="Forgot Password" data-thumbnail="/images/KnightCTF-2025/Admin-Access/forgot_password.png" data-sub-html="<h2>Forgot Password</h2><p>Forgot Password</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Admin-Access/forgot_password.png"
+            data-srcset="/images/KnightCTF-2025/Admin-Access/forgot_password.png, /images/KnightCTF-2025/Admin-Access/forgot_password.png 1.5x, /images/KnightCTF-2025/Admin-Access/forgot_password.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Admin-Access/forgot_password.png" />
+    </a><figcaption class="image-caption">Forgot Password</figcaption>
+    </figure></p>
 <p>Where it was possible to specify an email to reset a password. At this point, I thought about resetting the password for the account associated with the email I had found earlier. And I considered a Host Header Injection.</p>
 <h3 id="exploit">Exploit</h3>
 <p>So i started ngrok on port 80:</p>
@@ -177,14 +183,16 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>And then, using Burp Suite, I modified the Host header to <code>Host: ngrok_link</code>. By sending the request with the modified Host header through ngrok, I was able to extract the reset token from the previously sent &ldquo;Forgot Password&rdquo; request with the email <a href="mailto:kctf2025@knightctf.com" rel="">kctf2025@knightctf.com</a>:</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Admin-Access/intercept.png"
-        data-srcset="/images/KnightCTF-2025/Admin-Access/intercept.png, /images/KnightCTF-2025/Admin-Access/intercept.png 1.5x, /images/KnightCTF-2025/Admin-Access/intercept.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Admin-Access/intercept.png"
-        title="intercept" /></p>
+<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Admin-Access/intercept.png" title="Intercept" data-thumbnail="/images/KnightCTF-2025/Admin-Access/intercept.png" data-sub-html="<h2>Intercept</h2><p>Intercept</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Admin-Access/intercept.png"
+            data-srcset="/images/KnightCTF-2025/Admin-Access/intercept.png, /images/KnightCTF-2025/Admin-Access/intercept.png 1.5x, /images/KnightCTF-2025/Admin-Access/intercept.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Admin-Access/intercept.png" />
+    </a><figcaption class="image-caption">Intercept</figcaption>
+    </figure></p>
 <p>After extracting the valid token, I reset the password using the obtained link and logged in with the account using the following credentials:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -196,14 +204,16 @@
 </span></span><span class="line"><span class="cl">password: new_password
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/KnightCTF-2025/Admin-Access/manual_flag.png"
-        data-srcset="/images/KnightCTF-2025/Admin-Access/manual_flag.png, /images/KnightCTF-2025/Admin-Access/manual_flag.png 1.5x, /images/KnightCTF-2025/Admin-Access/manual_flag.png 2x"
-        data-sizes="auto"
-        alt="/images/KnightCTF-2025/Admin-Access/manual_flag.png"
-        title="flag" /></p>
+</div><p><figure><a class="lightgallery" href="/images/KnightCTF-2025/Admin-Access/manual_flag.png" title="Manual Flag" data-thumbnail="/images/KnightCTF-2025/Admin-Access/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/KnightCTF-2025/Admin-Access/manual_flag.png"
+            data-srcset="/images/KnightCTF-2025/Admin-Access/manual_flag.png, /images/KnightCTF-2025/Admin-Access/manual_flag.png 1.5x, /images/KnightCTF-2025/Admin-Access/manual_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/KnightCTF-2025/Admin-Access/manual_flag.png" />
+    </a><figcaption class="image-caption">Manual Flag</figcaption>
+    </figure></p>
 <h3 id="automated-exploit">Automated Exploit</h3>
 <p>I also created a fully automated exploit that performs the entire process described earlier:</p>
 <div class="highlight"><div class="chroma">
