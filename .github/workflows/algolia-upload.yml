@@ -6,16 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Upload Algolia Index
     steps:
-    - uses: guzhongren/algolia-docsearch-upload-action@v2.0.0
-      env:
-        # Such as `Z0U0ACGBN8`
-        APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
-
-        # You can store token in your project's 'Setting > Secrets' and reference the name here. Such as ${{ secrets.ALGOLIA_ADMIN_KEY }}
-
-        ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-        # The index name. 
-        INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-        # The index file path relative to repo root.
-
-        FILE_PATH: ./index.json
+    - uses: algolia/setup-algolia-cli@master
+    - name: Import settings
+    run: algolia settings import ${{ ALGOLIA_INDEX_NAME }} -F ./index.json
+    env:
+      ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
+      ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
