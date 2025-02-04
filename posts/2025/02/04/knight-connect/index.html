@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Knight Connect - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<meta name="Description" content="A detailed write-up of the Web challenge Knight Connect from KnightCTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/">
+  <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
+  <meta property="og:title" content="Knight Connect">
+  <meta property="og:description" content="A detailed write-up of the Web challenge Knight Connect from KnightCTF - 2025">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-04T11:42:32+01:00">
+    <meta property="article:modified_time" content="2025-02-04T11:42:32+01:00">
+    <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
+  <meta name="twitter:title" content="Knight Connect">
+  <meta name="twitter:description" content="A detailed write-up of the Web challenge Knight Connect from KnightCTF - 2025">
+<meta name="application-name" content="mH4ck3r0n3">
+<meta name="apple-mobile-web-app-title" content="mH4ck3r0n3"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/04/exceeding-knight/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Knight Connect",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/04\/knight-connect\/"
+        },"genre": "posts","wordcount":  1177 ,
+        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/04\/knight-connect\/","datePublished": "2025-02-04T11:42:32+01:00","dateModified": "2025-02-04T11:42:32+01:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": "A detailed write-up of the Web challenge Knight Connect from KnightCTF - 2025"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Posts"> Posts </a><a class="menu-item" href="/categories/" title="Categories"> Categories </a><a class="menu-item" href="/tags/" title="Tags"> Tags </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Posts">Posts</a><a class="menu-item" href="/categories/" title="Categories">Categories</a><a class="menu-item" href="/tags/" title="Tags">Tags</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Knight Connect</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge Knight Connect from KnightCTF - 2025</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="02/04/2025">02/04/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1177 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#-challenge-overview">📊 Challenge Overview</a></li>
+    <li><a href="#-challenge-information">📝 Challenge Information</a></li>
+    <li><a href="#-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</a>
+      <ul>
+        <li><a href="#provided-files">Provided Files</a></li>
+      </ul>
+    </li>
+    <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
+      <ul>
+        <li><a href="#first-steps">First Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#-vulnerability-analysis">🔬 Vulnerability Analysis</a>
+      <ul>
+        <li><a href="#potential-vulnerabilities">Potential Vulnerabilities</a></li>
+      </ul>
+    </li>
+    <li><a href="#-solution-path">🎯 Solution Path</a>
+      <ul>
+        <li><a href="#exploitation-steps">Exploitation Steps</a>
+          <ul>
+            <li><a href="#initial-setup">Initial setup</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+            <li><a href="#flag-capture">Flag capture</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
+      <ul>
+        <li><a href="#approach">Approach</a></li>
+      </ul>
+    </li>
+    <li><a href="#-flag-capture">🚩 Flag Capture</a>
+      <ul>
+        <li><a href="#proof-of-execution">Proof of Execution</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tools-used">🔧 Tools Used</a>
+      <ul>
+        <li><a href="#primary-tools">Primary Tools</a></li>
+      </ul>
+    </li>
+    <li><a href="#-key-learnings">💡 Key Learnings</a>
+      <ul>
+        <li><a href="#skills-improved">Skills Improved</a></li>
+      </ul>
+    </li>
+    <li><a href="#-references--resources">📚 References &amp; Resources</a>
+      <ul>
+        <li><a href="#learning-resources">Learning Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#-final-statistics">📊 Final Statistics</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="-knight-connect">🌐 Knight Connect</h1>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/KnightCTF-2025/Knight-Connect/challenge_presentation.png"
+        data-srcset="/images/KnightCTF-2025/Knight-Connect/challenge_presentation.png, /images/KnightCTF-2025/Knight-Connect/challenge_presentation.png 1.5x, /images/KnightCTF-2025/Knight-Connect/challenge_presentation.png 2x"
+        data-sizes="auto"
+        alt="/images/KnightCTF-2025/Knight-Connect/challenge_presentation.png"
+        title="challenge_presentation" /></p>
+<blockquote>
+<h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Details</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏆 Event</td>
+<td>KnightCTF - 2025</td>
+<td><a href="https://2025.knightctf.com/challenges#Knight%20Connect-7" target="_blank" rel="noopener noreffer ">Event Link</a></td>
+</tr>
+<tr>
+<td>🔰 Category</td>
+<td>Web</td>
+<td>🌐</td>
+</tr>
+<tr>
+<td>💎 Points</td>
+<td>260</td>
+<td>Out of 500 total</td>
+</tr>
+<tr>
+<td>⭐ Difficulty</td>
+<td>🟢 Easy</td>
+<td>Personal Rating: 3/10</td>
+</tr>
+<tr>
+<td>👤 Author</td>
+<td>NomanProdhan</td>
+<td><a href="" rel="">Profile</a></td>
+</tr>
+<tr>
+<td>🎮 Solves</td>
+<td>49</td>
+<td>XX% solve rate</td>
+</tr>
+<tr>
+<td>📅 Date</td>
+<td>20-01-2025</td>
+<td>KnightCTF - 2025 Day X</td>
+</tr>
+<tr>
+<td>🦾 Solved By</td>
+<td>mH4ck3r0n3</td>
+<td>Team: QnQSec</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="-challenge-information">📝 Challenge Information</h2>
+<blockquote>
+<p>In a realm where ancient knights and modern technology collide, a mysterious portal emerges—known as &ldquo;Knight Connect.&rdquo; Only the wisest and most cunning warriors can decipher its secrets. Legends whisper of a forgotten system, guarded by layers of encryption and vulnerabilities, waiting for a brave soul to breach its defenses.  Do you possess the skills to uncover the truth? Enter the domain of Knight Connect and etch your name into the annals of digital knighthood. The challenge awaits.</p>
+</blockquote>
+<h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
+<blockquote>
+<h3 id="provided-files">Provided Files</h3>
+<p>Files:</p>
+<ul>
+<li><a href="/resources/KnightCTF-2025/Knight-Connect/KnightConnect_Source.zip" rel="">attached files</a></li>
+</ul>
+</blockquote>
+<h2 id="-initial-analysis">🔍 Initial Analysis</h2>
+<blockquote>
+<h3 id="first-steps">First Steps</h3>
+<p>The site initially appeared as follows:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/KnightCTF-2025/Knight-Connect/site_presentation.png"
+        data-srcset="/images/KnightCTF-2025/Knight-Connect/site_presentation.png, /images/KnightCTF-2025/Knight-Connect/site_presentation.png 1.5x, /images/KnightCTF-2025/Knight-Connect/site_presentation.png 2x"
+        data-sizes="auto"
+        alt="/images/KnightCTF-2025/Knight-Connect/site_presentation.png"
+        title="site_presentation" /></p>
+<p>with a login screen. After completing the registration and login, I was redirected to the following page:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/KnightCTF-2025/Knight-Connect/site_presentation2.png"
+        data-srcset="/images/KnightCTF-2025/Knight-Connect/site_presentation2.png, /images/KnightCTF-2025/Knight-Connect/site_presentation2.png 1.5x, /images/KnightCTF-2025/Knight-Connect/site_presentation2.png 2x"
+        data-sizes="auto"
+        alt="/images/KnightCTF-2025/Knight-Connect/site_presentation2.png"
+        title="site_presentation2" /></p>
+<p>I couldn&rsquo;t find anything else on the site, so I started reading the attached files. At first, I was overwhelmed and didn&rsquo;t know where to look due to the number of files present. The first thing that came to mind was to forge some session cookies since the <code>APP_KEY</code> of Laravel was in the <code>.env</code> file. Also, because it required the session to be set to <code>is_admin</code> in order to display the flag. We can see this from the following lines of code in the <code>index.blade.php</code> file under the <code>resources/views/users</code> folder:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">        <span class="o">@</span><span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$flag</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">session</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;is_admin&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">session</span><span class="p">(</span><span class="s1">&#39;is_admin&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;flag&#34;</span><span class="o">&gt;</span><span class="nx">Flag</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$flag</span><span class="o">-&gt;</span><span class="na">flag</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">@</span><span class="k">endif</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>but then I discovered that it wasn&rsquo;t the right path. However, I realized that I needed to get an administrator account to be able to read the flag. In the <code>web.php</code> file under the <code>resources/routes</code> folder, I found all the routes of the site, including one that seemed a bit suspicious: <code>/contact</code>. Visiting it redirected me to the following page:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/KnightCTF-2025/Knight-Connect/contact.png"
+        data-srcset="/images/KnightCTF-2025/Knight-Connect/contact.png, /images/KnightCTF-2025/Knight-Connect/contact.png 1.5x, /images/KnightCTF-2025/Knight-Connect/contact.png 2x"
+        data-sizes="auto"
+        alt="/images/KnightCTF-2025/Knight-Connect/contact.png"
+        title="contact" /></p>
+<p>where the administrator accounts and their respective emails were displayed. Spoiler: only one of these was valid, which was <code>nomanprodhan@knightconnect.com</code> (the username of the challenge creator). I then continued looking at other files, but I was interested in how authentication was being handled, so I searched for the authentication file, which was named <code>AuthController.php</code> under the <code>Http/Controllers</code> folder. Here I found the vulnerability—there were two functions that allowed you to request a login link for an account, which created a token formed by combining the email and a timestamp at that moment, all encrypted using the bcrypt function. The other function allowed you to log in using that generated link by passing the token as a parameter:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">function</span> <span class="nf">requestLoginUrl</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|email&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]);</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$user</span> <span class="o">=</span> <span class="nx">User</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withErrors</span><span class="p">([</span><span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Email not found&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$time</span> <span class="o">=</span> <span class="nx">time</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">.</span> <span class="s1">&#39;|&#39;</span> <span class="o">.</span> <span class="nv">$time</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$token</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="nv">$loginUrl</span> <span class="o">=</span> <span class="nx">url</span><span class="p">(</span><span class="s1">&#39;/login-link?token=&#39;</span> <span class="o">.</span> <span class="nx">urlencode</span><span class="p">(</span><span class="nv">$token</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;&amp;time=&#39;</span> <span class="o">.</span> <span class="nv">$time</span> <span class="o">.</span> <span class="s1">&#39;&amp;email=&#39;</span> <span class="o">.</span> <span class="nx">urlencode</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">));</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;Login link generated, but email sending is disabled.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">loginUsingLink</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$time</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$email</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$token</span> <span class="o">||</span> <span class="o">!</span><span class="nv">$time</span> <span class="o">||</span> <span class="o">!</span><span class="nv">$email</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">response</span><span class="p">(</span><span class="s1">&#39;Invalid token or missing parameters&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$time</span> <span class="o">&gt;</span> <span class="mi">3600</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">response</span><span class="p">(</span><span class="s1">&#39;Token expired&#39;</span><span class="p">,</span> <span class="mi">401</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$email</span> <span class="o">.</span> <span class="s1">&#39;|&#39;</span> <span class="o">.</span> <span class="nv">$time</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Hash</span><span class="o">::</span><span class="na">check</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$token</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">response</span><span class="p">(</span><span class="s1">&#39;Token validation failed&#39;</span><span class="p">,</span> <span class="mi">401</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$user</span> <span class="o">=</span> <span class="nx">User</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nv">$email</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">response</span><span class="p">(</span><span class="s1">&#39;User not found&#39;</span><span class="p">,</span> <span class="mi">404</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="nx">session</span><span class="p">([</span><span class="s1">&#39;user_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">session</span><span class="p">([</span><span class="s1">&#39;is_admin&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">is_admin</span><span class="p">]);</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the first function doesn&rsquo;t really have any vulnerabilities, since it only shows how the token is created to request the &ldquo;instant&rdquo; login URL. In contrast, the second function has a significant vulnerability, as the only check it does is ensure the timestamp of the generated token is at most one hour old (3600 seconds), otherwise, it becomes invalid. However, we can manipulate the timestamp ourselves by passing a fake value as a parameter. In fact, to make it secure, the generated token with the timestamp should have been saved in the database, and if it wasn&rsquo;t the exact timestamp, it wouldn&rsquo;t allow access (although a brute-force attack could be used to try all possible timestamps). So, I realized that it&rsquo;s possible to forge a token—one just needs to know the email of the account they want to access, and as we saw earlier in the <code>/contact</code> route, there were quite a few admin emails&hellip; Now that we&rsquo;ve figured it all out, let&rsquo;s proceed with the exploit.</p>
+</blockquote>
+<h2 id="-vulnerability-analysis">🔬 Vulnerability Analysis</h2>
+<blockquote>
+<h3 id="potential-vulnerabilities">Potential Vulnerabilities</h3>
+<ul>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Insecure Authentication</li>
+</ul>
+</blockquote>
+<h2 id="-solution-path">🎯 Solution Path</h2>
+<blockquote>
+<h3 id="exploitation-steps">Exploitation Steps</h3>
+<blockquote>
+<h4 id="initial-setup">Initial setup</h4>
+</blockquote>
+<p>Initially, to generate the URL, I used <a href="https://onlinephp.io/" target="_blank" rel="noopener noreffer ">https://onlinephp.io/</a>. I also found this website useful for generating &ldquo;passwords&rdquo; with Laravel&rsquo;s bcrypt (<a href="https://fbutube.com/laravel-password-generator%29" target="_blank" rel="noopener noreffer ">https://fbutube.com/laravel-password-generator)</a>. However, in the end, I decided to write it in PHP and run it locally, as this way I could fully automate the process.</p>
+<blockquote>
+<h4 id="exploitation">Exploitation</h4>
+</blockquote>
+<p>After obtaining the admin&rsquo;s email <code>nomanprodhan@knightconnect.com</code>, it was quite simple to forge a token, since it was made up of &ldquo;email|timestamp&rdquo;. I then wrote a PHP script that did exactly what the first function did, using bcrypt on the string formed by the admin&rsquo;s email + timestamp, and then generating a link similar to the one in the function with the parameters <code>token</code>, <code>time</code>, and <code>email</code>. This way, I created a valid login link, since the user associated with the email actually existed. I gained access to their account, and by visiting the homepage as seen earlier, with the <code>is_admin</code> flag on the account, I was able to retrieve the flag.</p>
+<blockquote>
+<h4 id="flag-capture">Flag capture</h4>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/KnightCTF-2025/Knight-Connect/manual_flag.png"
+        data-srcset="/images/KnightCTF-2025/Knight-Connect/manual_flag.png, /images/KnightCTF-2025/Knight-Connect/manual_flag.png 1.5x, /images/KnightCTF-2025/Knight-Connect/manual_flag.png 2x"
+        data-sizes="auto"
+        alt="/images/KnightCTF-2025/Knight-Connect/manual_flag.png"
+        title="manual_flag" /></p>
+</blockquote>
+<h2 id="-exploitation-process">🛠️ Exploitation Process</h2>
+<blockquote>
+<h3 id="approach">Approach</h3>
+<p>I wrote the exploit in PHP because I had issues with token composition using bcrypt in Python. This exploit takes the admin&rsquo;s email, which has the flag in their profile, and then creates a valid token with a timestamp less than one hour old. It then generates a URL with a valid token to access the admin profile, and through a cURL function in PHP, it makes a request to the page, extracting the flag via a regex. I used the following commands for the requirements and the run:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  sudo apt install php
+</span></span><span class="line"><span class="cl">  sudo apt-get install php-curl
+</span></span><span class="line"><span class="cl">  php exploit.php
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><a href="/resources/KnightCTF-2025/Knight-Connect/exploit.php" rel="">exploit</a></li>
+</ul>
+</blockquote>
+<h2 id="-flag-capture">🚩 Flag Capture</h2>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">KCTF{_congrat5_KNIGHT_y0U_hack3d_mY_Acc0Un7_}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="proof-of-execution">Proof of Execution</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/KnightCTF-2025/Knight-Connect/automated_flag.png"
+        data-srcset="/images/KnightCTF-2025/Knight-Connect/automated_flag.png, /images/KnightCTF-2025/Knight-Connect/automated_flag.png 1.5x, /images/KnightCTF-2025/Knight-Connect/automated_flag.png 2x"
+        data-sizes="auto"
+        alt="/images/KnightCTF-2025/Knight-Connect/automated_flag.png"
+        title="automated_flag" />
+<em>Screenshot of successful exploitation</em></p>
+</blockquote>
+<h2 id="-tools-used">🔧 Tools Used</h2>
+<blockquote>
+<h3 id="primary-tools">Primary Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHP</td>
+<td>Exploit</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="-key-learnings">💡 Key Learnings</h2>
+<blockquote>
+<h3 id="skills-improved">Skills Improved</h3>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Web Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Cryptography</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Forensics</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> OSINT</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
+</ul>
+</blockquote>
+<h2 id="-references--resources">📚 References &amp; Resources</h2>
+<blockquote>
+<h3 id="learning-resources">Learning Resources</h3>
+<ul>
+<li><a href="https://laravel.com/docs/11.x/hashing" target="_blank" rel="noopener noreffer ">https://laravel.com/docs/11.x/hashing</a></li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="-final-statistics">📊 Final Statistics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to Solve</td>
+<td>00:30</td>
+<td>From start to flag</td>
+</tr>
+<tr>
+<td>Global Ranking</td>
+<td>10/451</td>
+<td>Challenge ranking</td>
+</tr>
+<tr>
+<td>Points Earned</td>
+<td>260</td>
+<td>Team contribution</td>
+</tr>
+</tbody>
+</table>
+<p><em>Created: 20-01-2025 • Last Modified: 20-01-2025</em>
+<em>Author: mH4ck3r0n3 • Team: QnQSec</em></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 02/04/2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/" data-title="Knight Connect"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/" data-title="Knight Connect"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/" data-title="Knight Connect"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knight-connect/" data-title="Knight Connect"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2025/02/04/exceeding-knight/" class="prev" rel="prev" title="Exceeding Knight"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Exceeding Knight</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"mH4ck3r0n3","id-2":"mH4ck3r0n3"},"lightgallery":true,"search":{"algoliaAppID":"9EAXU1FL8R","algoliaIndex":"mh4ck3r0n3_github_io_9eaxu1fl8r_articles","algoliaSearchKey":"2955d117993ecead0d2e5040402d3d67","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
