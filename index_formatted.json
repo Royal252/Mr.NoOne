@@ -6,6 +6,310 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
+        "content": "A detailed write-up of the Web challenge 'KnightCal' from KnightCTF - 2025",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83c\udf10 KnightCal ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:0:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event KnightCTF - 2025 Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 150 Out of XXXX total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 1/10 \ud83d\udc64 Author NomanProdhan Profile \ud83c\udfae Solves 269 XX% solve rate \ud83d\udcc5 Date 20-01-2025 KnightCTF - 2025 Day X \ud83e\uddbe Solved By mH4ck3r0n3 Team: QnQSec ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:1:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information In the realm of ancient codes, only those who enumerate correctly can unveil the hidden flag. Craft your mathematical expressions wisely and uncover the secrets that lie within. Flag Format: KCTF{FLaG_HeRe} ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:2:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:3:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:3:1",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udd0d Initial Analysis [!example]+ Reconnaissance ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:4:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: by trying to enter something in the numeric input box and submitting, I get letters in the file name: so, I assume it\u2019s about finding the correct combination to print the contents of the file flag.txt. ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:4:1",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Solution Path ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:5:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "Exploitation Steps Initial setup After understanding how it works, I moved on to the exploit, doing a bit of guessing on the letters to figure out which number corresponded to which letter. Exploitation After a couple of attempts, I came up with this: continuing to experiment, I found the correct combination, 7195, which allowed me to read the flag.txt file. Flag capture ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:5:1",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:6:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "Approach The exploit is very simple: it\u2019s a POST request to the page where I pass the parameter expression=7195, which is the correct combination. Then, I extract the flag from the response text using bs4: exploit ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:6:1",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udea9 Flag Capture KCTF{_c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH_} ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:7:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "Proof of Execution Screenshot of successful exploitation ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:7:1",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udd27 Tools Used ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:8:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "Primary Tools Tool Purpose Python Exploit ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:8:1",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udca1 Key Learnings ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:9:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:9:1",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:04 From start to flag Global Ranking 9/445 Challenge ranking Points Earned 150 Team contribution Created: 20-01-2025 \u2022 Last Modified: 20-01-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
+        "date": "02/04/2025",
+        "objectID": "/posts/2025/02/04/knightcal/:10:0",
+        "tags": [
+          "Web Security"
+        ],
+        "title": "KnightCal",
+        "uri": "/posts/2025/02/04/knightcal/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
+        ],
         "content": "A detailed write-up of the Web challenge Knight Connect from KnightCTF - 2025",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/knight-connect/",
