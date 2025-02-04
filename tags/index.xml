@@ -44,6 +44,14 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>YAML Insecure Deserialization</title>
+    <link>https://mh4ck3r0n3.github.io/tags/yaml-insecure-deserialization/</link>
+    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/yaml-insecure-deserialization/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>About Me</title>
     <link>https://mh4ck3r0n3.github.io/tags/about-me/</link>
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
@@ -65,14 +73,6 @@
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://mh4ck3r0n3.github.io/tags/password-reset-poisoning/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>PyYAML</title>
-    <link>https://mh4ck3r0n3.github.io/tags/pyyaml/</link>
-    <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/pyyaml/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -819,8 +819,8 @@
         "objectID": "/posts/2025/02/04/baby-injection/",
         "tags": [
           "Web Security",
-          "Insecure Deserialization",
-          "Laravel"
+          "YAML Insecure Deserialization",
+          "Insecure Deserialization"
         ],
         "title": "Baby Injection",
         "uri": "/posts/2025/02/04/baby-injection/"
@@ -837,8 +837,8 @@
         "objectID": "/posts/2025/02/04/baby-injection/:0:1",
         "tags": [
           "Web Security",
-          "Insecure Deserialization",
-          "Laravel"
+          "YAML Insecure Deserialization",
+          "Insecure Deserialization"
         ],
         "title": "Baby Injection",
         "uri": "/posts/2025/02/04/baby-injection/"
@@ -855,8 +855,8 @@
         "objectID": "/posts/2025/02/04/baby-injection/:0:2",
         "tags": [
           "Web Security",
-          "Insecure Deserialization",
-          "Laravel"
+          "YAML Insecure Deserialization",
+          "Insecure Deserialization"
         ],
         "title": "Baby Injection",
         "uri": "/posts/2025/02/04/baby-injection/"
@@ -873,8 +873,8 @@
         "objectID": "/posts/2025/02/04/baby-injection/:0:3",
         "tags": [
           "Web Security",
-          "Insecure Deserialization",
-          "Laravel"
+          "YAML Insecure Deserialization",
+          "Insecure Deserialization"
         ],
         "title": "Baby Injection",
         "uri": "/posts/2025/02/04/baby-injection/"
@@ -891,8 +891,8 @@
         "objectID": "/posts/2025/02/04/baby-injection/:0:4",
         "tags": [
           "Web Security",
-          "Insecure Deserialization",
-          "Laravel"
+          "YAML Insecure Deserialization",
+          "Insecure Deserialization"
         ],
         "title": "Baby Injection",
         "uri": "/posts/2025/02/04/baby-injection/"
@@ -909,8 +909,8 @@
         "objectID": "/posts/2025/02/04/baby-injection/:0:5",
         "tags": [
           "Web Security",
-          "Insecure Deserialization",
-          "Laravel"
+          "YAML Insecure Deserialization",
+          "Insecure Deserialization"
         ],
         "title": "Baby Injection",
         "uri": "/posts/2025/02/04/baby-injection/"
@@ -1008,8 +1008,7 @@
         "tags": [
           "Web Security",
           "Host Header Injection",
-          "Password Reset Poisoning",
-          "PyYAML"
+          "Password Reset Poisoning"
         ],
         "title": "Admin Access",
         "uri": "/posts/2025/02/03/admin-access/"
@@ -1027,8 +1026,7 @@
         "tags": [
           "Web Security",
           "Host Header Injection",
-          "Password Reset Poisoning",
-          "PyYAML"
+          "Password Reset Poisoning"
         ],
         "title": "Admin Access",
         "uri": "/posts/2025/02/03/admin-access/"
@@ -1046,8 +1044,7 @@
         "tags": [
           "Web Security",
           "Host Header Injection",
-          "Password Reset Poisoning",
-          "PyYAML"
+          "Password Reset Poisoning"
         ],
         "title": "Admin Access",
         "uri": "/posts/2025/02/03/admin-access/"
@@ -1065,8 +1062,7 @@
         "tags": [
           "Web Security",
           "Host Header Injection",
-          "Password Reset Poisoning",
-          "PyYAML"
+          "Password Reset Poisoning"
         ],
         "title": "Admin Access",
         "uri": "/posts/2025/02/03/admin-access/"
@@ -1084,8 +1080,7 @@
         "tags": [
           "Web Security",
           "Host Header Injection",
-          "Password Reset Poisoning",
-          "PyYAML"
+          "Password Reset Poisoning"
         ],
         "title": "Admin Access",
         "uri": "/posts/2025/02/03/admin-access/"
