@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: algolia/setup-algolia-cli@master
       - name: Import settings
-        run: algolia settings import ${{ ALGOLIA_INDEX_NAME }} -F ./index.json
+        run: algolia settings import mh4ck3r0n3_github_io_ryth4nip8z_articles -F ./index.json
         env:
           ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
