@@ -198,7 +198,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "\ud83d\udea9 Flag Capture Flag KCTF{c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH} ",
+        "content": "\ud83d\udea9 Flag Capture Flag ",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/knightcal/:7:0",
         "tags": [
@@ -562,7 +562,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "\ud83d\udea9 Flag Capture Flag KCTF{congrat5_KNIGHT_y0U_hack3d_mY_Acc0Un7} ",
+        "content": "\ud83d\udea9 Flag Capture Flag ",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/knight-connect/:8:0",
         "tags": [
@@ -796,7 +796,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "Flag Flag KCTF{Y0U_sH0UlD_re4D_m0r3_Cod3} ",
+        "content": "Flag Flag ",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/exceeding-knight/:0:4",
         "tags": [
@@ -904,7 +904,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "Flag Flag KCTF{d38787fb0741bd0efdad8ed01f037740} ",
+        "content": "Flag Flag ",
         "date": "02/04/2025",
         "objectID": "/posts/2025/02/04/baby-injection/:0:5",
         "tags": [
@@ -1040,7 +1040,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "Exploit So i started ngrok on port 80: ngrok http 80 And then, using Burp Suite, I modified the Host header to Host: ngrok_link. By sending the request with the modified Host header through ngrok, I was able to extract the reset token from the previously sent \u201cForgot Password\u201d request with the email kctf2025@knightctf.com: Intercept After extracting the valid token, I reset the password using the obtained link and logged in with the account using the following credentials: username: kctf2025 password: new_password Manual Flag ",
+        "content": "Exploit So i started ngrok on port 80: And then, using Burp Suite, I modified the Host header to Host: ngrok_link. By sending the request with the modified Host header through ngrok, I was able to extract the reset token from the previously sent \u201cForgot Password\u201d request with the email kctf2025@knightctf.com: Intercept After extracting the valid token, I reset the password using the obtained link and logged in with the account using the following credentials: username: kctf2025 password: new_password Manual Flag ",
         "date": "02/03/2025",
         "objectID": "/posts/2025/02/03/admin-access/:0:2",
         "tags": [
@@ -1078,7 +1078,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
-        "content": "Flag Flag KCTF{PaSsW0rD_ReSet_p0is0n1ng_iS_FuN} ",
+        "content": "Flag Flag ",
         "date": "02/03/2025",
         "objectID": "/posts/2025/02/03/admin-access/:0:4",
         "tags": [

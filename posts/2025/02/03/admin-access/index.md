@@ -20,11 +20,9 @@ Where it was possible to specify an email to reset a password. At this point, I 
 ### Exploit
 
 So i started ngrok on port 80:
-
-```bash
+{{< typeit code=bash >}}
 ngrok http 80
-```
-
+{{< /typeit >}}
 And then, using Burp Suite, I modified the Host header to `Host: ngrok_link`. By sending the request with the modified Host header through ngrok, I was able to extract the reset token from the previously sent "Forgot Password" request with the email kctf2025@knightctf.com:
 
 ![Intercept](/images/KnightCTF-2025/Admin-Access/intercept.png "Intercept")
@@ -103,5 +101,7 @@ requests.post("http://45.56.68.122:7474/forgot-password", data={"email":"kctf202
 
 ### Flag
 {{< admonition danger "Flag" >}}
+{{< typeit tag=h4 >}}
 KCTF{PaSsW0rD_ReSet_p0is0n1ng_iS_FuN}
+{{< /typeit >}}
 {{< /admonition >}}

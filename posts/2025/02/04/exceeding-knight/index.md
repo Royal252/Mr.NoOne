@@ -125,5 +125,7 @@ So, all I had to do was enter `1000000000000000000` (just adding a simple zero) 
 
 ### Flag
 {{< admonition danger "Flag" >}}
+{{< typeit tag=h4 >}}
 KCTF{_Y0U_sH0UlD_re4D_m0r3_Cod3_}
+{{< /typeit >}}
 {{< /admonition >}}

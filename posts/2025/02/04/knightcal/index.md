@@ -71,7 +71,9 @@
 
 ## 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
-> KCTF{_c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH_}
+{{< typeit tag=h4 >}}
+KCTF{_c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH_}
+{{< /typeit >}}
 >{{< /admonition >}}
 >
 >### Proof of Execution
