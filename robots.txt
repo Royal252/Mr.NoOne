@@ -62,5 +62,5 @@ User-agent: ZoominfoBot
 Disallow: /
 
 Sitemap: https://mh4ck3r0n3.github.io/sitemap.xml
-# Algolia-Crawler-Verif: D4DEDE61AD74148E
-Algolia-Crawler-Verif: D4DEDE61AD74148E
+# Algolia-Crawler-Verif: 664CB5026E9A9D56
+Algolia-Crawler-Verif: 664CB5026E9A9D56
