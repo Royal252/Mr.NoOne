@@ -33,7 +33,6 @@
 
 ## 🔍 Initial Analysis
 
->[!example]+ Reconnaissance
 >### First Steps
 > Initially, the website appears as follows:
 > 
