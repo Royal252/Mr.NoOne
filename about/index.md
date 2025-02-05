@@ -8,7 +8,16 @@ Hi, I'm Matteo Maccarone, a passionate computer science enthusiast with a partic
 
 I consider myself a very curious person with a strong passion for knowledge. Over the years, I’ve developed skills in programming and cybersecurity.
 
-Outside of my work, I enjoy traveling and playing CTF (Capture The Flag), which helps me maintain a balance between creativity and productivity.
+Outside of my work, I enjoy traveling and playing CTF (Capture The Flag), which helps me maintain a balance between creativity and productivity. Check out my CTFtime and TryHackMe profiles:
+
+- [CTFtime](https://ctftime.org/user/186678)
+- [TryHackMe](https://tryhackme.com/p/mH4ck3r0n3)
+
+Currently a member of the teams:
+
+- [Havce](https://havce.it/authors/mh4ck3r0n3/)
+- [aetruria](https://ctftime.org/team/251530)
+- [QnQSec](https://ctftime.org/team/367683)
 
 ## What I Do
 
