@@ -37,7 +37,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/focus.-speed.-i-am-speed.\/"
-        },"genre": "posts","keywords": "💉 NoSQL Injection, ⚡ Race Condition, 🌐 Web Security","wordcount":  1498 ,
+        },"genre": "posts","keywords": "💉 NoSQL Injection, ⚡ Race Condition, 🌐 Web Security","wordcount":  1496 ,
         "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/focus.-speed.-i-am-speed.\/","datePublished": "2025-02-05T11:03:38+01:00","dateModified": "2025-02-05T11:03:38+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -46,7 +46,7 @@
             },"description": "A detailed write-up of the Web challenge 'Focus. Speed. I Am Speed.' from SrdnlenCTF - 2025"
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -110,10 +110,10 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Focus. Speed. I Am Speed.</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Focus. Speed. I Am Speed.&#39; from SrdnlenCTF - 2025</h2><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="#" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/srdnlenctf-2025/web/">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/srdnlenctf-2025/web/">
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web
                                 </a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05/02/2025">05/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1498 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05/02/2025">05/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1496 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -131,52 +131,48 @@
             <li><a href="#provided-files">Provided Files</a></li>
           </ul>
         </li>
-        <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
-          <ul>
-            <li><a href="#first-steps">First Steps</a></li>
-          </ul>
-        </li>
-        <li><a href="#-solution-path">🎯 Solution Path</a>
-          <ul>
-            <li><a href="#exploitation-steps">Exploitation Steps</a>
-              <ul>
-                <li><a href="#initial-setup">Initial setup</a></li>
-                <li><a href="#exploitation">Exploitation</a></li>
-                <li><a href="#flag-capture">Flag capture</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
-          <ul>
-            <li><a href="#approach">Approach</a></li>
-          </ul>
-        </li>
-        <li><a href="#-flag-capture">🚩 Flag Capture</a>
-          <ul>
-            <li><a href="#proof-of-execution">Proof of Execution</a></li>
-          </ul>
-        </li>
-        <li><a href="#-tools-used">🔧 Tools Used</a>
-          <ul>
-            <li><a href="#primary-tools">Primary Tools</a></li>
-          </ul>
-        </li>
-        <li><a href="#-key-learnings">💡 Key Learnings</a>
-          <ul>
-            <li><a href="#new-knowledge">New Knowledge</a></li>
-            <li><a href="#time-optimization">Time Optimization</a></li>
-            <li><a href="#skills-improved">Skills Improved</a></li>
-          </ul>
-        </li>
-        <li><a href="#-references--resources">📚 References &amp; Resources</a>
-          <ul>
-            <li><a href="#learning-resources">Learning Resources</a></li>
-          </ul>
-        </li>
-        <li><a href="#-final-statistics">📊 Final Statistics</a></li>
       </ul>
     </li>
+    <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
+      <ul>
+        <li><a href="#first-steps">First Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#-solution-path">🎯 Solution Path</a>
+      <ul>
+        <li><a href="#exploitation-steps">Exploitation Steps</a>
+          <ul>
+            <li><a href="#initial-setup">Initial setup</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+            <li><a href="#flag-capture">Flag capture</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
+      <ul>
+        <li><a href="#approach">Approach</a></li>
+      </ul>
+    </li>
+    <li><a href="#-flag-capture">🚩 Flag Capture</a>
+      <ul>
+        <li><a href="#proof-of-execution">Proof of Execution</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tools-used">🔧 Tools Used</a></li>
+    <li><a href="#-key-learnings">💡 Key Learnings</a>
+      <ul>
+        <li><a href="#new-knowledge">New Knowledge</a></li>
+        <li><a href="#time-optimization">Time Optimization</a></li>
+        <li><a href="#skills-improved">Skills Improved</a></li>
+      </ul>
+    </li>
+    <li><a href="#-references--resources">📚 References &amp; Resources</a>
+      <ul>
+        <li><a href="#learning-resources">Learning Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#-final-statistics">📊 Final Statistics</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="-focus-speed-i-am-speed">🌐 Focus. Speed. I Am Speed.</h1>
@@ -190,8 +186,8 @@
             alt="/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png" />
     </a><figcaption class="image-caption">Challenge Presentation</figcaption>
     </figure></p>
-<blockquote>
 <h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<blockquote>
 <table>
 <thead>
 <tr>
@@ -250,16 +246,16 @@
 Website: <a href="http://speed.challs.srdnlen.it:8082" target="_blank" rel="noopener noreffer ">http://speed.challs.srdnlen.it:8082</a></p>
 </blockquote>
 <h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
-<blockquote>
 <h3 id="provided-files">Provided Files</h3>
+<blockquote>
 <p>Files:</p>
 <ul>
 <li><a href="https://drive.google.com/file/d/1DDzIdxO63csz7trMyCF5X6FAuYuSbkdG/view?usp=drive_link" target="_blank" rel="noopener noreffer "><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Attached Files</a></li>
 </ul>
 </blockquote>
-<h2 id="-initial-analysis">🔍 Initial Analysis</h2>
+<h1 id="-initial-analysis">🔍 Initial Analysis</h1>
+<h2 id="first-steps">First Steps</h2>
 <blockquote>
-<h3 id="first-steps">First Steps</h3>
 <p>Initially, the website appears as follows:</p>
 <p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png" title="Site Presentation" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
         <img
@@ -411,12 +407,10 @@ Later, there is a check where only one discount code can be redeemed per day. So
 </div>
 </div><p>The account balance is extracted, then increased by adding the discount code that we have redeemed. A timeout is applied based on the <code>delay</code> variable declared at the beginning of the file (<code>let delay = 1.5;</code>), which is then multiplied by <code>1000</code> (to convert it to <code>milliseconds</code>). This results in a total <code>timeout of 1.5 seconds</code> before the balance update is actually performed in the database. We can exploit this time delay by sending, for example, two more requests in <code>parallel</code> to accumulate <code>60 points</code> and purchase the flag. This is possible because the subsequent two requests will be sent in less than <code>1.5 seconds</code>, and therefore, they will pass the checks done previously. These checks are based on the values present in the database, and since those values have not been <code>updated</code> yet due to the <code>timeout</code>, we can <code>redeem</code> multiple codes without being blocked by the <code>restriction</code> that allows redeeming only <code>one code per day</code>. By sending the requests during this <code>window of time</code>, we are able to <code>bypass</code> the restriction and accumulate enough points to <code>purchase</code> the flag.</p>
 </blockquote>
-<h2 id="-solution-path">🎯 Solution Path</h2>
+<h1 id="-solution-path">🎯 Solution Path</h1>
+<h2 id="exploitation-steps">Exploitation Steps</h2>
+<h3 id="initial-setup">Initial setup</h3>
 <blockquote>
-<h3 id="exploitation-steps">Exploitation Steps</h3>
-<blockquote>
-<h4 id="initial-setup">Initial setup</h4>
-</blockquote>
 <p>After understanding the vulnerabilities we are dealing with, I did a couple of searches on the internet to exploit the <code>NoSQL Injection</code>, as for the <code>Race Condition</code>, it&rsquo;s enough to create an exploit script in <code>Python</code> with <code>multithreading</code> to send multiple requests simultaneously. Through <code>PayloadAllTheThings</code>, I searched for <code>NoSQL payloads</code> <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md" target="_blank" rel="noopener noreffer ">https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md</a>. I tried the following payload: <code>http://speed.challs.srdnlen.it:8082/redeem?discountCode[$ne]=test</code>, where <code>$ne</code> stands for <code>not equal</code>. What could happen with this in the following portion of the code, which was also mentioned earlier?</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -427,13 +421,13 @@ Later, there is a check where only one discount code can be redeemed per day. So
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>As we mentioned, in this case, the above code will create a <code>valid condition</code>, so it&rsquo;s as if we&rsquo;ve found the correct <code>discountCode</code>. If we were to express this in <code>natural language</code>, the action would be <code>find me a discountCode that is not equal to 'test'</code>. As we saw during the generation phase, the discountCodes are totally <code>random</code> and <code>alphanumeric</code>, so it&rsquo;s impossible for the database to have a discountCode equal to <code>test</code>. Therefore, the condition will return <code>True</code>, allowing us to redeem the code and add 20 points to our balance.</p>
-<blockquote>
-<h4 id="exploitation">Exploitation</h4>
 </blockquote>
+<h3 id="exploitation">Exploitation</h3>
+<blockquote>
 <p>The exploitation phase doesn&rsquo;t stop here. Now that we&rsquo;ve figured out how to <code>redeem points</code>, we need to understand how to <code>redeem more than 20 points per day</code>, as mentioned earlier. We can use <code>Python's multithreading</code> to take advantage of that one and a half seconds <code>timeout</code> set for making multiple requests. So, I’ll write a script that does this and retrieves the flag, because doing it manually would be impossible.</p>
-<blockquote>
-<h4 id="flag-capture">Flag capture</h4>
 </blockquote>
+<h3 id="flag-capture">Flag capture</h3>
+<blockquote>
 <p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png" title="Manual Flag" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
         <img
             class="lazyload"
@@ -445,15 +439,15 @@ Later, there is a check where only one discount code can be redeemed per day. So
     </a><figcaption class="image-caption">Manual Flag</figcaption>
     </figure></p>
 </blockquote>
-<h2 id="-exploitation-process">🛠️ Exploitation Process</h2>
+<h1 id="-exploitation-process">🛠️ Exploitation Process</h1>
+<h2 id="approach">Approach</h2>
 <blockquote>
-<h3 id="approach">Approach</h3>
 <p>The Python exploit utilizes <code>requests</code>, <code>bs4</code>, and finally, <code>multithreading</code> to leverage the <code>Race Condition</code>. I create a pool of <code>20 threads</code> that run simultaneously after a registration phase and account creation using the <code>Faker</code> library, which generates random <code>fake credentials</code>. Once that&rsquo;s done, I take advantage of the <code>NoSQL Injection</code> for all the threads by visiting the <code>/redeem?discountCode[$ne]=test</code> route, which will redeem a code and add a total of 20 points to the account balance each time, taking advantage of the <code>one-and-a-half-second timeout</code>. Once all of that is done, I visit the root (<code>/</code>) of the site where the flag is displayed (as shown in the image above), and then I extract it using <code>BeautifulSoup</code> and print it out.</p>
 <ul>
 <li><a href="/resources/SrdnlenCTF-2025/FocusSpeed/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
 </ul>
 </blockquote>
-<h2 id="-flag-capture">🚩 Flag Capture</h2>
+<h1 id="-flag-capture">🚩 Flag Capture</h1>
 <blockquote>
 <div class="details admonition danger open">
         <div class="details-summary admonition-title">
@@ -466,7 +460,9 @@ Later, there is a check where only one discount code can be redeemed per day. So
 </div>
         </div>
     </div>
-<h3 id="proof-of-execution">Proof of Execution</h3>
+</blockquote>
+<h2 id="proof-of-execution">Proof of Execution</h2>
+<blockquote>
 <p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png" title="Automated Flag" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
         <img
             class="lazyload"
@@ -479,9 +475,8 @@ Later, there is a check where only one discount code can be redeemed per day. So
     </figure>
 <em>Screenshot of successful exploitation</em></p>
 </blockquote>
-<h2 id="-tools-used">🔧 Tools Used</h2>
+<h1 id="-tools-used">🔧 Tools Used</h1>
 <blockquote>
-<h3 id="primary-tools">Primary Tools</h3>
 <table>
 <thead>
 <tr>
@@ -497,17 +492,17 @@ Later, there is a check where only one discount code can be redeemed per day. So
 </tbody>
 </table>
 </blockquote>
-<h2 id="-key-learnings">💡 Key Learnings</h2>
+<h1 id="-key-learnings">💡 Key Learnings</h1>
+<h2 id="new-knowledge">New Knowledge</h2>
 <blockquote>
-<blockquote>
-<h3 id="new-knowledge">New Knowledge</h3>
-</blockquote>
 <p>I have learned <code>NoSQL Injection</code> operators such as <code>$ne</code>, <code>$lt</code>, and how to <code>exploit</code> them in an <code>unsanitized query</code>. I also learned how to create a <code>race condition with multiple sessions</code> to exploit even the <code>milliseconds of delay</code>.</p>
-<blockquote>
-<h3 id="time-optimization">Time Optimization</h3>
 </blockquote>
+<h2 id="time-optimization">Time Optimization</h2>
+<blockquote>
 <p>Whenever a <code>delay</code> or any kind of <code>lag</code> is introduced in the code, always consider the possibility of a <code>Race Condition</code>. Additionally, where there are <code>comments</code> in the code, it&rsquo;s as if there are <code>hints</code> pointing to where the vulnerability might be located.</p>
-<h3 id="skills-improved">Skills Improved</h3>
+</blockquote>
+<h2 id="skills-improved">Skills Improved</h2>
+<blockquote>
 <ul>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
@@ -518,11 +513,9 @@ Later, there is a check where only one discount code can be redeemed per day. So
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
 </ul>
 </blockquote>
-<h2 id="-references--resources">📚 References &amp; Resources</h2>
+<h1 id="-references--resources">📚 References &amp; Resources</h1>
+<h2 id="learning-resources">Learning Resources</h2>
 <blockquote>
-<blockquote>
-<h3 id="learning-resources">Learning Resources</h3>
-</blockquote>
 <ul>
 <li><a href="https://www.invicti.com/learn/nosql-injection/" target="_blank" rel="noopener noreffer ">https://www.invicti.com/learn/nosql-injection/</a></li>
 <li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md" target="_blank" rel="noopener noreffer ">https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md</a></li>
@@ -530,7 +523,7 @@ Later, there is a check where only one discount code can be redeemed per day. So
 </ul>
 </blockquote>
 <hr>
-<h2 id="-final-statistics">📊 Final Statistics</h2>
+<h1 id="-final-statistics">📊 Final Statistics</h1>
 <table>
 <thead>
 <tr>
@@ -585,7 +578,7 @@ Later, there is a check where only one discount code can be redeemed per day. So
     <div class="post-nav"><a href="/posts/2025/02/05/ben-10/" class="prev" rel="prev" title="Ben 10"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Ben 10</a></div>
 </div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="#" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
         </div>
     </footer></div>
 

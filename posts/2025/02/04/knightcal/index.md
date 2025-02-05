@@ -6,7 +6,7 @@
 
 ![Challenge Presentation](/images/KnightCTF-2025/KnightCal/challenge_presentation.png "Challenge Presentation")
 
->## 📊 Challenge Overview
+## 📊 Challenge Overview
 >
 >| Category | Details | Additional Info |
 >|----------|---------|-----------------|
@@ -27,14 +27,14 @@
 
 ## 🎯 Challenge Files & Infrastructure
 
->### Provided Files
+### Provided Files
 >```yaml
 >Files: None
 >```
 
-## 🔍 Initial Analysis
+# 🔍 Initial Analysis
 
->### First Steps
+## First Steps
 > Initially, the website appears as follows:
 > 
 > ![Site Presentation](/images/KnightCTF-2025/KnightCal/site_presentation.png "Site Presentation")
@@ -45,14 +45,14 @@
 > 
 > so, I assume it's about finding the correct combination to print the contents of the file `flag.txt`. 
 
-## 🎯 Solution Path
+# 🎯 Solution Path
 
->### Exploitation Steps
->>#### Initial setup
+## Exploitation Steps
+### Initial setup
 >   
 > After understanding how it works, I moved on to the exploit, doing a bit of guessing on the letters to figure out which number corresponded to which letter.
 >
->>#### Exploitation
+### Exploitation
 >   
 > After a couple of attempts, I came up with this:
 >   
@@ -60,36 +60,34 @@
 >   
 > continuing to experiment, I found the correct combination, `7195`, which allowed me to read the `flag.txt` file.
 >
->>#### Flag capture
+### Flag capture
 >  
 >   ![Manual Flag](/images/KnightCTF-2025/KnightCal/manual_flag.png "Manual Flag")
 
-## 🛠️ Exploitation Process
->### Approach
+# 🛠️ Exploitation Process
+## Approach
 > The exploit is very simple: it's a POST request to the page where I pass the parameter expression=7195, which is the correct combination. Then, I extract the flag from the response text using bs4:
 > 
 > - [:(far fa-file-archive fa-fw): Exploit](/resources/KnightCTF-2025/KnightCal/exploit.py)
 
-## 🚩 Flag Capture
+# 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
 {{< typeit tag=h4 >}}
 KCTF{_c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH_}
 {{< /typeit >}}
 >{{< /admonition >}}
 >
->### Proof of Execution
+## Proof of Execution
 > ![Automated Flag](/images/KnightCTF-2025/KnightCal/automated_flag.png "Automated Flag")
 >*Screenshot of successful exploitation*
 
-## 🔧 Tools Used
-
->### Primary Tools
+# 🔧 Tools Used
 >| Tool | Purpose |
 >|------|---------|
 >| Python | Exploit |
 
-## 💡 Key Learnings
->### Skills Improved
+# 💡 Key Learnings
+## Skills Improved
 >- [ ] Binary Exploitation
 >- [ ] Reverse Engineering
 >- [x] Web Exploitation
@@ -99,7 +97,7 @@ KCTF{_c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH_}
 >- [ ] Miscellaneous
 
 ---
-## 📊 Final Statistics
+# 📊 Final Statistics
 
 | Metric | Value | Notes |
 |--------|--------|-------|

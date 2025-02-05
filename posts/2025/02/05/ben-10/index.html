@@ -36,7 +36,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/ben-10\/"
-        },"genre": "posts","keywords": "🚫 Broken Access Control, 🌐 Web Security","wordcount":  858 ,
+        },"genre": "posts","keywords": "🚫 Broken Access Control, 🌐 Web Security","wordcount":  856 ,
         "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/ben-10\/","datePublished": "2025-02-05T10:16:15+01:00","dateModified": "2025-02-05T10:16:15+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -45,7 +45,7 @@
             },"description": "A detailed write-up of the Web challenge 'Ben 10' from SrdnlenCTF - 2025"
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -109,10 +109,10 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Ben 10</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Ben 10&#39; from SrdnlenCTF - 2025</h2><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="#" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/srdnlenctf-2025/web/">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/srdnlenctf-2025/web/">
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web
                                 </a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05/02/2025">05/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;858 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05/02/2025">05/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;856 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -130,41 +130,37 @@
             <li><a href="#provided-files">Provided Files</a></li>
           </ul>
         </li>
-        <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
-          <ul>
-            <li><a href="#first-steps">First Steps</a></li>
-          </ul>
-        </li>
-        <li><a href="#-solution-path">🎯 Solution Path</a>
-          <ul>
-            <li><a href="#exploitation-steps">Exploitation Steps</a>
-              <ul>
-                <li><a href="#initial-setup">Initial setup</a></li>
-                <li><a href="#exploitation">Exploitation</a></li>
-                <li><a href="#flag-capture">Flag capture</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
-          <ul>
-            <li><a href="#approach">Approach</a></li>
-          </ul>
-        </li>
-        <li><a href="#-flag-capture">🚩 Flag Capture</a>
-          <ul>
-            <li><a href="#proof-of-execution">Proof of Execution</a></li>
-          </ul>
-        </li>
-        <li><a href="#-tools-used">🔧 Tools Used</a>
-          <ul>
-            <li><a href="#primary-tools">Primary Tools</a></li>
-          </ul>
-        </li>
-        <li><a href="#-key-learnings">💡 Key Learnings</a></li>
-        <li><a href="#-final-statistics">📊 Final Statistics</a></li>
       </ul>
     </li>
+    <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
+      <ul>
+        <li><a href="#first-steps">First Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#-solution-path">🎯 Solution Path</a>
+      <ul>
+        <li><a href="#exploitation-steps">Exploitation Steps</a>
+          <ul>
+            <li><a href="#initial-setup">Initial setup</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+            <li><a href="#flag-capture">Flag capture</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
+      <ul>
+        <li><a href="#approach">Approach</a></li>
+      </ul>
+    </li>
+    <li><a href="#-flag-capture">🚩 Flag Capture</a>
+      <ul>
+        <li><a href="#proof-of-execution">Proof of Execution</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tools-used">🔧 Tools Used</a></li>
+    <li><a href="#-key-learnings">💡 Key Learnings</a></li>
+    <li><a href="#-final-statistics">📊 Final Statistics</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="-ben-10">🌐 Ben 10</h1>
@@ -178,8 +174,8 @@
             alt="/images/SrdnlenCTF-2025/Ben-10/challenge_presentation.png" />
     </a><figcaption class="image-caption">Challenge Presentation</figcaption>
     </figure></p>
-<blockquote>
 <h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<blockquote>
 <table>
 <thead>
 <tr>
@@ -238,16 +234,16 @@
 Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noopener noreffer ">http://ben10.challs.srdnlen.it:8080</a></p>
 </blockquote>
 <h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
-<blockquote>
 <h3 id="provided-files">Provided Files</h3>
+<blockquote>
 <p>Files:</p>
 <ul>
 <li><a href="https://drive.google.com/file/d/1Qa963GMnMr-MlkyG1gIQfWY6SL2wemYm/view?usp=drive_link" target="_blank" rel="noopener noreffer "><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Attached Files</a></li>
 </ul>
 </blockquote>
-<h2 id="-initial-analysis">🔍 Initial Analysis</h2>
+<h1 id="-initial-analysis">🔍 Initial Analysis</h1>
+<h2 id="first-steps">First Steps</h2>
 <blockquote>
-<h3 id="first-steps">First Steps</h3>
 <p>Initially, the website appears as follows:</p>
 <p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/Ben-10/site_presentation.png" title="Site Presentation" data-thumbnail="/images/SrdnlenCTF-2025/Ben-10/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
         <img
@@ -404,16 +400,14 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
     </figure></p>
 <p>now we can proceed to the exploit.</p>
 </blockquote>
-<h2 id="-solution-path">🎯 Solution Path</h2>
+<h1 id="-solution-path">🎯 Solution Path</h1>
+<h2 id="exploitation-steps">Exploitation Steps</h2>
+<h3 id="initial-setup">Initial setup</h3>
 <blockquote>
-<h3 id="exploitation-steps">Exploitation Steps</h3>
-<blockquote>
-<h4 id="initial-setup">Initial setup</h4>
-</blockquote>
 <p>The initial phase involves registering a user account. Afterward, we need to log in and retrieve the username of the admin account that was created alongside the user account. This admin username is displayed on the homepage, as mentioned earlier. Once we have obtained the username, we can move on to the actual exploit.</p>
-<blockquote>
-<h4 id="exploitation">Exploitation</h4>
 </blockquote>
+<h3 id="exploitation">Exploitation</h3>
+<blockquote>
 <p>The exploit involves resetting the password of the admin account to gain access. However, on the reset screen, we can only reset the password of the user account because a check is implemented in the reset function to block any user whose username starts with <code>admin</code>. Therefore, we begin the reset process with the normal user account created earlier to generate a valid reset token:</p>
 <p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/Ben-10/reset.png" title="Reset Token" data-thumbnail="/images/SrdnlenCTF-2025/Ben-10/reset.png" data-sub-html="<h2>Reset Token</h2><p>Reset Token</p>">
         <img
@@ -437,9 +431,9 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
     </a><figcaption class="image-caption">Admin Password Reset</figcaption>
     </figure></p>
 <p>Once the reset is completed, we simply need to log in with the admin account whose password we just reset, and visit the route <code>/ben/10</code>, which is the last photo in the list, to obtain the flag.</p>
-<blockquote>
-<h4 id="flag-capture">Flag capture</h4>
 </blockquote>
+<h3 id="flag-capture">Flag capture</h3>
+<blockquote>
 <p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/Ben-10/manual_flag.png" title="Manual Flag" data-thumbnail="/images/SrdnlenCTF-2025/Ben-10/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
         <img
             class="lazyload"
@@ -451,15 +445,15 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
     </a><figcaption class="image-caption">Manual Flag</figcaption>
     </figure></p>
 </blockquote>
-<h2 id="-exploitation-process">🛠️ Exploitation Process</h2>
+<h1 id="-exploitation-process">🛠️ Exploitation Process</h1>
+<h2 id="approach">Approach</h2>
 <blockquote>
-<h3 id="approach">Approach</h3>
 <p>The exploit uses <code>requests</code> and <code>BeautifulSoup</code> for extracting the user, the token, and the flag. It literally performs the step-by-step actions described previously: first, it creates an account using the <code>Faker</code> library to generate fake credentials. Then, it logs in and extracts the <code>admin username</code> associated with the user created earlier. After that, it resets the password for the admin user. Finally, after logging in again and visiting the <code>/ben/10</code> route, it extracts the flag using BeautifulSoup (<code>bs4</code>) and prints it.</p>
 <ul>
 <li><a href="/resources/SrdnlenCTF-2025/Ben-10/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
 </ul>
 </blockquote>
-<h2 id="-flag-capture">🚩 Flag Capture</h2>
+<h1 id="-flag-capture">🚩 Flag Capture</h1>
 <blockquote>
 <div class="details admonition danger open">
         <div class="details-summary admonition-title">
@@ -472,7 +466,9 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
 </div>
         </div>
     </div>
-<h3 id="proof-of-execution">Proof of Execution</h3>
+</blockquote>
+<h2 id="proof-of-execution">Proof of Execution</h2>
+<blockquote>
 <p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/Ben-10/automated_flag.png" title="Automated Flag" data-thumbnail="/images/SrdnlenCTF-2025/Ben-10/automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
         <img
             class="lazyload"
@@ -485,9 +481,8 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
     </figure>
 <em>Screenshot of successful exploitation</em></p>
 </blockquote>
-<h2 id="-tools-used">🔧 Tools Used</h2>
+<h1 id="-tools-used">🔧 Tools Used</h1>
 <blockquote>
-<h3 id="primary-tools">Primary Tools</h3>
 <table>
 <thead>
 <tr>
@@ -507,7 +502,7 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
 </tbody>
 </table>
 </blockquote>
-<h2 id="-key-learnings">💡 Key Learnings</h2>
+<h1 id="-key-learnings">💡 Key Learnings</h1>
 <blockquote>
 <ul>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
@@ -520,7 +515,7 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
 </ul>
 </blockquote>
 <hr>
-<h2 id="-final-statistics">📊 Final Statistics</h2>
+<h1 id="-final-statistics">📊 Final Statistics</h1>
 <table>
 <thead>
 <tr>
@@ -576,7 +571,7 @@ Website: <a href="http://ben10.challs.srdnlen.it:8080" target="_blank" rel="noop
         <a href="/posts/2025/02/05/focus.-speed.-i-am-speed./" class="next" rel="next" title="Focus. Speed. I Am Speed.">Focus. Speed. I Am Speed.<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="#" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
         </div>
     </footer></div>
 

@@ -6,7 +6,7 @@
 
 ![Challenge Presentation](/images/KnightCTF-2025/Knight-Connect/challenge_presentation.png "Challenge Presentation")
 
->## 📊 Challenge Overview
+## 📊 Challenge Overview
 >
 >| Category | Details | Additional Info |
 >|----------|---------|-----------------|
@@ -25,14 +25,14 @@
 
 ## 🎯 Challenge Files & Infrastructure
 
->### Provided Files
+### Provided Files
 >Files: 
 >- [:(far fa-file-archive fa-fw): Attached Files](https://drive.google.com/file/d/1iLwO18f_zTzdXGvbmkw0WWIhV6GImVtL/view?usp=drive_link)
 
 
-## 🔍 Initial Analysis
+# 🔍 Initial Analysis
 
->### First Steps
+## First Steps
 > The site initially appeared as follows:
 > 
 > ![Site Presentation](/images/KnightCTF-2025/Knight-Connect/site_presentation.png "Site Presentation")
@@ -111,25 +111,25 @@
 > the first function doesn't really have any vulnerabilities, since it only shows how the token is created to request the "instant" login URL. In contrast, the second function has a significant vulnerability, as the only check it does is ensure the timestamp of the generated token is at most one hour old (3600 seconds), otherwise, it becomes invalid. However, we can manipulate the timestamp ourselves by passing a fake value as a parameter. In fact, to make it secure, the generated token with the timestamp should have been saved in the database, and if it wasn't the exact timestamp, it wouldn't allow access (although a brute-force attack could be used to try all possible timestamps). So, I realized that it's possible to forge a token—one just needs to know the email of the account they want to access, and as we saw earlier in the `/contact` route, there were quite a few admin emails... Now that we've figured it all out, let's proceed with the exploit.
 
 ## 🔬 Vulnerability Analysis
->### Potential Vulnerabilities
+### Potential Vulnerabilities
 >- [x] Insecure Authentication
 
-## 🎯 Solution Path
+# 🎯 Solution Path
 
->### Exploitation Steps
->>#### Initial setup
+## Exploitation Steps
+### Initial setup
 > Initially, to generate the URL, I used https://onlinephp.io/. I also found this website useful for generating "passwords" with Laravel's bcrypt (https://fbutube.com/laravel-password-generator). However, in the end, I decided to write it in PHP and run it locally, as this way I could fully automate the process.
 >
->>#### Exploitation
+### Exploitation
 >  
 > After obtaining the admin's email `nomanprodhan@knightconnect.com`, it was quite simple to forge a token, since it was made up of "email|timestamp". I then wrote a PHP script that did exactly what the first function did, using bcrypt on the string formed by the admin's email + timestamp, and then generating a link similar to the one in the function with the parameters `token`, `time`, and `email`. This way, I created a valid login link, since the user associated with the email actually existed. I gained access to their account, and by visiting the homepage as seen earlier, with the `is_admin` flag on the account, I was able to retrieve the flag.
 >
->>#### Flag capture
+### Flag capture
 >   
 >   ![Manual Flag](/images/KnightCTF-2025/Knight-Connect/manual_flag.png "Manual Flag")
 
-## 🛠️ Exploitation Process
->### Approach
+# 🛠️ Exploitation Process
+## Approach
 > I wrote the exploit in PHP because I had issues with token composition using bcrypt in Python. This exploit takes the admin's email, which has the flag in their profile, and then creates a valid token with a timestamp less than one hour old. It then generates a URL with a valid token to access the admin profile, and through a cURL function in PHP, it makes a request to the page, extracting the flag via a regex. I used the following commands for the requirements and the run:
 > 
 > ```bash
@@ -140,24 +140,24 @@
 > 
 > - [:(far fa-file-archive fa-fw): Exploit](/resources/KnightCTF-2025/Knight-Connect/exploit.php)
 
-## 🚩 Flag Capture
+# 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
 {{< typeit  tag=h4 >}}
 KCTF{_congrat5_KNIGHT_y0U_hack3d_mY_Acc0Un7_}
 {{< /typeit >}}
 >{{< /admonition >}}
->### Proof of Execution
+## Proof of Execution
 >![Automated Flag](/images/KnightCTF-2025/Knight-Connect/automated_flag.png "Automated Flag")
 >*Screenshot of successful exploitation*
 
-## 🔧 Tools Used
->### Primary Tools
+# 🔧 Tools Used
+## Primary Tools
 >| Tool | Purpose |
 >|------|---------|
 >| PHP | Exploit |
 
-## 💡 Key Learnings
->### Skills Improved
+# 💡 Key Learnings
+## Skills Improved
 >- [ ] Binary Exploitation
 >- [ ] Reverse Engineering
 >- [x] Web Exploitation
@@ -166,12 +166,12 @@ KCTF{_congrat5_KNIGHT_y0U_hack3d_mY_Acc0Un7_}
 >- [ ] OSINT
 >- [ ] Miscellaneous
 
-## 📚 References & Resources
->### Learning Resources
+# 📚 References & Resources
+## Learning Resources
 >- https://laravel.com/docs/11.x/hashing
 
 ---
-## 📊 Final Statistics
+# 📊 Final Statistics
 
 | Metric | Value | Notes |
 |--------|--------|-------|

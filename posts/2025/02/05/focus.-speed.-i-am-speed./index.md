@@ -7,8 +7,7 @@
 
 ![Challenge Presentation](/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png "Challenge Presentation")
 
-
->## 📊 Challenge Overview
+## 📊 Challenge Overview
 >
 >| Category | Details | Additional Info |
 >|----------|---------|-----------------|
@@ -21,20 +20,19 @@
 >| 📅 Date | 19-01-2025 | SrdlenCTF - 2025 Day X |
 >| 🦾 Solved By | aquila2 | Team: Team Aetruria |
 
-
 ## 📝 Challenge Information
 >Welcome to Radiator Springs' finest store, where every car enthusiast's dream comes true! But remember, in the world of racing, precision matters—so tread carefully as you navigate this high-octane experience. Ka-chow!  
 >Website: http://speed.challs.srdnlen.it:8082
 
 ## 🎯 Challenge Files & Infrastructure
 
->### Provided Files
+### Provided Files
 > Files:
 >- [:(far fa-file-archive fa-fw): Attached Files](https://drive.google.com/file/d/1DDzIdxO63csz7trMyCF5X6FAuYuSbkdG/view?usp=drive_link)
 
-## 🔍 Initial Analysis
+# 🔍 Initial Analysis
 
->### First Steps
+## First Steps
 > Initially, the website appears as follows:
 > 
 > ![Site Presentation](/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png "Site Presentation")
@@ -112,10 +110,9 @@
 > 
 > The account balance is extracted, then increased by adding the discount code that we have redeemed. A timeout is applied based on the `delay` variable declared at the beginning of the file (`let delay = 1.5;`), which is then multiplied by `1000` (to convert it to `milliseconds`). This results in a total `timeout of 1.5 seconds` before the balance update is actually performed in the database. We can exploit this time delay by sending, for example, two more requests in `parallel` to accumulate `60 points` and purchase the flag. This is possible because the subsequent two requests will be sent in less than `1.5 seconds`, and therefore, they will pass the checks done previously. These checks are based on the values present in the database, and since those values have not been `updated` yet due to the `timeout`, we can `redeem` multiple codes without being blocked by the `restriction` that allows redeeming only `one code per day`. By sending the requests during this `window of time`, we are able to `bypass` the restriction and accumulate enough points to `purchase` the flag.
 
-## 🎯 Solution Path
-
->### Exploitation Steps
->>#### Initial setup
+# 🎯 Solution Path
+## Exploitation Steps
+### Initial setup
 > After understanding the vulnerabilities we are dealing with, I did a couple of searches on the internet to exploit the `NoSQL Injection`, as for the `Race Condition`, it's enough to create an exploit script in `Python` with `multithreading` to send multiple requests simultaneously. Through `PayloadAllTheThings`, I searched for `NoSQL payloads` https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md. I tried the following payload: `http://speed.challs.srdnlen.it:8082/redeem?discountCode[$ne]=test`, where `$ne` stands for `not equal`. What could happen with this in the following portion of the code, which was also mentioned earlier?
 > 
 >```js
@@ -124,46 +121,44 @@
 >
 > As we mentioned, in this case, the above code will create a `valid condition`, so it's as if we've found the correct `discountCode`. If we were to express this in `natural language`, the action would be `find me a discountCode that is not equal to 'test'`. As we saw during the generation phase, the discountCodes are totally `random` and `alphanumeric`, so it's impossible for the database to have a discountCode equal to `test`. Therefore, the condition will return `True`, allowing us to redeem the code and add 20 points to our balance.
 >
->>#### Exploitation
+### Exploitation
 > The exploitation phase doesn't stop here. Now that we've figured out how to `redeem points`, we need to understand how to `redeem more than 20 points per day`, as mentioned earlier. We can use `Python's multithreading` to take advantage of that one and a half seconds `timeout` set for making multiple requests. So, I’ll write a script that does this and retrieves the flag, because doing it manually would be impossible.
 >
->>#### Flag capture
+### Flag capture
 > 
 > ![Manual Flag](/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png "Manual Flag")
 
-## 🛠️ Exploitation Process
->### Approach
+# 🛠️ Exploitation Process
+## Approach
 > The Python exploit utilizes `requests`, `bs4`, and finally, `multithreading` to leverage the `Race Condition`. I create a pool of `20 threads` that run simultaneously after a registration phase and account creation using the `Faker` library, which generates random `fake credentials`. Once that's done, I take advantage of the `NoSQL Injection` for all the threads by visiting the `/redeem?discountCode[$ne]=test` route, which will redeem a code and add a total of 20 points to the account balance each time, taking advantage of the `one-and-a-half-second timeout`. Once all of that is done, I visit the root (`/`) of the site where the flag is displayed (as shown in the image above), and then I extract it using `BeautifulSoup` and print it out.
 > 
 > - [:(far fa-file-archive fa-fw): Exploit](/resources/SrdnlenCTF-2025/FocusSpeed/exploit.py)
 
-## 🚩 Flag Capture
+# 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
 {{< typeit tag=h4 >}}
 srdnlen{6peed_1s_My_0nly_Competition}
 {{< /typeit >}}
 >{{< /admonition >}}
 >
->### Proof of Execution
+## Proof of Execution
 > ![Automated Flag](/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png "Automated Flag")
 >*Screenshot of successful exploitation*
 
-## 🔧 Tools Used
-
->### Primary Tools
+# 🔧 Tools Used
 >| Tool | Purpose |
 >|------|---------|
 >| Python | Exploit |
 
-## 💡 Key Learnings
->>### New Knowledge
+# 💡 Key Learnings
+## New Knowledge
 > I have learned `NoSQL Injection` operators such as `$ne`, `$lt`, and how to `exploit` them in an `unsanitized query`. I also learned how to create a `race condition with multiple sessions` to exploit even the `milliseconds of delay`.
 >
->>### Time Optimization
+## Time Optimization
 >
 > Whenever a `delay` or any kind of `lag` is introduced in the code, always consider the possibility of a `Race Condition`. Additionally, where there are `comments` in the code, it's as if there are `hints` pointing to where the vulnerability might be located.
 >
->### Skills Improved
+## Skills Improved
 >- [ ] Binary Exploitation
 >- [ ] Reverse Engineering
 >- [x] Web Exploitation
@@ -172,14 +167,14 @@ srdnlen{6peed_1s_My_0nly_Competition}
 >- [ ] OSINT
 >- [ ] Miscellaneous
 
-## 📚 References & Resources
->>### Learning Resources
+# 📚 References & Resources
+## Learning Resources
 >- https://www.invicti.com/learn/nosql-injection/
 >- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md
 >- https://www.guidepointsecurity.com/blog/race-conditions-in-modern-web-applications/#:~:text=RACE%20conditions%20occur%20when%20we,RACE%20condition%20may%20be%20present.
 
 ---
-## 📊 Final Statistics
+# 📊 Final Statistics
 
 | Metric | Value | Notes |
 |--------|--------|-------|

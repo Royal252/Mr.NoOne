@@ -7,7 +7,7 @@
 
 ![Challenge Presentation](/images/SrdnlenCTF-2025/Ben-10/challenge_presentation.png "Challenge Presentation")
 
->## 📊 Challenge Overview
+## 📊 Challenge Overview
 >
 >| Category | Details | Additional Info |
 >|----------|---------|-----------------|
@@ -30,13 +30,13 @@
 
 ## 🎯 Challenge Files & Infrastructure
 
->### Provided Files
+### Provided Files
 >Files: 
 >- [:(far fa-file-archive fa-fw): Attached Files](https://drive.google.com/file/d/1Qa963GMnMr-MlkyG1gIQfWY6SL2wemYm/view?usp=drive_link)
 
-## 🔍 Initial Analysis
+# 🔍 Initial Analysis
 
->### First Steps
+## First Steps
 > Initially, the website appears as follows:
 > 
 > ![Site Presentation](/images/SrdnlenCTF-2025/Ben-10/site_presentation.png "Site Presentation")
@@ -113,13 +113,13 @@
 > 
 > now we can proceed to the exploit.
 
-## 🎯 Solution Path
+# 🎯 Solution Path
 
->### Exploitation Steps
->>#### Initial setup
+## Exploitation Steps
+### Initial setup
 >  The initial phase involves registering a user account. Afterward, we need to log in and retrieve the username of the admin account that was created alongside the user account. This admin username is displayed on the homepage, as mentioned earlier. Once we have obtained the username, we can move on to the actual exploit.
 >
->>#### Exploitation
+### Exploitation
 > The exploit involves resetting the password of the admin account to gain access. However, on the reset screen, we can only reset the password of the user account because a check is implemented in the reset function to block any user whose username starts with `admin`. Therefore, we begin the reset process with the normal user account created earlier to generate a valid reset token:
 >   
 >   ![Reset Token](/images/SrdnlenCTF-2025/Ben-10/reset.png "Reset Token")
@@ -130,36 +130,34 @@
 >   
 >   Once the reset is completed, we simply need to log in with the admin account whose password we just reset, and visit the route `/ben/10`, which is the last photo in the list, to obtain the flag.
 >
->>#### Flag capture
+### Flag capture
 >  
 >   ![Manual Flag](/images/SrdnlenCTF-2025/Ben-10/manual_flag.png "Manual Flag")
 
-## 🛠️ Exploitation Process
->### Approach
+# 🛠️ Exploitation Process
+## Approach
 > The exploit uses `requests` and `BeautifulSoup` for extracting the user, the token, and the flag. It literally performs the step-by-step actions described previously: first, it creates an account using the `Faker` library to generate fake credentials. Then, it logs in and extracts the `admin username` associated with the user created earlier. After that, it resets the password for the admin user. Finally, after logging in again and visiting the `/ben/10` route, it extracts the flag using BeautifulSoup (`bs4`) and prints it.
 > 
 > - [:(far fa-file-archive fa-fw): Exploit](/resources/SrdnlenCTF-2025/Ben-10/exploit.py)
 
-## 🚩 Flag Capture
+# 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
 {{< typeit tag=h4 >}}
 srdnlen{b3n_l0v3s_br0k3n_4cc355_c0ntr0l_vulns}
 {{< /typeit >}}
 >{{< /admonition >}}
 >
->### Proof of Execution
+## Proof of Execution
 > ![Automated Flag](/images/SrdnlenCTF-2025/Ben-10/automated_flag.png "Automated Flag")
 >*Screenshot of successful exploitation*
 
-## 🔧 Tools Used
-
->### Primary Tools
+# 🔧 Tools Used
 >| Tool | Purpose |
 >|------|---------|
 >| Python | Exploit |
 >| ChromeDevTools | Web Testing |
 
-## 💡 Key Learnings
+# 💡 Key Learnings
 >
 >- [ ] Binary Exploitation
 >- [ ] Reverse Engineering
@@ -170,7 +168,7 @@ srdnlen{b3n_l0v3s_br0k3n_4cc355_c0ntr0l_vulns}
 >- [ ] Miscellaneous
 
 ---
-## 📊 Final Statistics
+# 📊 Final Statistics
 
 | Metric | Value | Notes |
 |--------|--------|-------|
