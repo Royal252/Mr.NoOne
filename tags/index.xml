@@ -4,20 +4,60 @@
         <link>https://mh4ck3r0n3.github.io/tags/</link>
         <description>Tags - Tag - mH4ck3r0n3&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
-            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>⚡ Race Condition</title>
-    <link>https://mh4ck3r0n3.github.io/tags/race-condition/</link>
-    <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>⚠️ CVE-2021-44228 (Log4Shell)</title>
+    <link>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve-2021-44228-log4shell/</link>
+    <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/race-condition/</guid>
+    <guid>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve-2021-44228-log4shell/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>🌐 Web Security</title>
     <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
-    <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
+    <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>📜 Log4j</title>
+    <link>https://mh4ck3r0n3.github.io/tags/log4j/</link>
+    <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/log4j/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>🚫 403 Bypass</title>
+    <link>https://mh4ck3r0n3.github.io/tags/403-bypass/</link>
+    <pubDate>Wed, 05 Feb 2025 21:02:02 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/403-bypass/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>🚫 Proxy Rule Bypass</title>
+    <link>https://mh4ck3r0n3.github.io/tags/proxy-rule-bypass/</link>
+    <pubDate>Wed, 05 Feb 2025 21:02:02 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/proxy-rule-bypass/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>🛡️ HAProxy</title>
+    <link>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-haproxy/</link>
+    <pubDate>Wed, 05 Feb 2025 21:02:02 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-haproxy/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>⚡ Race Condition</title>
+    <link>https://mh4ck3r0n3.github.io/tags/race-condition/</link>
+    <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/race-condition/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -42,46 +82,6 @@
     <pubDate>Tue, 04 Feb 2025 11:42:32 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/laravel/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>🔐 Insecure Authentication</title>
-    <link>https://mh4ck3r0n3.github.io/tags/insecure-authentication/</link>
-    <pubDate>Tue, 04 Feb 2025 11:42:32 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/insecure-authentication/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Improper Error Handling</title>
-    <link>https://mh4ck3r0n3.github.io/tags/improper-error-handling/</link>
-    <pubDate>Tue, 04 Feb 2025 11:20:22 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/improper-error-handling/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Insecure Deserialization</title>
-    <link>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</link>
-    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>YAML Insecure Deserialization</title>
-    <link>https://mh4ck3r0n3.github.io/tags/yaml-insecure-deserialization/</link>
-    <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/yaml-insecure-deserialization/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>👤​ About Me</title>
-    <link>https://mh4ck3r0n3.github.io/tags/about-me/</link>
-    <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/about-me/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
