@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Focus. Speed. I Am Speed. - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<meta name="Description" content="A detailed write-up of the Web challenge &#39;Focus. Speed. I Am Speed.&#39; from SrdnlenCTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./">
+  <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
+  <meta property="og:title" content="Focus. Speed. I Am Speed.">
+  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Focus. Speed. I Am Speed.&#39; from SrdnlenCTF - 2025">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-05T11:03:38+01:00">
+    <meta property="article:modified_time" content="2025-02-05T11:03:38+01:00">
+    <meta property="article:tag" content="NoSQL Injection">
+    <meta property="article:tag" content="Race Condition">
+    <meta property="article:tag" content="🌐 Web Security">
+    <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
+  <meta name="twitter:title" content="Focus. Speed. I Am Speed.">
+  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Focus. Speed. I Am Speed.&#39; from SrdnlenCTF - 2025">
+<meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/05/ben-10/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><meta name="google-site-verification" content="Z-UoSLcRkeqd45L7xfo6KhHLAHRigsRvXpv1cYBypy4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Focus. Speed. I Am Speed.",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/focus.-speed.-i-am-speed.\/"
+        },"genre": "posts","keywords": "NoSQL Injection, Race Condition, 🌐 Web Security","wordcount":  1498 ,
+        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/05\/focus.-speed.-i-am-speed.\/","datePublished": "2025-02-05T11:03:38+01:00","dateModified": "2025-02-05T11:03:38+01:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mH4ck3r0n3"
+            },"description": "A detailed write-up of the Web challenge 'Focus. Speed. I Am Speed.' from SrdnlenCTF - 2025"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Posts"> Posts </a><a class="menu-item" href="/categories/" title="Categories"> Categories </a><a class="menu-item" href="/tags/" title="Tags"> Tags </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-3" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Posts">Posts</a><a class="menu-item" href="/categories/" title="Categories">Categories</a><a class="menu-item" href="/tags/" title="Tags">Tags</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Focus. Speed. I Am Speed.</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Focus. Speed. I Am Speed.&#39; from SrdnlenCTF - 2025</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/srdnlenctf-2025/web/">
+                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web
+                                </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05/02/2025">05/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1498 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#-focus-speed-i-am-speed">🌐 Focus. Speed. I Am Speed.</a>
+      <ul>
+        <li><a href="#-challenge-overview">📊 Challenge Overview</a></li>
+        <li><a href="#-challenge-information">📝 Challenge Information</a></li>
+        <li><a href="#-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</a>
+          <ul>
+            <li><a href="#provided-files">Provided Files</a></li>
+          </ul>
+        </li>
+        <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
+          <ul>
+            <li><a href="#first-steps">First Steps</a></li>
+          </ul>
+        </li>
+        <li><a href="#-solution-path">🎯 Solution Path</a>
+          <ul>
+            <li><a href="#exploitation-steps">Exploitation Steps</a>
+              <ul>
+                <li><a href="#initial-setup">Initial setup</a></li>
+                <li><a href="#exploitation">Exploitation</a></li>
+                <li><a href="#flag-capture">Flag capture</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
+          <ul>
+            <li><a href="#approach">Approach</a></li>
+          </ul>
+        </li>
+        <li><a href="#-flag-capture">🚩 Flag Capture</a>
+          <ul>
+            <li><a href="#proof-of-execution">Proof of Execution</a></li>
+          </ul>
+        </li>
+        <li><a href="#-tools-used">🔧 Tools Used</a>
+          <ul>
+            <li><a href="#primary-tools">Primary Tools</a></li>
+          </ul>
+        </li>
+        <li><a href="#-key-learnings">💡 Key Learnings</a>
+          <ul>
+            <li><a href="#new-knowledge">New Knowledge</a></li>
+            <li><a href="#time-optimization">Time Optimization</a></li>
+            <li><a href="#skills-improved">Skills Improved</a></li>
+          </ul>
+        </li>
+        <li><a href="#-references--resources">📚 References &amp; Resources</a>
+          <ul>
+            <li><a href="#learning-resources">Learning Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="#-final-statistics">📊 Final Statistics</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="-focus-speed-i-am-speed">🌐 Focus. Speed. I Am Speed.</h1>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png"
+            data-srcset="/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png, /images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png 1.5x, /images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png" />
+    </a><figcaption class="image-caption">Challenge Presentation</figcaption>
+    </figure></p>
+<blockquote>
+<h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Details</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏆 Event</td>
+<td>SrdlenCTF - 2025</td>
+<td><a href="https://ctf.srdnlen.it/challenges#challenge-17" target="_blank" rel="noopener noreffer ">Event Link</a></td>
+</tr>
+<tr>
+<td>🔰 Category</td>
+<td>Web</td>
+<td>🌐</td>
+</tr>
+<tr>
+<td>💎 Points</td>
+<td>50</td>
+<td>Out of 500 total</td>
+</tr>
+<tr>
+<td>⭐ Difficulty</td>
+<td>🟢 Easy</td>
+<td>Personal Rating: 3/10</td>
+</tr>
+<tr>
+<td>👤 Author</td>
+<td>Octaviusss</td>
+<td><a href="" rel="">Profile</a></td>
+</tr>
+<tr>
+<td>🎮 Solves</td>
+<td>189</td>
+<td>XX% solve rate</td>
+</tr>
+<tr>
+<td>📅 Date</td>
+<td>19-01-2025</td>
+<td>SrdlenCTF - 2025 Day X</td>
+</tr>
+<tr>
+<td>🦾 Solved By</td>
+<td>aquila2</td>
+<td>Team: Team Aetruria</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="-challenge-information">📝 Challenge Information</h2>
+<blockquote>
+<p>Welcome to Radiator Springs&rsquo; finest store, where every car enthusiast&rsquo;s dream comes true! But remember, in the world of racing, precision matters—so tread carefully as you navigate this high-octane experience. Ka-chow!<br>
+Website: <a href="http://speed.challs.srdnlen.it:8082" target="_blank" rel="noopener noreffer ">http://speed.challs.srdnlen.it:8082</a></p>
+</blockquote>
+<h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
+<blockquote>
+<h3 id="provided-files">Provided Files</h3>
+<p>Files:</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1DDzIdxO63csz7trMyCF5X6FAuYuSbkdG/view?usp=drive_link" target="_blank" rel="noopener noreffer "><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Attached Files</a></li>
+</ul>
+</blockquote>
+<h2 id="-initial-analysis">🔍 Initial Analysis</h2>
+<blockquote>
+<h3 id="first-steps">First Steps</h3>
+<p>Initially, the website appears as follows:</p>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png" title="Site Presentation" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png"
+            data-srcset="/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png, /images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png 1.5x, /images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/FocusSpeed/site_presentation.png" />
+    </a><figcaption class="image-caption">Site Presentation</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/site_1.png" title="Home Page" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/site_1.png" data-sub-html="<h2>Home Page</h2><p>Home Page</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/FocusSpeed/site_1.png"
+            data-srcset="/images/SrdnlenCTF-2025/FocusSpeed/site_1.png, /images/SrdnlenCTF-2025/FocusSpeed/site_1.png 1.5x, /images/SrdnlenCTF-2025/FocusSpeed/site_1.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/FocusSpeed/site_1.png" />
+    </a><figcaption class="image-caption">Home Page</figcaption>
+    </figure></p>
+<p>we notice by going to the <code>Official Store</code> that it is an online store.</p>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/store.png" title="Official Store" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/store.png" data-sub-html="<h2>Official Store</h2><p>Official Store</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/FocusSpeed/store.png"
+            data-srcset="/images/SrdnlenCTF-2025/FocusSpeed/store.png, /images/SrdnlenCTF-2025/FocusSpeed/store.png 1.5x, /images/SrdnlenCTF-2025/FocusSpeed/store.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/FocusSpeed/store.png" />
+    </a><figcaption class="image-caption">Official Store</figcaption>
+    </figure></p>
+<p>So, most likely, the intent of this challenge will be to purchase the flag. In fact, by opening the attached files, specifically <code>app.js</code>, we can notice these lines of code in the population of the database products:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">products</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nx">productId</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Name</span><span class="o">:</span> <span class="s2">&#34;Lightning McQueen Toy&#34;</span><span class="p">,</span> <span class="nx">Description</span><span class="o">:</span> <span class="s2">&#34;Ka-chow! This toy goes as fast as Lightning himself.&#34;</span><span class="p">,</span> <span class="nx">Cost</span><span class="o">:</span> <span class="s2">&#34;Free&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nx">productId</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">Name</span><span class="o">:</span> <span class="s2">&#34;Mater&#39;s Tow Hook&#34;</span><span class="p">,</span> <span class="nx">Description</span><span class="o">:</span> <span class="s2">&#34;Need a tow? Mater&#39;s here to save the day (with a little dirt on the side).&#34;</span><span class="p">,</span> <span class="nx">Cost</span><span class="o">:</span> <span class="s2">&#34;1 Point&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nx">productId</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">Name</span><span class="o">:</span> <span class="s2">&#34;Doc Hudson&#39;s Racing Tires&#34;</span><span class="p">,</span> <span class="nx">Description</span><span class="o">:</span> <span class="s2">&#34;They&#39;re not just any tires, they&#39;re Doc Hudson&#39;s tires. Vintage!&#34;</span><span class="p">,</span> <span class="nx">Cost</span><span class="o">:</span> <span class="s2">&#34;2 Points&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">productId</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Name</span><span class="o">:</span> <span class="s2">&#34;Lightning McQueen&#39;s Secret Text&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Description</span><span class="o">:</span> <span class="s2">&#34;Unlock Lightning&#39;s secret racing message! Only the fastest get to know the hidden code.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Cost</span><span class="o">:</span> <span class="s2">&#34;50 Points&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">FLAG</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">FLAG</span> <span class="o">||</span> <span class="s1">&#39;SRDNLEN{fake_flag}&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">];</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see, in <code>productId: 4</code> (the last and most expensive one, the flag is contained). Now we just need to figure out how to accumulate points. By continuing to analyze the attached files, we&rsquo;ll realize that <code>MongoDB</code> is being used, and in <code>app.py</code> we will find a function that generates discount codes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">createDiscountCodes</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">discountCodes</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nx">discountCode</span><span class="o">:</span> <span class="nx">generateDiscountCode</span><span class="p">(),</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">code</span> <span class="k">of</span> <span class="nx">discountCodes</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">existingCode</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">DiscountCodes</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="nx">discountCode</span><span class="o">:</span> <span class="nx">code</span><span class="p">.</span><span class="nx">discountCode</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">existingCode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kr">await</span> <span class="nx">DiscountCodes</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Inserted discount code: </span><span class="si">${</span><span class="nx">code</span><span class="p">.</span><span class="nx">discountCode</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Discount code </span><span class="si">${</span><span class="nx">code</span><span class="p">.</span><span class="nx">discountCode</span><span class="si">}</span><span class="sb"> already exists.`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This function generates 10 random discount codes for the purchase, which will be used to acquire points that can then be spent on purchasing items, via the <code>/redeem</code> route specified in the <code>routes.py</code> file. Here, there is a vulnerable part of the code, as it accepts a parameter <code>discountCode</code>, which can be used to redeem a valid code and acquire points. The vulnerability is found exactly in this portion of the code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">discountCode</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">discountCode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Authenticated</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Discount code is required!&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">discount</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">DiscountCodes</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="nx">discountCode</span> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In fact, since <code>discountCode</code> is a parameter that can be manipulated by the user and is directly used in the query as it is entered by the user, we can send a malicious payload using a <code>NoSQL Injection</code> to find a valid discount code. The query, as it is set, takes the <code>discountCode</code> and checks whether it matches one of those 10 randomly generated discount codes seen earlier. By sending a malicious payload, we can create a condition that returns <code>True</code>, allowing us to redeem a discount code even without knowing it.
+Later, there is a check where only one discount code can be redeemed per day. So, even if we try to redeem it, we would only get <code>20</code> of the <code>50</code> points needed. Continuing to read the code, to bypass this check, we can exploit another vulnerability. Usually, when a <code>timeout</code> or <code>delay</code> is applied, it is related to a <code>Race Condition</code>. As we can see in the following lines of code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">        <span class="c1">// Apply the gift card value to the user&#39;s balance
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="p">{</span> <span class="nx">Balance</span> <span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">userId</span><span class="p">).</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;Balance&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">user</span><span class="p">.</span><span class="nx">Balance</span> <span class="o">=</span> <span class="nx">Balance</span> <span class="o">+</span> <span class="nx">discount</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Introduce a slight delay to ensure proper logging of the transaction
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// and prevent potential database write collisions in high-load scenarios.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">delay</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">user</span><span class="p">.</span><span class="nx">lastVoucherRedemption</span> <span class="o">=</span> <span class="nx">today</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">await</span> <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The account balance is extracted, then increased by adding the discount code that we have redeemed. A timeout is applied based on the <code>delay</code> variable declared at the beginning of the file (<code>let delay = 1.5;</code>), which is then multiplied by <code>1000</code> (to convert it to <code>milliseconds</code>). This results in a total <code>timeout of 1.5 seconds</code> before the balance update is actually performed in the database. We can exploit this time delay by sending, for example, two more requests in <code>parallel</code> to accumulate <code>60 points</code> and purchase the flag. This is possible because the subsequent two requests will be sent in less than <code>1.5 seconds</code>, and therefore, they will pass the checks done previously. These checks are based on the values present in the database, and since those values have not been <code>updated</code> yet due to the <code>timeout</code>, we can <code>redeem</code> multiple codes without being blocked by the <code>restriction</code> that allows redeeming only <code>one code per day</code>. By sending the requests during this <code>window of time</code>, we are able to <code>bypass</code> the restriction and accumulate enough points to <code>purchase</code> the flag.</p>
+</blockquote>
+<h2 id="-solution-path">🎯 Solution Path</h2>
+<blockquote>
+<h3 id="exploitation-steps">Exploitation Steps</h3>
+<blockquote>
+<h4 id="initial-setup">Initial setup</h4>
+</blockquote>
+<p>After understanding the vulnerabilities we are dealing with, I did a couple of searches on the internet to exploit the <code>NoSQL Injection</code>, as for the <code>Race Condition</code>, it&rsquo;s enough to create an exploit script in <code>Python</code> with <code>multithreading</code> to send multiple requests simultaneously. Through <code>PayloadAllTheThings</code>, I searched for <code>NoSQL payloads</code> <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md" target="_blank" rel="noopener noreffer ">https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md</a>. I tried the following payload: <code>http://speed.challs.srdnlen.it:8082/redeem?discountCode[$ne]=test</code>, where <code>$ne</code> stands for <code>not equal</code>. What could happen with this in the following portion of the code, which was also mentioned earlier?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">existingCode</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">DiscountCodes</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="nx">discountCode</span><span class="o">:</span> <span class="nx">code</span><span class="p">.</span><span class="nx">discountCode</span> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we mentioned, in this case, the above code will create a <code>valid condition</code>, so it&rsquo;s as if we&rsquo;ve found the correct <code>discountCode</code>. If we were to express this in <code>natural language</code>, the action would be <code>find me a discountCode that is not equal to 'test'</code>. As we saw during the generation phase, the discountCodes are totally <code>random</code> and <code>alphanumeric</code>, so it&rsquo;s impossible for the database to have a discountCode equal to <code>test</code>. Therefore, the condition will return <code>True</code>, allowing us to redeem the code and add 20 points to our balance.</p>
+<blockquote>
+<h4 id="exploitation">Exploitation</h4>
+</blockquote>
+<p>The exploitation phase doesn&rsquo;t stop here. Now that we&rsquo;ve figured out how to <code>redeem points</code>, we need to understand how to <code>redeem more than 20 points per day</code>, as mentioned earlier. We can use <code>Python's multithreading</code> to take advantage of that one and a half seconds <code>timeout</code> set for making multiple requests. So, I’ll write a script that does this and retrieves the flag, because doing it manually would be impossible.</p>
+<blockquote>
+<h4 id="flag-capture">Flag capture</h4>
+</blockquote>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png" title="Manual Flag" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png"
+            data-srcset="/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png, /images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png 1.5x, /images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/FocusSpeed/manual_flag.png" />
+    </a><figcaption class="image-caption">Manual Flag</figcaption>
+    </figure></p>
+</blockquote>
+<h2 id="-exploitation-process">🛠️ Exploitation Process</h2>
+<blockquote>
+<h3 id="approach">Approach</h3>
+<p>The Python exploit utilizes <code>requests</code>, <code>bs4</code>, and finally, <code>multithreading</code> to leverage the <code>Race Condition</code>. I create a pool of <code>20 threads</code> that run simultaneously after a registration phase and account creation using the <code>Faker</code> library, which generates random <code>fake credentials</code>. Once that&rsquo;s done, I take advantage of the <code>NoSQL Injection</code> for all the threads by visiting the <code>/redeem?discountCode[$ne]=test</code> route, which will redeem a code and add a total of 20 points to the account balance each time, taking advantage of the <code>one-and-a-half-second timeout</code>. Once all of that is done, I visit the root (<code>/</code>) of the site where the flag is displayed (as shown in the image above), and then I extract it using <code>BeautifulSoup</code> and print it out.</p>
+<ul>
+<li><a href="/resources/SrdnlenCTF-2025/FocusSpeed/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
+</ul>
+</blockquote>
+<h2 id="-flag-capture">🚩 Flag Capture</h2>
+<blockquote>
+<div class="details admonition danger open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-skull-crossbones fa-fw" aria-hidden="true"></i>Flag<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="typeit"><h4 id="id-1"></h4></div>
+<blockquote>
+</blockquote>
+</div>
+        </div>
+    </div>
+<h3 id="proof-of-execution">Proof of Execution</h3>
+<p><figure><a class="lightgallery" href="/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png" title="Automated Flag" data-thumbnail="/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png"
+            data-srcset="/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png, /images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png 1.5x, /images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/SrdnlenCTF-2025/FocusSpeed/automated_flag.png" />
+    </a><figcaption class="image-caption">Automated Flag</figcaption>
+    </figure>
+<em>Screenshot of successful exploitation</em></p>
+</blockquote>
+<h2 id="-tools-used">🔧 Tools Used</h2>
+<blockquote>
+<h3 id="primary-tools">Primary Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>Exploit</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="-key-learnings">💡 Key Learnings</h2>
+<blockquote>
+<blockquote>
+<h3 id="new-knowledge">New Knowledge</h3>
+</blockquote>
+<p>I have learned <code>NoSQL Injection</code> operators such as <code>$ne</code>, <code>$lt</code>, and how to <code>exploit</code> them in an <code>unsanitized query</code>. I also learned how to create a <code>race condition with multiple sessions</code> to exploit even the <code>milliseconds of delay</code>.</p>
+<blockquote>
+<h3 id="time-optimization">Time Optimization</h3>
+</blockquote>
+<p>Whenever a <code>delay</code> or any kind of <code>lag</code> is introduced in the code, always consider the possibility of a <code>Race Condition</code>. Additionally, where there are <code>comments</code> in the code, it&rsquo;s as if there are <code>hints</code> pointing to where the vulnerability might be located.</p>
+<h3 id="skills-improved">Skills Improved</h3>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Web Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Cryptography</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Forensics</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> OSINT</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
+</ul>
+</blockquote>
+<h2 id="-references--resources">📚 References &amp; Resources</h2>
+<blockquote>
+<blockquote>
+<h3 id="learning-resources">Learning Resources</h3>
+</blockquote>
+<ul>
+<li><a href="https://www.invicti.com/learn/nosql-injection/" target="_blank" rel="noopener noreffer ">https://www.invicti.com/learn/nosql-injection/</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md" target="_blank" rel="noopener noreffer ">https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md</a></li>
+<li><a href="https://www.guidepointsecurity.com/blog/race-conditions-in-modern-web-applications/#:~:text=RACE%20conditions%20occur%20when%20we,RACE%20condition%20may%20be%20present" target="_blank" rel="noopener noreffer ">https://www.guidepointsecurity.com/blog/race-conditions-in-modern-web-applications/#:~:text=RACE%20conditions%20occur%20when%20we,RACE%20condition%20may%20be%20present</a>.</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="-final-statistics">📊 Final Statistics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to Solve</td>
+<td>00:15</td>
+<td>From start to flag</td>
+</tr>
+<tr>
+<td>Global Ranking</td>
+<td>26/1577</td>
+<td>Challenge ranking</td>
+</tr>
+<tr>
+<td>Points Earned</td>
+<td>500</td>
+<td>Team contribution</td>
+</tr>
+</tbody>
+</table>
+<p><em>Created: 19-01-2025 • Last Modified: 19-01-2025</em>
+<em>Author: mH4ck3r0n3 • Team: Team Aetruria</em></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 05/02/2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2025/02/05/focus.-speed.-i-am-speed./index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" data-title="Focus. Speed. I Am Speed." data-hashtags="NoSQL Injection,Race Condition,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" data-hashtag="NoSQL Injection"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" data-title="Focus. Speed. I Am Speed." data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" data-title="Focus. Speed. I Am Speed."><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" data-title="Focus. Speed. I Am Speed."><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./" data-title="Focus. Speed. I Am Speed."><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/nosql-injection/">NoSQL Injection</a>,&nbsp;<a href="/tags/race-condition/">Race Condition</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+
+    <div class="post-nav"><a href="/posts/2025/02/05/ben-10/" class="prev" rel="prev" title="Ben 10"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Ben 10</a></div>
+</div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"srdnlen{6peed_1s_My_0nly_Competition}","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-597RCC8B41', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-597RCC8B41" async></script></body>
+</html>
