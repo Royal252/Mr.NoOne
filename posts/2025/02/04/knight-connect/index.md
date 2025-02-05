@@ -27,7 +27,7 @@
 
 >### Provided Files
 >Files: 
->- [:(far fa-file-archive fa-fw): Attached Files](/resources/KnightCTF-2025/Knight-Connect/KnightConnect_Source.zip)
+>- [:(far fa-file-archive fa-fw): Attached Files](https://drive.google.com/file/d/1iLwO18f_zTzdXGvbmkw0WWIhV6GImVtL/view?usp=drive_link)
 
 
 ## 🔍 Initial Analysis

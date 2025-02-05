@@ -43,7 +43,7 @@ I also created a fully automated exploit that performs the entire process descri
 
 ```bash
 ngrok http 8080
-(set the ngrok url in the request.py file)
+# (set the ngrok url in the request.py file)
 python exploit.py
 python request.py
 ```
