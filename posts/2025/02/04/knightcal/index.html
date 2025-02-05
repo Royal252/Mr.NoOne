@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>KnightCal - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+        <title>🌐 KnightCal - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <meta name="Description" content="A detailed write-up of the Web challenge &#39;KnightCal&#39; from KnightCTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/">
   <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
-  <meta property="og:title" content="KnightCal">
+  <meta property="og:title" content="🌐 KnightCal">
   <meta property="og:description" content="A detailed write-up of the Web challenge &#39;KnightCal&#39; from KnightCTF - 2025">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -19,7 +19,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
-  <meta name="twitter:title" content="KnightCal">
+  <meta name="twitter:title" content="🌐 KnightCal">
   <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;KnightCal&#39; from KnightCTF - 2025">
 <meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -30,12 +30,12 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "KnightCal",
+        "headline": "🌐 KnightCal",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/04\/knightcal\/"
-        },"genre": "posts","keywords": "🌐 Web Security","wordcount":  336 ,
+        },"genre": "posts","keywords": "🌐 Web Security","wordcount":  334 ,
         "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/04\/knightcal\/","datePublished": "2025-02-04T16:16:43+01:00","dateModified": "2025-02-04T16:16:43+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -44,7 +44,7 @@
             },"description": "A detailed write-up of the Web challenge 'KnightCal' from KnightCTF - 2025"
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -107,11 +107,11 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">KnightCal</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;KnightCal&#39; from KnightCTF - 2025</h2><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 KnightCal</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;KnightCal&#39; from KnightCTF - 2025</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/knightctf-2025/web/">
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web
                                 </a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="04/02/2025">04/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;336 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="04/02/2025">04/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;334 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -120,9 +120,8 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#-knightcal">🌐 KnightCal</a>
+    <li><a href="#-challenge-overview">📊 Challenge Overview</a>
       <ul>
-        <li><a href="#-challenge-overview">📊 Challenge Overview</a></li>
         <li><a href="#-challenge-information">📝 Challenge Information</a></li>
         <li><a href="#-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</a>
           <ul>
@@ -166,8 +165,7 @@
     <li><a href="#-final-statistics">📊 Final Statistics</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="-knightcal">🌐 KnightCal</h1>
-<p><figure><a class="lightgallery" href="/images/KnightCTF-2025/KnightCal/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/KnightCTF-2025/KnightCal/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images/KnightCTF-2025/KnightCal/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/KnightCTF-2025/KnightCal/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -177,7 +175,7 @@
             alt="/images/KnightCTF-2025/KnightCal/challenge_presentation.png" />
     </a><figcaption class="image-caption">Challenge Presentation</figcaption>
     </figure></p>
-<h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<h1 id="-challenge-overview">📊 Challenge Overview</h1>
 <blockquote>
 <table>
 <thead>
@@ -404,7 +402,8 @@
 </tbody>
 </table>
 <p><em>Created: 20-01-2025 • Last Modified: 20-01-2025</em>
-<em>Author: mH4ck3r0n3 • Team: QnQSec</em></p></div><div class="post-footer" id="post-footer">
+<em>Author: mH4ck3r0n3 • Team: QnQSec</em></p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -415,7 +414,7 @@
                             <a class="link-to-markdown" href="/posts/2025/02/04/knightcal/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="KnightCal" data-hashtags="🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-hashtag="🌐 Web Security"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="KnightCal" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="KnightCal"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="KnightCal"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="KnightCal"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="🌐 KnightCal" data-hashtags="🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-hashtag="🌐 Web Security"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="🌐 KnightCal" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="🌐 KnightCal"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="🌐 KnightCal"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/04/knightcal/" data-title="🌐 KnightCal"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -428,8 +427,8 @@
     </div>
 
 
-    <div class="post-nav"><a href="/posts/2025/02/04/knight-connect/" class="prev" rel="prev" title="Knight Connect"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Knight Connect</a>
-        <a href="/posts/2025/02/05/ben-10/" class="next" rel="next" title="Ben 10">Ben 10<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/2025/02/04/knight-connect/" class="prev" rel="prev" title="🌐 Knight Connect"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Knight Connect</a>
+        <a href="/posts/2025/02/05/ben-10/" class="next" rel="next" title="🌐 Ben 10">🌐 Ben 10<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>

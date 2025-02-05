@@ -1,13 +1,10 @@
 
-# Focus. Speed. I Am Speed.
-
-
-<!--more-->
 # 🌐 Focus. Speed. I Am Speed.
+
 
 ![Challenge Presentation](/images/SrdnlenCTF-2025/FocusSpeed/challenge_presentation.png "Challenge Presentation")
 
-## 📊 Challenge Overview
+# 📊 Challenge Overview
 >
 >| Category | Details | Additional Info |
 >|----------|---------|-----------------|
@@ -113,7 +110,7 @@
 # 🎯 Solution Path
 ## Exploitation Steps
 ### Initial setup
-> After understanding the vulnerabilities we are dealing with, I did a couple of searches on the internet to exploit the `NoSQL Injection`, as for the `Race Condition`, it's enough to create an exploit script in `Python` with `multithreading` to send multiple requests simultaneously. Through `PayloadAllTheThings`, I searched for `NoSQL payloads` https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md. I tried the following payload: `http://speed.challs.srdnlen.it:8082/redeem?discountCode[$ne]=test`, where `$ne` stands for `not equal`. What could happen with this in the following portion of the code, which was also mentioned earlier?
+> After understanding the vulnerabilities we are dealing with, I did a couple of searches on the internet to exploit the `NoSQL Injection`, as for the `Race Condition`, it's enough to create an exploit script in `Python` with `multithreading` to send multiple requests concurrently. Through `PayloadAllTheThings`, I searched for `NoSQL payloads` https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/README.md. I tried the following payload: `http://speed.challs.srdnlen.it:8082/redeem?discountCode[$ne]=test`, where `$ne` stands for `not equal`. What could happen with this in the following portion of the code, which was also mentioned earlier?
 > 
 >```js
 >   const existingCode = await DiscountCodes.findOne({ discountCode: code.discountCode });
@@ -130,7 +127,7 @@
 
 # 🛠️ Exploitation Process
 ## Approach
-> The Python exploit utilizes `requests`, `bs4`, and finally, `multithreading` to leverage the `Race Condition`. I create a pool of `20 threads` that run simultaneously after a registration phase and account creation using the `Faker` library, which generates random `fake credentials`. Once that's done, I take advantage of the `NoSQL Injection` for all the threads by visiting the `/redeem?discountCode[$ne]=test` route, which will redeem a code and add a total of 20 points to the account balance each time, taking advantage of the `one-and-a-half-second timeout`. Once all of that is done, I visit the root (`/`) of the site where the flag is displayed (as shown in the image above), and then I extract it using `BeautifulSoup` and print it out.
+> The Python exploit utilizes `requests`, `bs4`, and finally, `multithreading` to leverage the `Race Condition`. I create a pool of `20 threads` that run concurrently after a registration phase and account creation using the `Faker` library, which generates random `fake credentials`. Once that's done, I take advantage of the `NoSQL Injection` for all the threads by visiting the `/redeem?discountCode[$ne]=test` route, which will redeem a code and add a total of 20 points to the account balance each time, taking advantage of the `one-and-a-half-second timeout`. Once all of that is done, I visit the root (`/`) of the site where the flag is displayed (as shown in the image above), and then I extract it using `BeautifulSoup` and print it out.
 > 
 > - [:(far fa-file-archive fa-fw): Exploit](/resources/SrdnlenCTF-2025/FocusSpeed/exploit.py)
 

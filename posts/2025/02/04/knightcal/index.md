@@ -1,12 +1,10 @@
 
-# KnightCal
-
-<!--more-->
 # 🌐 KnightCal
+
 
 ![Challenge Presentation](/images/KnightCTF-2025/KnightCal/challenge_presentation.png "Challenge Presentation")
 
-## 📊 Challenge Overview
+# 📊 Challenge Overview
 >
 >| Category | Details | Additional Info |
 >|----------|---------|-----------------|

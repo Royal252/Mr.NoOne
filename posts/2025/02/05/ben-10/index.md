@@ -1,13 +1,10 @@
 
-# Ben 10
-
-
-<!--more-->
 # 🌐 Ben 10
+
 
 ![Challenge Presentation](/images/SrdnlenCTF-2025/Ben-10/challenge_presentation.png "Challenge Presentation")
 
-## 📊 Challenge Overview
+# 📊 Challenge Overview
 >
 >| Category | Details | Additional Info |
 >|----------|---------|-----------------|
