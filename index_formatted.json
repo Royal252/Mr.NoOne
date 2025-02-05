@@ -4,6 +4,312 @@
       "action": "updateObject",
       "body": {
         "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "A detailed write-up of the Web challenge 'Ben 10' from SrdnlenCTF - 2025",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83c\udf10 Ben 10 Challenge Presentation ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:0:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event SrdlenCTF - 2025 Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 50 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 3/10 \ud83d\udc64 Author gheddus Profile \ud83c\udfae Solves 354 XX% solve rate \ud83d\udcc5 Date 19-01-2025 SrdlenCTF - 2025 Day X \ud83e\uddbe Solved By mH4ck3r0n3 Team: Team Aetruria ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:1:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information Ben Tennyson\u2019s Omnitrix holds a mysterious and powerful form called Materia Grigia \u2014 a creature that only those with the sharpest minds can access. It\u2019s hidden deep within the system, waiting for someone clever enough to unlock it. Only the smartest can access what\u2019s truly hidden. Can you outsmart the system and reveal the flag? Website: http://ben10.challs.srdnlen.it:8080 ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:2:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:3:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Provided Files Files: \u00a0Attached Files ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:3:1",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udd0d Initial Analysis ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:4:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: Site Presentation Creating an account and logging into the site, it appears as follows: Home Page Trying to access the last image of the site, I receive the following error message: Ben 10 Consequently, I believe privileged access to the page is required. By examining the attached files, I noticed that every time a user was registered, another account was created in the database with admin privileges. The username of this account was formatted as \u201cadmin^username^token\u201d. This can be observed in the following function in the app.py file: @app.route('/register', methods=['GET', 'POST']) def register(): \"\"\"Handle user registration.\"\"\" if request.method == 'POST': username = request.form['username'] password = request.form['password'] if username.startswith('admin') or '^' in username: flash(\"I don't like admins\", \"error\") return render_template('register.html') if not username or not password: flash(\"Both fields are required.\", \"error\") return render_template('register.html') admin_username = f\"admin^{username}^{secrets.token_hex(5)}\" admin_password = secrets.token_hex(8) try: conn = sqlite3.connect(DATABASE) cursor = conn.cursor() cursor.execute(\"INSERT INTO users (username, password, admin_username) VALUES (?, ?, ?)\", (username, password, admin_username)) cursor.execute(\"INSERT INTO users (username, password, admin_username) VALUES (?, ?, ?)\", (admin_username, admin_password, None)) conn.commit() except sqlite3.IntegrityError: flash(\"Username already exists!\", \"error\") return render_template('register.html') finally: conn.close() flash(\"Registration successful!\", \"success\") return redirect(url_for('login')) return render_template('register.html') Now, all we need is to find the user and exploit the password reset function for the admin user to gain access and extract the flag. I noticed that the admin username is exposed on the homepage after logging in, inside an HTML tag with CSS display:none, making it visible through the page source using ChromeDevTools: <div style=\"display:none;\" id=\"admin_data\">{{ admin_username }}</div> In fact, by viewing the page source, we can retrieve the admin username: Admin Username now we can proceed to the exploit. ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:4:1",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Solution Path ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:5:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Exploitation Steps Initial setup The initial phase involves registering a user account. Afterward, we need to log in and retrieve the username of the admin account that was created alongside the user account. This admin username is displayed on the homepage, as mentioned earlier. Once we have obtained the username, we can move on to the actual exploit. Exploitation The exploit involves resetting the password of the admin account to gain access. However, on the reset screen, we can only reset the password of the user account because a check is implemented in the reset function to block any user whose username starts with admin. Therefore, we begin the reset process with the normal user account created earlier to generate a valid reset token: Reset Token Once the token is generated, we gain access to the reset page. Here, no checks are applied on the type of account we want to reset; we only need to know the account name we obtained in the initial phase. Therefore, we proceed to reset the password of the admin account associated with our user account: Admin Password Reset Once the reset is completed, we simply need to log in with the admin account whose password we just reset, and visit the route /ben/10, which is the last photo in the list, to obtain the flag. Flag capture Manual Flag ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:5:1",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:6:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Approach The exploit uses requests and BeautifulSoup for extracting the user, the token, and the flag. It literally performs the step-by-step actions described previously: first, it creates an account using the Faker library to generate fake credentials. Then, it logs in and extracts the admin username associated with the user created earlier. After that, it resets the password for the admin user. Finally, after logging in again and visiting the /ben/10 route, it extracts the flag using BeautifulSoup (bs4) and prints it. \u00a0Exploit ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:6:1",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udea9 Flag Capture Flag ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:7:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Proof of Execution Automated Flag Screenshot of successful exploitation ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:7:1",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udd27 Tools Used ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:8:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "Primary Tools Tool Purpose Python Exploit ChromeDevTools Web Testing ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:8:1",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udca1 Key Learnings Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:9:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/SrdnlenCTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:10 From start to flag Global Ranking 20/1566 Challenge ranking Points Earned 500 Team contribution Created: 19-01-2025 \u2022 Last Modified: 19-01-2025 Author: mH4ck3r0n3 \u2022 Team: Team Aetruria ",
+        "date": "05/02/2025",
+        "objectID": "/posts/2025/02/05/ben-10/:10:0",
+        "tags": [
+          "Broken Access Control",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "Ben 10",
+        "uri": "/posts/2025/02/05/ben-10/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
           "Ethical Hacking/CTFs/Jeopardy/KnightCTF-2025/Web"
         ],
         "content": "A detailed write-up of the Web challenge 'KnightCal' from KnightCTF - 2025",
