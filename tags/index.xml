@@ -3,11 +3,12 @@
         <title>Tags - Tag - mH4ck3r0n3&#39;s Blog</title>
         <link>https://mh4ck3r0n3.github.io/tags/</link>
         <description>Tags - Tag - mH4ck3r0n3&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
     <title>⚡ Race Condition</title>
     <link>https://mh4ck3r0n3.github.io/tags/race-condition/</link>
     <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/race-condition/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -15,7 +16,7 @@
     <title>🌐 Web Security</title>
     <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
     <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -23,7 +24,7 @@
     <title>💉 NoSQL Injection</title>
     <link>https://mh4ck3r0n3.github.io/tags/nosql-injection/</link>
     <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/nosql-injection/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -31,7 +32,7 @@
     <title>🚫 Broken Access Control</title>
     <link>https://mh4ck3r0n3.github.io/tags/broken-access-control/</link>
     <pubDate>Wed, 05 Feb 2025 10:16:15 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/broken-access-control/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -39,7 +40,7 @@
     <title>💻 Laravel</title>
     <link>https://mh4ck3r0n3.github.io/tags/laravel/</link>
     <pubDate>Tue, 04 Feb 2025 11:42:32 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/laravel/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -47,7 +48,7 @@
     <title>🔐 Insecure Authentication</title>
     <link>https://mh4ck3r0n3.github.io/tags/insecure-authentication/</link>
     <pubDate>Tue, 04 Feb 2025 11:42:32 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/insecure-authentication/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -55,7 +56,7 @@
     <title>Improper Error Handling</title>
     <link>https://mh4ck3r0n3.github.io/tags/improper-error-handling/</link>
     <pubDate>Tue, 04 Feb 2025 11:20:22 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/improper-error-handling/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -63,7 +64,7 @@
     <title>Insecure Deserialization</title>
     <link>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</link>
     <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/insecure-deserialization/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -71,7 +72,7 @@
     <title>YAML Insecure Deserialization</title>
     <link>https://mh4ck3r0n3.github.io/tags/yaml-insecure-deserialization/</link>
     <pubDate>Tue, 04 Feb 2025 11:00:45 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/yaml-insecure-deserialization/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -79,7 +80,7 @@
     <title>👤​ About Me</title>
     <link>https://mh4ck3r0n3.github.io/tags/about-me/</link>
     <pubDate>Mon, 03 Feb 2025 12:35:19 &#43;0100</pubDate>
-    <author>Author</author>
+    <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/about-me/</guid>
     <description><![CDATA[]]></description>
 </item>
