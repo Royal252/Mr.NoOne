@@ -10,7 +10,7 @@
 >|----------|---------|-----------------|
 >| 🏆 Event | x3CTF - 2025 | [Event Link](https://x3c.tf/#challenges) |
 >| 🔰 Category | Web | 🌐 |
->| 💎 Points | 500 | Out of XXXX total |
+>| 💎 Points | 500 | Out of 500 total |
 >| ⭐ Difficulty | 🟢 Easy | Personal Rating: 4/10 |
 >| 👤 Author | rebane2001 | [Profile]() |
 >| 🎮 Solves (At the time of flag submission)| 16 | XX% solve rate |

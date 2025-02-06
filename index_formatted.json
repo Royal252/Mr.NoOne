@@ -40,7 +40,7 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
         ],
-        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event x3CTF - 2025 Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of XXXX total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 4/10 \ud83d\udc64 Author rebane2001 Profile \ud83c\udfae Solves (At the time of flag submission) 16 XX% solve rate \ud83d\udcc5 Date 24-01-2025 x3CTF - 2025 Day X \ud83e\uddbe Solved By xtea418 Team: QnQSec ",
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event x3CTF - 2025 Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 4/10 \ud83d\udc64 Author rebane2001 Profile \ud83c\udfae Solves (At the time of flag submission) 16 XX% solve rate \ud83d\udcc5 Date 24-01-2025 x3CTF - 2025 Day X \ud83e\uddbe Solved By xtea418 Team: QnQSec ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:1:0",
         "tags": [
@@ -2315,7 +2315,7 @@
         "tags": [
           "\ud83d\udc64\u200b About Me"
         ],
-        "title": "About Me",
+        "title": "\ud83d\udc64 About Me",
         "uri": "/about/"
       }
     },
@@ -2331,7 +2331,7 @@
         "tags": [
           "\ud83d\udc64\u200b About Me"
         ],
-        "title": "About Me",
+        "title": "\ud83d\udc64 About Me",
         "uri": "/about/"
       }
     },
@@ -2347,7 +2347,7 @@
         "tags": [
           "\ud83d\udc64\u200b About Me"
         ],
-        "title": "About Me",
+        "title": "\ud83d\udc64 About Me",
         "uri": "/about/"
       }
     },
@@ -2363,7 +2363,7 @@
         "tags": [
           "\ud83d\udc64\u200b About Me"
         ],
-        "title": "About Me",
+        "title": "\ud83d\udc64 About Me",
         "uri": "/about/"
       }
     },
@@ -2379,7 +2379,7 @@
         "tags": [
           "\ud83d\udc64\u200b About Me"
         ],
-        "title": "About Me",
+        "title": "\ud83d\udc64 About Me",
         "uri": "/about/"
       }
     }
