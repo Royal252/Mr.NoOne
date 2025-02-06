@@ -21,6 +21,14 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>⚠️ CVE</title>
+    <link>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve/</link>
+    <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>⚠️ CVE-2021-44228 (Log4Shell)</title>
     <link>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve-2021-44228-log4shell/</link>
     <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
@@ -74,14 +82,6 @@
     <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/nosql-injection/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>🚫 Broken Access Control</title>
-    <link>https://mh4ck3r0n3.github.io/tags/broken-access-control/</link>
-    <pubDate>Wed, 05 Feb 2025 10:16:15 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/broken-access-control/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

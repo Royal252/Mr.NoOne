@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>⚠️ CVE - Tag - mH4ck3r0n3&#39;s Blog</title>
+        <link>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve/</link>
+        <description>⚠️ CVE - Tag - mH4ck3r0n3&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve/" rel="self" type="application/rss+xml" /><item>
+    <title>🌐 Sparkling Sky</title>
+    <link>https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/</link>
+    <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/</guid>
+    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Sparkling Sky&rsquo; from SrdnlenCTF - 2025]]></description>
+</item>
+</channel>
+</rss>
