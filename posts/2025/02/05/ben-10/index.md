@@ -13,7 +13,7 @@
 >| 💎 Points | 50 | Out of 500 total |
 >| ⭐ Difficulty | 🟢 Easy | Personal Rating: 3/10 |
 >| 👤 Author | gheddus | [Profile]() |
->| 🎮 Solves | 354 | XX% solve rate |
+>| 🎮 Solves (At the time of flag submission)| 354 | XX% solve rate |
 >| 📅 Date | 19-01-2025 | SrdlenCTF - 2025 Day X |
 >| 🦾 Solved By | mH4ck3r0n3 | Team: Team Aetruria |
 
@@ -170,7 +170,7 @@ srdnlen{b3n_l0v3s_br0k3n_4cc355_c0ntr0l_vulns}
 | Metric | Value | Notes |
 |--------|--------|-------|
 | Time to Solve | 00:10 | From start to flag |
-| Global Ranking | 20/1566 | Challenge ranking |
+| Global Ranking (At the time of flag submission)| 20/1566 | Challenge ranking |
 | Points Earned | 500 | Team contribution |
 
 *Created: 19-01-2025 • Last Modified: 19-01-2025*

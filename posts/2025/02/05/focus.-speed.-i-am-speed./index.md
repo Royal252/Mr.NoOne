@@ -13,7 +13,7 @@
 >| 💎 Points | 50 | Out of 500 total |
 >| ⭐ Difficulty | 🟢 Easy | Personal Rating: 3/10 |
 >| 👤 Author | Octaviusss | [Profile]() |
->| 🎮 Solves | 189 | XX% solve rate |
+>| 🎮 Solves (At the time of flag submission)| 189 | XX% solve rate |
 >| 📅 Date | 19-01-2025 | SrdlenCTF - 2025 Day X |
 >| 🦾 Solved By | aquila2 | Team: Team Aetruria |
 
@@ -176,7 +176,7 @@ srdnlen{6peed_1s_My_0nly_Competition}
 | Metric | Value | Notes |
 |--------|--------|-------|
 | Time to Solve | 00:15 | From start to flag |
-| Global Ranking | 26/1577 | Challenge ranking |
+| Global Ranking (At the time of flag submission)| 26/1577 | Challenge ranking |
 | Points Earned | 500 | Team contribution |
 
 *Created: 19-01-2025 • Last Modified: 19-01-2025*

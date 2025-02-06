@@ -13,7 +13,7 @@
 >| 💎 Points | 500 | Out of XXXX total |
 >| ⭐ Difficulty | 🟡 Medium | Personal Rating: 5/10 |
 >| 👤 Author | sanmatte | [Profile]() |
->| 🎮 Solves | 49 | XX% solve rate |
+>| 🎮 Solves (At the time of flag submission) | 49 | XX% solve rate |
 >| 📅 Date | 19-01-2025 | SrdnlenCTF - 2025 Day X |
 >| 🦾 Solved By | devgianlu | Team: Team Aetruria |
 
@@ -27,7 +27,7 @@
 ## 🎯 Challenge Files & Infrastructure
 
 ### Provided Files
->Files: None
+>Files:
 >- [:(far fa-file-archive fa-fw): Attached Files](https://drive.google.com/file/d/1cyxG-664HNH09s_-QHxbwPqf7kNqJ2t4/view?usp=drive_link)
 
 # 🔍 Initial Analysis
@@ -175,7 +175,7 @@
 srdnlen{I_th1nk_h3_r34lly_m3ss3d_up}
 {{< /typeit >}}
 >{{< /admonition >}}
-
+>
 # 🔧 Tools Used
 >| Tool | Purpose |
 >|------|---------|
@@ -220,7 +220,7 @@ srdnlen{I_th1nk_h3_r34lly_m3ss3d_up}
 | Metric | Value | Notes |
 |--------|--------|-------|
 | Time to Solve | 00:44 | From start to flag |
-| Global Ranking | 26/1577 | Challenge ranking |
+| Global Ranking (At the time of flag submission) | 26/1577 | Challenge ranking |
 | Points Earned | 500 | Team contribution |
 
 *Created: 19-01-2025 • Last Modified: 19-01-2025*

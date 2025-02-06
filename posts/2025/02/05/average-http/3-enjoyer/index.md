@@ -13,7 +13,7 @@
 >| 💎 Points | 405 | Out of 500 total |
 >| ⭐ Difficulty | 🟡 Medium | Personal Rating: 3/10 |
 >| 👤 Author | pysu | [Profile]() |
->| 🎮 Solves | 23 | XX% solve rate |
+>| 🎮 Solves (At the time of flag submission)| 23 | XX% solve rate |
 >| 📅 Date | 19-01-2025 | SrdlenCTF - 2025 Day X |
 >| 🦾 Solved By | aquila2 | Team: Team Aetruria |
 
@@ -121,7 +121,7 @@ srdnlen{you_found_the_:path_for_becoming_a_real_http3_enjoyer}
 | Metric | Value | Notes |
 |--------|--------|-------|
 | Time to Solve | 00:30 | From start to flag |
-| Global Ranking | 22/1572 | Challenge ranking |
+| Global Ranking (At the time of flag submission)| 22/1572 | Challenge ranking |
 | Points Earned | 405 | Team contribution |
 
 *Created: 19-01-2025 • Last Modified: 19-01-2025*

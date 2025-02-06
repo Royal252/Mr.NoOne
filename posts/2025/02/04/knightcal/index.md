@@ -13,7 +13,7 @@
 >| 💎 Points | 150 | Out of XXXX total |
 >| ⭐ Difficulty | 🟢 Easy | Personal Rating: 1/10 |
 >| 👤 Author | NomanProdhan | [Profile]() |
->| 🎮 Solves | 269 | XX% solve rate |
+>| 🎮 Solves (At the time of flag submission)| 269 | XX% solve rate |
 >| 📅 Date | 20-01-2025 | KnightCTF - 2025 Day X |
 >| 🦾 Solved By | mH4ck3r0n3 | Team: QnQSec |
 
@@ -100,7 +100,7 @@ KCTF{_c0ngR4t5_KNIGHT_f1naLLy_Y0U_g07_tH3_r1gh7_m4tH_}
 | Metric | Value | Notes |
 |--------|--------|-------|
 | Time to Solve | 00:04 | From start to flag |
-| Global Ranking | 9/445 | Challenge ranking |
+| Global Ranking (At the time of flag submission)| 9/445 | Challenge ranking |
 | Points Earned | 150 | Team contribution |
 
 *Created: 20-01-2025 • Last Modified: 20-01-2025*
