@@ -5,21 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>🌐 Submission - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<meta name="Description" content="A detailed write-up of the Web challenge &#39;Submission&#39; from SrdnlenCTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/">
+<meta name="Description" content="A detailed write-up of the Web challenge &#39;Submission&#39; from x3CTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/">
   <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
   <meta property="og:title" content="🌐 Submission">
-  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Submission&#39; from SrdnlenCTF - 2025">
+  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Submission&#39; from x3CTF - 2025">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-02-06T17:13:57+01:00">
-    <meta property="article:modified_time" content="2025-02-06T17:13:57+01:00">
+    <meta property="article:published_time" content="2025-02-06T15:31:11+01:00">
+    <meta property="article:modified_time" content="2025-02-06T15:31:11+01:00">
+    <meta property="article:tag" content="🔐 Insecure File Permission">
+    <meta property="article:tag" content="🌐 Web Security">
     <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
   <meta name="twitter:title" content="🌐 Submission">
-  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Submission&#39; from SrdnlenCTF - 2025">
+  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Submission&#39; from x3CTF - 2025">
 <meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -34,13 +36,13 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/06\/submission\/"
-        },"genre": "posts","wordcount":  93 ,
-        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/06\/submission\/","datePublished": "2025-02-06T17:13:57+01:00","dateModified": "2025-02-06T17:13:57+01:00","publisher": {
+        },"genre": "posts","keywords": "🔐 Insecure File Permission, 🌐 Web Security","wordcount":  1011 ,
+        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/06\/submission\/","datePublished": "2025-02-06T15:31:11+01:00","dateModified": "2025-02-06T15:31:11+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "mH4ck3r0n3"
-            },"description": "A detailed write-up of the Web challenge 'Submission' from SrdnlenCTF - 2025"
+            },"description": "A detailed write-up of the Web challenge 'Submission' from x3CTF - 2025"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -106,10 +108,12 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Submission</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Submission&#39; from SrdnlenCTF - 2025</h2><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="06/02/2025">06/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;93 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Submission</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Submission&#39; from x3CTF - 2025</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/x3ctf-2025/web/">
+                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/X3CTF-2025/Web
+                                </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="06/02/2025">06/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1011 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -163,90 +167,248 @@
     <li><a href="#-key-learnings">💡 Key Learnings</a>
       <ul>
         <li><a href="#new-knowledge">New Knowledge</a></li>
-        <li><a href="#time-optimization">Time Optimization</a></li>
         <li><a href="#skills-improved">Skills Improved</a></li>
+      </ul>
+    </li>
+    <li><a href="#-references--resources">📚 References &amp; Resources</a>
+      <ul>
+        <li><a href="#learning-resources">Learning Resources</a></li>
       </ul>
     </li>
     <li><a href="#-final-statistics">📊 Final Statistics</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images//challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images//challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images/x3CTF-2025/Submission/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/x3CTF-2025/Submission/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images//challenge_presentation.png"
-            data-srcset="/images//challenge_presentation.png, /images//challenge_presentation.png 1.5x, /images//challenge_presentation.png 2x"
+            data-src="/images/x3CTF-2025/Submission/challenge_presentation.png"
+            data-srcset="/images/x3CTF-2025/Submission/challenge_presentation.png, /images/x3CTF-2025/Submission/challenge_presentation.png 1.5x, /images/x3CTF-2025/Submission/challenge_presentation.png 2x"
             data-sizes="auto"
-            alt="/images//challenge_presentation.png" />
+            alt="/images/x3CTF-2025/Submission/challenge_presentation.png" />
     </a><figcaption class="image-caption">Challenge Presentation</figcaption>
     </figure></p>
 <h2 id="-challenge-overview">📊 Challenge Overview</h2>
 <blockquote>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Details</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏆 Event</td>
+<td>x3CTF - 2025</td>
+<td><a href="https://x3c.tf/#challenges" target="_blank" rel="noopener noreffer ">Event Link</a></td>
+</tr>
+<tr>
+<td>🔰 Category</td>
+<td>Web</td>
+<td>🌐</td>
+</tr>
+<tr>
+<td>💎 Points</td>
+<td>500</td>
+<td>Out of XXXX total</td>
+</tr>
+<tr>
+<td>⭐ Difficulty</td>
+<td>🟢 Easy</td>
+<td>Personal Rating: 4/10</td>
+</tr>
+<tr>
+<td>👤 Author</td>
+<td>rebane2001</td>
+<td><a href="" rel="">Profile</a></td>
+</tr>
+<tr>
+<td>🎮 Solves (At the time of flag submission)</td>
+<td>16</td>
+<td>XX% solve rate</td>
+</tr>
+<tr>
+<td>📅 Date</td>
+<td>24-01-2025</td>
+<td>x3CTF - 2025 Day X</td>
+</tr>
+<tr>
+<td>🦾 Solved By</td>
+<td>xtea418</td>
+<td>Team: QnQSec</td>
+</tr>
+</tbody>
+</table>
 </blockquote>
 <h2 id="-challenge-information">📝 Challenge Information</h2>
+<blockquote>
+<p>Could you help us out?</p>
+</blockquote>
 <h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
 <h3 id="provided-files">Provided Files</h3>
 <blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Files</span><span class="p">:</span><span class="w"> </span><span class="l">None</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li><a href="google_drive_link" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Attached Files</a></li>
+<p>Files:</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1aw7MNHPH6ZjCBtw2QnK85svjPfHpe6pF/view?usp=drive_link" target="_blank" rel="noopener noreffer "><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Attached Files</a></li>
 </ul>
 </blockquote>
 <h1 id="-initial-analysis">🔍 Initial Analysis</h1>
 <h2 id="first-steps">First Steps</h2>
 <blockquote>
 <p>Initially, the website appears as follows:</p>
-<p><figure><a class="lightgallery" href="/images//site_presentation.png" title="Site Presentation" data-thumbnail="/images//site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
+<p><figure><a class="lightgallery" href="/images/x3CTF-2025/Submission/site_presentation.png" title="Site Presentation" data-thumbnail="/images/x3CTF-2025/Submission/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images//site_presentation.png"
-            data-srcset="/images//site_presentation.png, /images//site_presentation.png 1.5x, /images//site_presentation.png 2x"
+            data-src="/images/x3CTF-2025/Submission/site_presentation.png"
+            data-srcset="/images/x3CTF-2025/Submission/site_presentation.png, /images/x3CTF-2025/Submission/site_presentation.png 1.5x, /images/x3CTF-2025/Submission/site_presentation.png 2x"
             data-sizes="auto"
-            alt="/images//site_presentation.png" />
+            alt="/images/x3CTF-2025/Submission/site_presentation.png" />
     </a><figcaption class="image-caption">Site Presentation</figcaption>
     </figure></p>
+<p>There is a file upload section where only <code>.txt</code> files can be uploaded. Reading the attached files, there was only a PHP file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$uploadOk</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$target_dir</span> <span class="o">=</span> <span class="s2">&#34;/var/www/html/uploads/&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$target_file</span> <span class="o">=</span> <span class="nv">$target_dir</span> <span class="o">.</span> <span class="nx">basename</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">][</span><span class="s2">&#34;name&#34;</span><span class="p">]);</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">file_exists</span><span class="p">(</span><span class="nv">$target_file</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">echo</span> <span class="s2">&#34;Sorry, file already exists.&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$uploadOk</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">][</span><span class="s2">&#34;size&#34;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50000</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">echo</span> <span class="s2">&#34;Sorry, your file is too large you need to buy Nitro.&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$uploadOk</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">str_ends_with</span><span class="p">(</span><span class="nv">$target_file</span><span class="p">,</span> <span class="s1">&#39;.txt&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">echo</span> <span class="s2">&#34;Due to exploit you can only upload files with .txt extensions sorry about this but we got hacked last time so we have to check this from now on.&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$uploadOk</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Check if $uploadOk is set to 0 by an error
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nv">$uploadOk</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">echo</span> <span class="s2">&#34;Sorry, your file was not uploaded.&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// if everything is ok, try to upload file
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">][</span><span class="s2">&#34;tmp_name&#34;</span><span class="p">],</span> <span class="nv">$target_file</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="s2">&#34;The file &#34;</span><span class="o">.</span> <span class="nx">htmlspecialchars</span><span class="p">(</span> <span class="nx">basename</span><span class="p">(</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">][</span><span class="s2">&#34;name&#34;</span><span class="p">]))</span><span class="o">.</span> <span class="s2">&#34; has been uploaded.&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="s2">&#34;Sorry, there was an error uploading your file.&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$old_path</span> <span class="o">=</span> <span class="nx">getcwd</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">chdir</span><span class="p">(</span><span class="nv">$target_dir</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// make unreadable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">shell_exec</span><span class="p">(</span><span class="s1">&#39;chmod 000 *&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">chdir</span><span class="p">(</span><span class="nv">$old_path</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see, the files are uploaded to the <code>/uploads</code> folder, followed by various checks, including one on the file size and another on the extension, which must always end with <code>.txt</code>. Initially, I thought of uploading a malicious PHP file to read <code>flag.txt</code>, which was located under the <code>uploads</code> folder, since trying to access <code>/uploads/flag.txt</code> returned <code>403 Forbidden</code>. I attempted to bypass the extension check with a null byte, using <code>exploit.php%00.txt</code>, but it didn’t work. Searching online, I found another type of attack that allowed command execution through the <code>.htaccess</code> file. Interestingly, when I tried uploading a file starting with <code>.</code>, I was able to read it using the <code>/uploads/filename</code> route (but I quickly realized why). As we can see, a <code>chmod 000 *</code> command is executed right after the upload, setting all permissions to null for every file in the <code>uploads</code> folder. This was why accessing files through the browser returned <code>403 Forbidden</code>. It is also the reason why I was able to read the files I uploaded with a <code>.</code> at the beginning of the name. The <code>chmod ... *</code> command affects all visible files but doesn’t include hidden files (those starting with <code>.</code> or special characters, such as <code>-</code>). Since their permissions weren’t nullified, I could still access them. From there, I did some research to better understand how <code>chmod</code> works and realized it was an issue of insecure file permissions. Now, let&rsquo;s move on to the exploit.</p>
 </blockquote>
 <h2 id="-vulnerability-analysis">🔬 Vulnerability Analysis</h2>
 <h3 id="potential-vulnerabilities">Potential Vulnerabilities</h3>
 <blockquote>
 <ul>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> </li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Insecure File Permission</li>
 </ul>
 </blockquote>
 <h1 id="-solution-path">🎯 Solution Path</h1>
 <h2 id="exploitation-steps">Exploitation Steps</h2>
 <h3 id="initial-setup">Initial setup</h3>
 <blockquote>
+<p>After doing some research, I discovered that there is a specific flag that can be used with the <code>chmod</code> command, <code>--reference=filename file</code>, which allows you to set the permissions of the target file (passed as an argument) to match those of the reference file (like a copy-and-paste of permissions). So, I decided to exploit this flag, given that <code>chmod</code> was being applied to <code>*</code> (a wildcard indicating &ldquo;all&rdquo;). By setting the permissions of all files in the folder, I thought of using this to my advantage.</p>
 </blockquote>
 <h3 id="exploitation">Exploitation</h3>
 <blockquote>
-</blockquote>
-<h3 id="flag-capture">Flag capture</h3>
-<blockquote>
-<p><figure><a class="lightgallery" href="/images//manual_flag.png" title="Manual Flag" data-thumbnail="/images//manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+<p>The exploitation essentially relies on uploading a file named <code>--reference=foo.txt</code>, for example (since there is always an extension check):</p>
+<p><figure><a class="lightgallery" href="/images/x3CTF-2025/Submission/reference.png" title="First Part" data-thumbnail="/images/x3CTF-2025/Submission/reference.png" data-sub-html="<h2>First Part</h2><p>First Part</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images//manual_flag.png"
-            data-srcset="/images//manual_flag.png, /images//manual_flag.png 1.5x, /images//manual_flag.png 2x"
+            data-src="/images/x3CTF-2025/Submission/reference.png"
+            data-srcset="/images/x3CTF-2025/Submission/reference.png, /images/x3CTF-2025/Submission/reference.png 1.5x, /images/x3CTF-2025/Submission/reference.png 2x"
             data-sizes="auto"
-            alt="/images//manual_flag.png" />
+            alt="/images/x3CTF-2025/Submission/reference.png" />
+    </a><figcaption class="image-caption">First Part</figcaption>
+    </figure></p>
+<p>Once the upload is done, <code>chmod</code> is called, and all the permissions are set to null. However, the exploit doesn&rsquo;t stop there. In fact, for the reference flag, you need to specify a file, as we mentioned, <code>foo.txt</code>, so I uploaded that file as well:</p>
+<p><figure><a class="lightgallery" href="/images/x3CTF-2025/Submission/foo_upload.png" title="Second Part" data-thumbnail="/images/x3CTF-2025/Submission/foo_upload.png" data-sub-html="<h2>Second Part</h2><p>Second Part</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/x3CTF-2025/Submission/foo_upload.png"
+            data-srcset="/images/x3CTF-2025/Submission/foo_upload.png, /images/x3CTF-2025/Submission/foo_upload.png 1.5x, /images/x3CTF-2025/Submission/foo_upload.png 2x"
+            data-sizes="auto"
+            alt="/images/x3CTF-2025/Submission/foo_upload.png" />
+    </a><figcaption class="image-caption">Second Part</figcaption>
+    </figure></p>
+<p>Once the file is uploaded, <code>chmod</code> will be executed on all the files, and as soon as it reaches the file <code>--reference=foo.txt</code>, it will treat it as a flag in the execution of the command. This will set the permissions of all files in the folder to match those of the <code>foo.txt</code> file (which, being the last one uploaded, still has active read permissions because <code>chmod</code> hasn’t been executed on it yet). As a result, the read permission for the <code>flag.txt</code> file will also be set, and by accessing the <code>/uploads/flag.txt</code> route, I was able to read the flag.</p>
+</blockquote>
+<h3 id="flag-capture">Flag capture</h3>
+<blockquote>
+<p><figure><a class="lightgallery" href="/images/x3CTF-2025/Submission/manual_flag.png" title="Manual Flag" data-thumbnail="/images/x3CTF-2025/Submission/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/x3CTF-2025/Submission/manual_flag.png"
+            data-srcset="/images/x3CTF-2025/Submission/manual_flag.png, /images/x3CTF-2025/Submission/manual_flag.png 1.5x, /images/x3CTF-2025/Submission/manual_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/x3CTF-2025/Submission/manual_flag.png" />
     </a><figcaption class="image-caption">Manual Flag</figcaption>
     </figure></p>
 </blockquote>
 <h1 id="-exploitation-process">🛠️ Exploitation Process</h1>
 <h2 id="approach">Approach</h2>
 <blockquote>
+<p>The exploit does exactly as described manually: it uses the <code>--reference</code> flag of <code>chmod</code> to apply the permissions of the <code>foo.txt</code> file to all the files, including <code>flag.txt</code>, and then retrieves the flag by accessing the <code>/uploads/flag.txt</code> route.</p>
 <ul>
-<li><a href="/resources//exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
+<li><a href="/resources/x3CTF-2025/Submission/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
 </ul>
 </blockquote>
 <h1 id="-flag-capture">🚩 Flag Capture</h1>
@@ -265,14 +427,14 @@
 </blockquote>
 <h2 id="proof-of-execution">Proof of Execution</h2>
 <blockquote>
-<p><figure><a class="lightgallery" href="/images//automated_flag.png" title="Automated Flag" data-thumbnail="/images//automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
+<p><figure><a class="lightgallery" href="/images/x3CTF-2025/Submission/automated_flag.png" title="Automated Flag" data-thumbnail="/images/x3CTF-2025/Submission/automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images//automated_flag.png"
-            data-srcset="/images//automated_flag.png, /images//automated_flag.png 1.5x, /images//automated_flag.png 2x"
+            data-src="/images/x3CTF-2025/Submission/automated_flag.png"
+            data-srcset="/images/x3CTF-2025/Submission/automated_flag.png, /images/x3CTF-2025/Submission/automated_flag.png 1.5x, /images/x3CTF-2025/Submission/automated_flag.png 2x"
             data-sizes="auto"
-            alt="/images//automated_flag.png" />
+            alt="/images/x3CTF-2025/Submission/automated_flag.png" />
     </a><figcaption class="image-caption">Automated Flag</figcaption>
     </figure>
 <em>Screenshot of successful exploitation</em></p>
@@ -296,10 +458,58 @@
 </blockquote>
 <h1 id="-key-learnings">💡 Key Learnings</h1>
 <h2 id="new-knowledge">New Knowledge</h2>
-<h2 id="time-optimization">Time Optimization</h2>
+<blockquote>
+<p>I learned that <code>chmod</code> ignores hidden files (those named with <code>.something</code> or files starting with <code>-</code>). I also learned that when the <code>--reference=filename file</code> parameter is used, it sets the permissions of the target file to match those of the file specified as the reference.</p>
+</blockquote>
 <h2 id="skills-improved">Skills Improved</h2>
+<blockquote>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Web Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Cryptography</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Forensics</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> OSINT</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
+</ul>
+</blockquote>
+<h1 id="-references--resources">📚 References &amp; Resources</h1>
+<h2 id="learning-resources">Learning Resources</h2>
+<blockquote>
+<ul>
+<li><a href="https://www.tecmint.com/copy-file-permissions-and-ownership-to-another-file-in-linux/" target="_blank" rel="noopener noreffer ">https://www.tecmint.com/copy-file-permissions-and-ownership-to-another-file-in-linux/</a></li>
+</ul>
+</blockquote>
 <hr>
 <h1 id="-final-statistics">📊 Final Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to Solve</td>
+<td>00:20</td>
+<td>From start to flag</td>
+</tr>
+<tr>
+<td>Global Ranking (At the time of flag submission)</td>
+<td>2/975</td>
+<td>Challenge ranking</td>
+</tr>
+<tr>
+<td>Points Earned</td>
+<td>500</td>
+<td>Team contribution</td>
+</tr>
+</tbody>
+</table>
+<p><em>Created: 24-01-2025 • Last Modified: 24-01-2025</em>
+<em>Author: mH4ck3r0n3 • Team: QnQSec</em></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -311,13 +521,13 @@
                             <a class="link-to-markdown" href="/posts/2025/02/06/submission/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission" data-hashtags="🔐 Insecure File Permission,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-hashtag="🔐 Insecure File Permission"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" data-title="🌐 Submission"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/insecure-file-permission/">🔐 Insecure File Permission</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
@@ -336,7 +546,7 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"aa","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"x3c{4lw4y5_chm0d_y0ur3_f1l35_4_53cur17y}","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-597RCC8B41', { 'anonymize_ip': true });
         </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-597RCC8B41" async></script></body>

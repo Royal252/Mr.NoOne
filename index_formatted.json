@@ -3,11 +3,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "A detailed write-up of the Web challenge 'Submission' from SrdnlenCTF - 2025",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "A detailed write-up of the Web challenge 'Submission' from x3CTF - 2025",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -15,11 +20,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
         "content": " Challenge Presentation ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:0:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -27,11 +37,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "\ud83d\udcca Challenge Overview ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event x3CTF - 2025 Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of XXXX total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 4/10 \ud83d\udc64 Author rebane2001 Profile \ud83c\udfae Solves (At the time of flag submission) 16 XX% solve rate \ud83d\udcc5 Date 24-01-2025 x3CTF - 2025 Day X \ud83e\uddbe Solved By xtea418 Team: QnQSec ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:1:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -39,11 +54,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "\ud83d\udcdd Challenge Information ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information Could you help us out? ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:2:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -51,11 +71,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
         "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:3:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -63,11 +88,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "Provided Files Files: None \u00a0Attached Files \ud83d\udd0d Initial Analysis ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "Provided Files Files: \u00a0Attached Files \ud83d\udd0d Initial Analysis ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:3:1",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -75,11 +105,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "First Steps Initially, the website appears as follows: Site Presentation ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: Site Presentation There is a file upload section where only .txt files can be uploaded. Reading the attached files, there was only a PHP file: if (isset($_FILES['file'])) { $uploadOk = 1; $target_dir = \"/var/www/html/uploads/\"; $target_file = $target_dir . basename($_FILES[\"file\"][\"name\"]); if (file_exists($target_file)) { echo \"Sorry, file already exists.\"; $uploadOk = 0; } if ($_FILES[\"file\"][\"size\"] > 50000) { echo \"Sorry, your file is too large you need to buy Nitro.\"; $uploadOk = 0; } if (!str_ends_with($target_file, '.txt')) { echo \"Due to exploit you can only upload files with .txt extensions sorry about this but we got hacked last time so we have to check this from now on.\"; $uploadOk = 0; } // Check if $uploadOk is set to 0 by an error if ($uploadOk == 0) { echo \"Sorry, your file was not uploaded.\"; // if everything is ok, try to upload file } else { if (move_uploaded_file($_FILES[\"file\"][\"tmp_name\"], $target_file)) { echo \"The file \". htmlspecialchars( basename( $_FILES[\"file\"][\"name\"])). \" has been uploaded.\"; } else { echo \"Sorry, there was an error uploading your file.\"; } } $old_path = getcwd(); chdir($target_dir); // make unreadable shell_exec('chmod 000 *'); chdir($old_path); } As we can see, the files are uploaded to the /uploads folder, followed by various checks, including one on the file size and another on the extension, which must always end with .txt. Initially, I thought of uploading a malicious PHP file to read flag.txt, which was located under the uploads folder, since trying to access /uploads/flag.txt returned 403 Forbidden. I attempted to bypass the extension check with a null byte, using exploit.php%00.txt, but it didn\u2019t work. Searching online, I found another type of attack that allowed command execution through the .htaccess file. Interestingly, when I tried uploading a file starting with ., I was able to read it using the /uploads/filename route (but I quickly realized why). As we can see, a chmod 000 * command is executed right after the upload, setting all permissions to null for every file in the uploads folder. This was why accessing files through the browser returned 403 Forbidden. It is also the reason why I was able to read the files I uploaded with a . at the beginning of the name. The chmod ... * command affects all visible files but doesn\u2019t include hidden files (those starting with . or special characters, such as -). Since their permissions weren\u2019t nullified, I could still access them. From there, I did some research to better understand how chmod works and realized it was an issue of insecure file permissions. Now, let\u2019s move on to the exploit. ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:4:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -87,11 +122,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
         "content": "\ud83d\udd2c Vulnerability Analysis ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:5:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -99,11 +139,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "Potential Vulnerabilities \ud83c\udfaf Solution Path ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities Insecure File Permission \ud83c\udfaf Solution Path ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:5:1",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -111,11 +156,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
         "content": "Exploitation Steps ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:6:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -123,11 +173,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "Initial setup ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "Initial setup After doing some research, I discovered that there is a specific flag that can be used with the chmod command, --reference=filename file, which allows you to set the permissions of the target file (passed as an argument) to match those of the reference file (like a copy-and-paste of permissions). So, I decided to exploit this flag, given that chmod was being applied to * (a wildcard indicating \u201call\u201d). By setting the permissions of all files in the folder, I thought of using this to my advantage. ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:6:1",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -135,11 +190,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "Exploitation ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "Exploitation The exploitation essentially relies on uploading a file named --reference=foo.txt, for example (since there is always an extension check): First Part Once the upload is done, chmod is called, and all the permissions are set to null. However, the exploit doesn\u2019t stop there. In fact, for the reference flag, you need to specify a file, as we mentioned, foo.txt, so I uploaded that file as well: Second Part Once the file is uploaded, chmod will be executed on all the files, and as soon as it reaches the file --reference=foo.txt, it will treat it as a flag in the execution of the command. This will set the permissions of all files in the folder to match those of the foo.txt file (which, being the last one uploaded, still has active read permissions because chmod hasn\u2019t been executed on it yet). As a result, the read permission for the flag.txt file will also be set, and by accessing the /uploads/flag.txt route, I was able to read the flag. ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:6:2",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -147,11 +207,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
         "content": "Flag capture Manual Flag \ud83d\udee0\ufe0f Exploitation Process ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:6:3",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -159,11 +224,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "Approach \u00a0Exploit \ud83d\udea9 Flag Capture Flag ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "Approach The exploit does exactly as described manually: it uses the --reference flag of chmod to apply the permissions of the foo.txt file to all the files, including flag.txt, and then retrieves the flag by accessing the /uploads/flag.txt route. \u00a0Exploit \ud83d\udea9 Flag Capture Flag ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:7:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -171,11 +241,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
         "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Python Exploit \ud83d\udca1 Key Learnings ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:8:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -183,11 +258,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "New Knowledge ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "New Knowledge I learned that chmod ignores hidden files (those named with .something or files starting with -). I also learned that when the --reference=filename file parameter is used, it sets the permissions of the target file to match those of the file specified as the reference. ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:9:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -195,11 +275,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "Time Optimization ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcda References & Resources ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:10:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }
@@ -207,11 +292,16 @@
     {
       "action": "updateObject",
       "body": {
-        "categories": [],
-        "content": "Skills Improved \ud83d\udcca Final Statistics ",
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/x3CTF-2025/Web"
+        ],
+        "content": "Learning Resources https://www.tecmint.com/copy-file-permissions-and-ownership-to-another-file-in-linux/ \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:20 From start to flag Global Ranking (At the time of flag submission) 2/975 Challenge ranking Points Earned 500 Team contribution Created: 24-01-2025 \u2022 Last Modified: 24-01-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
         "date": "06/02/2025",
         "objectID": "/posts/2025/02/06/submission/:11:0",
-        "tags": [],
+        "tags": [
+          "\ud83d\udd10 Insecure File Permission",
+          "\ud83c\udf10 Web Security"
+        ],
         "title": "\ud83c\udf10 Submission",
         "uri": "/posts/2025/02/06/submission/"
       }

@@ -4,20 +4,28 @@
         <link>https://mh4ck3r0n3.github.io/tags/</link>
         <description>Tags - Tag - mH4ck3r0n3&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
-            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Thu, 06 Feb 2025 15:31:11 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>🌐 Web Security</title>
+    <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
+    <pubDate>Thu, 06 Feb 2025 15:31:11 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>🔐 Insecure File Permission</title>
+    <link>https://mh4ck3r0n3.github.io/tags/insecure-file-permission/</link>
+    <pubDate>Thu, 06 Feb 2025 15:31:11 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/insecure-file-permission/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>⚠️ CVE-2021-44228 (Log4Shell)</title>
     <link>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve-2021-44228-log4shell/</link>
     <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve-2021-44228-log4shell/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>🌐 Web Security</title>
-    <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
-    <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -74,14 +82,6 @@
     <pubDate>Wed, 05 Feb 2025 10:16:15 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/broken-access-control/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>💻 Laravel</title>
-    <link>https://mh4ck3r0n3.github.io/tags/laravel/</link>
-    <pubDate>Tue, 04 Feb 2025 11:42:32 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/laravel/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
