@@ -2006,7 +2006,7 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/exceeding-knight/",
         "tags": [
-          "Improper Error Handling",
+          "\ud83d\uded1 Improper Error Handling",
           "\ud83d\udcbb Laravel",
           "\ud83c\udf10 Web Security"
         ],
@@ -2024,7 +2024,7 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/exceeding-knight/:0:1",
         "tags": [
-          "Improper Error Handling",
+          "\ud83d\uded1 Improper Error Handling",
           "\ud83d\udcbb Laravel",
           "\ud83c\udf10 Web Security"
         ],
@@ -2042,7 +2042,7 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/exceeding-knight/:0:2",
         "tags": [
-          "Improper Error Handling",
+          "\ud83d\uded1 Improper Error Handling",
           "\ud83d\udcbb Laravel",
           "\ud83c\udf10 Web Security"
         ],
@@ -2060,7 +2060,7 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/exceeding-knight/:0:3",
         "tags": [
-          "Improper Error Handling",
+          "\ud83d\uded1 Improper Error Handling",
           "\ud83d\udcbb Laravel",
           "\ud83c\udf10 Web Security"
         ],
@@ -2078,7 +2078,7 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/exceeding-knight/:0:4",
         "tags": [
-          "Improper Error Handling",
+          "\ud83d\uded1 Improper Error Handling",
           "\ud83d\udcbb Laravel",
           "\ud83c\udf10 Web Security"
         ],
@@ -2096,8 +2096,8 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/baby-injection/",
         "tags": [
-          "YAML Insecure Deserialization",
-          "Insecure Deserialization",
+          "\u203c\ufe0f YAML Insecure Deserialization",
+          "\u203c\ufe0f Insecure Deserialization",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Baby Injection",
@@ -2114,8 +2114,8 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/baby-injection/:0:1",
         "tags": [
-          "YAML Insecure Deserialization",
-          "Insecure Deserialization",
+          "\u203c\ufe0f YAML Insecure Deserialization",
+          "\u203c\ufe0f Insecure Deserialization",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Baby Injection",
@@ -2132,8 +2132,8 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/baby-injection/:0:2",
         "tags": [
-          "YAML Insecure Deserialization",
-          "Insecure Deserialization",
+          "\u203c\ufe0f YAML Insecure Deserialization",
+          "\u203c\ufe0f Insecure Deserialization",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Baby Injection",
@@ -2150,8 +2150,8 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/baby-injection/:0:3",
         "tags": [
-          "YAML Insecure Deserialization",
-          "Insecure Deserialization",
+          "\u203c\ufe0f YAML Insecure Deserialization",
+          "\u203c\ufe0f Insecure Deserialization",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Baby Injection",
@@ -2168,8 +2168,8 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/baby-injection/:0:4",
         "tags": [
-          "YAML Insecure Deserialization",
-          "Insecure Deserialization",
+          "\u203c\ufe0f YAML Insecure Deserialization",
+          "\u203c\ufe0f Insecure Deserialization",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Baby Injection",
@@ -2186,8 +2186,8 @@
         "date": "04/02/2025",
         "objectID": "/posts/2025/02/04/baby-injection/:0:5",
         "tags": [
-          "YAML Insecure Deserialization",
-          "Insecure Deserialization",
+          "\u203c\ufe0f YAML Insecure Deserialization",
+          "\u203c\ufe0f Insecure Deserialization",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Baby Injection",
@@ -2204,8 +2204,8 @@
         "date": "03/02/2025",
         "objectID": "/posts/2025/02/03/admin-access/",
         "tags": [
-          "Host Header Injection",
-          "Password Reset Poisoning",
+          "\ud83d\udc89 Host Header Injection",
+          "\ud83d\udc80 Password Reset Poisoning",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Admin Access",
@@ -2222,8 +2222,8 @@
         "date": "03/02/2025",
         "objectID": "/posts/2025/02/03/admin-access/:0:1",
         "tags": [
-          "Host Header Injection",
-          "Password Reset Poisoning",
+          "\ud83d\udc89 Host Header Injection",
+          "\ud83d\udc80 Password Reset Poisoning",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Admin Access",
@@ -2240,8 +2240,8 @@
         "date": "03/02/2025",
         "objectID": "/posts/2025/02/03/admin-access/:0:2",
         "tags": [
-          "Host Header Injection",
-          "Password Reset Poisoning",
+          "\ud83d\udc89 Host Header Injection",
+          "\ud83d\udc80 Password Reset Poisoning",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Admin Access",
@@ -2258,8 +2258,8 @@
         "date": "03/02/2025",
         "objectID": "/posts/2025/02/03/admin-access/:0:3",
         "tags": [
-          "Host Header Injection",
-          "Password Reset Poisoning",
+          "\ud83d\udc89 Host Header Injection",
+          "\ud83d\udc80 Password Reset Poisoning",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Admin Access",
@@ -2276,8 +2276,8 @@
         "date": "03/02/2025",
         "objectID": "/posts/2025/02/03/admin-access/:0:4",
         "tags": [
-          "Host Header Injection",
-          "Password Reset Poisoning",
+          "\ud83d\udc89 Host Header Injection",
+          "\ud83d\udc80 Password Reset Poisoning",
           "\ud83c\udf10 Web Security"
         ],
         "title": "\ud83c\udf10 Admin Access",
