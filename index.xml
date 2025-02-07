@@ -4,9 +4,17 @@
         <link>https://mh4ck3r0n3.github.io/</link>
         <description>Welcome to mH4ck3r0n3&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
-            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 19:35:39 &#43;0100</lastBuildDate>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 21:02:05 &#43;0100</lastBuildDate>
             <atom:link href="https://mh4ck3r0n3.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>🌐 ZONEy</title>
+    <link>https://mh4ck3r0n3.github.io/posts/2025/02/07/zoney/</link>
+    <pubDate>Fri, 07 Feb 2025 21:02:05 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/07/zoney/</guid>
+    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;ZONEy&rsquo; from NullCon Goa HackIM CTF - 2025]]></description>
+</item>
+<item>
     <title>🌐 Temptation</title>
     <link>https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/</link>
     <pubDate>Fri, 07 Feb 2025 19:35:39 &#43;0100</pubDate>
@@ -77,14 +85,6 @@
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/posts/2025/02/05/sparkling-sky/</guid>
     <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Sparkling Sky&rsquo; from SrdnlenCTF - 2025]]></description>
-</item>
-<item>
-    <title>🌐 Average HTTP/3 Enjoyer</title>
-    <link>https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/</link>
-    <pubDate>Wed, 05 Feb 2025 21:02:02 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/</guid>
-    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Average HTTP/3 Enjoyer&rsquo; from SrdnlenCTF - 2025]]></description>
 </item>
 </channel>
 </rss>

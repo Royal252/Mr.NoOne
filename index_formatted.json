@@ -6,6 +6,295 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
+        "content": "A detailed write-up of the Web challenge 'ZONEy' from NullCon Goa HackIM CTF - 2025",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:0:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event Nullcon Goa HackIM 2025 CTF Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 3/10 \ud83d\udc64 Author @gehaxelt Profile \ud83c\udfae Solves (At the time of flag submission) 39 solve rate \ud83d\udcc5 Date 02-02-2025 Nullcon Goa HackIM 2025 CTF \ud83e\uddbe Solved By jsnv Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:1:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information Are you ZONEy.eno out or can you find the flag? 52.59.124.14:5007 (UDP) ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:2:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:3:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None \ud83d\udd0d Initial Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:3:1",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "First Steps The challenge provides: 52.59.124.14:5007 (UDP) Doing an nmap scan, I discovered that there is a DNS (Domain Name System) server on port 5007, so I used dig (a DNS lookup tool) on the specified IP and port. Since the name of the challenge itself, ZONEy, is somewhat reminiscent of zone (zone transfer in DNS), I thought it could be related to that: dig @52.59.124.14 -p 5007 MX zoney.eno +short This command looks for the Mail Exchange (MX) record for zoney.eno. The result: 10 challenge.zoney.eno. The result suggests that challenge.zoney.eno is a domain to explore further. So, searching online, I found the DNSSEC NSEC Walking vulnerability, which is used to enumerate subdomains of a network by making requests to the DNS server. DNSSEC (Domain Name System Security Extensions) is an extension of DNS that provides authenticity and integrity to DNS records, preventing attacks like DNS Spoofing. DNSSEC introduces new records such as RRSIG, NSEC, and DS to ensure the validity of DNS responses. NSEC (Next Secure Record) is used to demonstrate that a certain domain does not exist. An NSEC record lists the next domain in the DNS database, creating an ordered chain of records. If an attacker queries a non-existent domain, the DNS server responds with an NSEC record, revealing the next valid domain in the zone. Continuing in this way, I might be able to trace the domain where the flag is located. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:4:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:5:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities DNSSEC NSEC Walking \ud83c\udfaf Solution Path ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:5:1",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:6:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Initial setup The next step was to query the new domain obtained from the previous dig command (10 challenge.zoney.eno.). Once I did that, I continued iterating until I reached the final domain, thus enumerating all the domains. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:6:1",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation The exploitation is literally the process described above. As we can see from the image, I was able to find hereisthe1377flag.zoney.eno, where the flag was contained in the TXT (Text) field of the domain. Another way to achieve all of this is by using dnsrecon, a tool used for reconnaissance and subdomain enumeration. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:6:2",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Flag capture Manual Flag \ud83d\udea9 Flag Capture Flag ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:6:3",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Proof of Execution Manual Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose dig DNS Enumeration \ud83d\udca1 Key Learnings ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:7:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "New Knowledge I learned what DNSSEC NSEC Walking is and how to enumerate subdomains of a DNS. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:8:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcda References & Resources ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:9:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Learning Resources https://www.domaintools.com/resources/blog/zone-walking-zone-enumeration-via-dnssec-nsec-records/ https://hackerone.com/reports/228471 \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:30 From start to flag Global Ranking (At the time of flag submission) 11/1115 Challenge ranking Points Earned 500 Team contribution Created: 02-02-2025 \u2022 Last Modified: 02-02-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/zoney/:10:0",
+        "tags": [
+          "\ud83d\udeb6 DNSSEC NSEC Walking",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 ZONEy",
+        "uri": "/posts/2025/02/07/zoney/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
         "content": "A detailed write-up of the Web challenge 'Temptation' from NullCon Goa HackIM CTF - 2025",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/temptation/",
