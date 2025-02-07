@@ -6,6 +6,294 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
+        "content": "A detailed write-up of the Web challenge 'Paginator V2' from NullCon Goa HackIM CTF - 2025",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:0:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event Nullcon Goa HackIM 2025 CTF Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 1/10 \ud83d\udc64 Author @gehaxelt Profile \ud83c\udfae Solves (At the time of flag submission) 194 solve rate \ud83d\udcc5 Date 02-02-2025 Nullcon Goa HackIM 2025 CTF \ud83e\uddbe Solved By mH4ck3r0n3 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:1:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information Ok, we moved the critical information to a different table now\u2026 Can\u2019t go wrong this time, right? http://52.59.124.14:5015 ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:2:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:3:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None \ud83d\udd0d Initial Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:3:1",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "First Steps This is version 2 of the challenge Paginator. The website appears as follows: Site Presentation Looking at the source of the page: Source Code I noticed that the flag is no longer present in the pages table, unlike the previous challenge Paginator, so it is no longer possible to view it using OR 1=1 since the query retrieves records from the pages table. Therefore, I thought of using a UNION to perform the injection. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:4:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:5:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities SQL Injection \ud83c\udfaf Solution Path ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:5:1",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:6:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Initial setup The first step is to figure out which table contains the flag since it is no longer in the pages table. The first thing that comes to mind is that a table named flag might have been created specifically. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:6:1",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Indeed, by proceeding with the exploitation and sending /p?=2,10 UNION SELECT * FROM flag, I obtain the row containing the flag in base64 format. Flag Base64 By decoding it: echo RU5Pe1NRTDFfVzF0aF8wdVRfQzBtbTRfVzBya3NfU29tZUhvd19BZ0Exbl9BbmRfQWc0MW4hfQ== | base64 -d I obtain the flag. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:6:2",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Flag capture Manual Flag \ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:6:3",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Approach The exploit sends a request leveraging SQL Injection and extracts the flag from the response text using a regex. \u00a0Exploit \ud83d\udea9 Flag Capture Flag ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:7:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Python Exploit \ud83d\udca1 Key Learnings ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:8:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:20 From start to flag Global Ranking (At the time of flag submission) 11/1115 Challenge ranking Points Earned 500 Team contribution Created: 02-02-2025 \u2022 Last Modified: 02-02-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator-v2/:9:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83d\udc89 Union Based SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator V2",
+        "uri": "/posts/2025/02/07/paginator-v2/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
         "content": "A detailed write-up of the Web challenge 'Paginator' from NullCon Goa HackIM CTF - 2025",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/paginator/",

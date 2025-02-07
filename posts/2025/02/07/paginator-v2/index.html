@@ -4,45 +4,46 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>🌐 Paginator - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<meta name="Description" content="A detailed write-up of the Web challenge &#39;Paginator&#39; from NullCon Goa HackIM CTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/">
+        <title>🌐 Paginator V2 - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<meta name="Description" content="A detailed write-up of the Web challenge &#39;Paginator V2&#39; from NullCon Goa HackIM CTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/">
   <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
-  <meta property="og:title" content="🌐 Paginator">
-  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Paginator&#39; from NullCon Goa HackIM CTF - 2025">
+  <meta property="og:title" content="🌐 Paginator V2">
+  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Paginator V2&#39; from NullCon Goa HackIM CTF - 2025">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-02-07T18:46:43+01:00">
-    <meta property="article:modified_time" content="2025-02-07T18:46:43+01:00">
+    <meta property="article:published_time" content="2025-02-07T19:02:35+01:00">
+    <meta property="article:modified_time" content="2025-02-07T19:02:35+01:00">
     <meta property="article:tag" content="💉 SQL Injection">
+    <meta property="article:tag" content="💉 Union Based SQL Injection">
     <meta property="article:tag" content="🌐 Web Security">
     <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
-  <meta name="twitter:title" content="🌐 Paginator">
-  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Paginator&#39; from NullCon Goa HackIM CTF - 2025">
+  <meta name="twitter:title" content="🌐 Paginator V2">
+  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Paginator V2&#39; from NullCon Goa HackIM CTF - 2025">
 <meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/numberizer/" /><link rel="next" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><meta name="google-site-verification" content="Z-UoSLcRkeqd45L7xfo6KhHLAHRigsRvXpv1cYBypy4" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "🌐 Paginator",
+        "headline": "🌐 Paginator V2",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/paginator\/"
-        },"genre": "posts","keywords": "💉 SQL Injection, 🌐 Web Security","wordcount":  439 ,
-        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/paginator\/","datePublished": "2025-02-07T18:46:43+01:00","dateModified": "2025-02-07T18:46:43+01:00","publisher": {
+            "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/paginator-v2\/"
+        },"genre": "posts","keywords": "💉 SQL Injection, 💉 Union Based SQL Injection, 🌐 Web Security","wordcount":  375 ,
+        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/paginator-v2\/","datePublished": "2025-02-07T19:02:35+01:00","dateModified": "2025-02-07T19:02:35+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "mH4ck3r0n3"
-            },"description": "A detailed write-up of the Web challenge 'Paginator' from NullCon Goa HackIM CTF - 2025"
+            },"description": "A detailed write-up of the Web challenge 'Paginator V2' from NullCon Goa HackIM CTF - 2025"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -108,12 +109,12 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Paginator</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Paginator&#39; from NullCon Goa HackIM CTF - 2025</h2><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Paginator V2</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Paginator V2&#39; from NullCon Goa HackIM CTF - 2025</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/web/">
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web
                                 </a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="07/02/2025">07/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;439 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="07/02/2025">07/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;375 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -172,14 +173,14 @@
     <li><a href="#-final-statistics">📊 Final Statistics</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/challenge_presentation.png"
-            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/challenge_presentation.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/challenge_presentation.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/challenge_presentation.png 2x"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/challenge_presentation.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/challenge_presentation.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/challenge_presentation.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/challenge_presentation.png 2x"
             data-sizes="auto"
-            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/challenge_presentation.png" />
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/challenge_presentation.png" />
     </a><figcaption class="image-caption">Challenge Presentation</figcaption>
     </figure></p>
 <h2 id="-challenge-overview">📊 Challenge Overview</h2>
@@ -196,7 +197,7 @@
 <tr>
 <td>🏆 Event</td>
 <td>Nullcon Goa HackIM 2025 CTF</td>
-<td><a href="https://ctf.nullcon.net/challenges#Paginator-90" target="_blank" rel="noopener noreffer ">Event Link</a></td>
+<td><a href="https://ctf.nullcon.net/challenges#Paginator%20v2-91" target="_blank" rel="noopener noreffer ">Event Link</a></td>
 </tr>
 <tr>
 <td>🔰 Category</td>
@@ -220,12 +221,12 @@
 </tr>
 <tr>
 <td>🎮 Solves (At the time of flag submission)</td>
-<td>257</td>
+<td>194</td>
 <td>solve rate</td>
 </tr>
 <tr>
 <td>📅 Date</td>
-<td>01-02-2025</td>
+<td>02-02-2025</td>
 <td>Nullcon Goa HackIM 2025 CTF</td>
 </tr>
 <tr>
@@ -238,7 +239,8 @@
 </blockquote>
 <h2 id="-challenge-information">📝 Challenge Information</h2>
 <blockquote>
-<p>There can&rsquo;t much go wrong with pagination, right? http://52.59.124.14:5012</p>
+<p>Ok, we moved the critical information to a different table now&hellip; Can&rsquo;t go wrong this time, right?
+http://52.59.124.14:5015</p>
 </blockquote>
 <h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
 <h3 id="provided-files">Provided Files</h3>
@@ -255,29 +257,29 @@
 <h1 id="-initial-analysis">🔍 Initial Analysis</h1>
 <h2 id="first-steps">First Steps</h2>
 <blockquote>
-<p>Initially, the website appears as follows:</p>
-<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/site_presentation.png" title="Site Presentation" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
+<p>This is version 2 of the challenge <a href="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" target="_blank" rel="noopener noreffer ">Paginator</a>. The website appears as follows:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/site_presentation.png" title="Site Presentation" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/site_presentation.png"
-            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/site_presentation.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/site_presentation.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/site_presentation.png 2x"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/site_presentation.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/site_presentation.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/site_presentation.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/site_presentation.png 2x"
             data-sizes="auto"
-            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/site_presentation.png" />
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/site_presentation.png" />
     </a><figcaption class="image-caption">Site Presentation</figcaption>
     </figure></p>
-<p>When I clicked on <code>show pages 2,10</code>, it showed me the rows from the database by setting the parameter <code>p=2,10</code>. Then, I decided to click the link to the source, which directed me to <code>/?source</code>:</p>
-<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/source.png" title="Source Code" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/source.png" data-sub-html="<h2>Source Code</h2><p>Source Code</p>">
+<p>Looking at the source of the page:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/source.png" title="Source Code" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/source.png" data-sub-html="<h2>Source Code</h2><p>Source Code</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/source.png"
-            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/source.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/source.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/source.png 2x"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/source.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/source.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/source.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/source.png 2x"
             data-sizes="auto"
-            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/source.png" />
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/source.png" />
     </a><figcaption class="image-caption">Source Code</figcaption>
     </figure></p>
-<p>I saved the source in the file <code>source.php</code>. As we can see, a QUERY is made that retrieves all the pages by setting a minimum and maximum ID based on the parameter <code>p</code> we pass. Let&rsquo;s move on to the exploitation.</p>
+<p>I noticed that the flag is no longer present in the <code>pages</code> table, unlike the previous challenge <code>Paginator</code>, so it is no longer possible to view it using <code>OR 1=1</code> since the query retrieves records from the <code>pages</code> table. Therefore, I thought of using a <code>UNION</code> to perform the injection.</p>
 </blockquote>
 <h2 id="-vulnerability-analysis">🔬 Vulnerability Analysis</h2>
 <h3 id="potential-vulnerabilities">Potential Vulnerabilities</h3>
@@ -290,50 +292,51 @@
 <h2 id="exploitation-steps">Exploitation Steps</h2>
 <h3 id="initial-setup">Initial setup</h3>
 <blockquote>
-<p>As we can notice, there is a check on the minimum value, so when passing <code>/?p=1,10 OR 1=1</code>, I get <code>this post is not accessible</code>. Therefore, I need to bypass that check, perhaps by setting the minimum value to <code>2</code>, for example.</p>
+<p>The first step is to figure out which table contains the flag since it is no longer in the <code>pages</code> table. The first thing that comes to mind is that a table named <code>flag</code> might have been created specifically.</p>
 </blockquote>
 <h3 id="exploitation">Exploitation</h3>
 <blockquote>
-<p>Indeed, the exploit payload is exactly as follows: <code>/?p=2,10 OR 1=1</code>. The query would then be: <code>SELECT * FROM pages WHERE id&gt;= 2 AND id&lt;= 10 OR 1=1</code> By setting the minimum value to 2, we bypass the check. Using <code>OR 1=1</code> ensures that the query returns all the pages, so the page with the flag will also be displayed.</p>
-<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/flag.png" title="Flag Base64" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/flag.png" data-sub-html="<h2>Flag Base64</h2><p>Flag Base64</p>">
+<p>Indeed, by proceeding with the exploitation and sending <code>/p?=2,10 UNION SELECT * FROM flag</code>, I obtain the row containing the flag in base64 format.</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/flag_base64.png" title="Flag Base64" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/flag_base64.png" data-sub-html="<h2>Flag Base64</h2><p>Flag Base64</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/flag.png"
-            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/flag.png 2x"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/flag_base64.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/flag_base64.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/flag_base64.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/flag_base64.png 2x"
             data-sizes="auto"
-            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/flag.png" />
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/flag_base64.png" />
     </a><figcaption class="image-caption">Flag Base64</figcaption>
     </figure></p>
-<p>As we can see from the source, the flag is encoded in <code>base64</code>. So, using the terminal, I perform the decode and obtain the flag:</p>
+<p>By decoding it:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;RU5Pe1NRTDFfVzF0aF8wdVRfQzBtbTRfVzBya3NfU29tZUhvdyF9&#34;</span> <span class="p">|</span> base64 -d
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="nb">echo</span> <span class="nv">RU5Pe1NRTDFfVzF0aF8wdVRfQzBtbTRfVzBya3NfU29tZUhvd19BZ0Exbl9BbmRfQWc0MW4hfQ</span><span class="o">==</span> <span class="p">|</span> base64 -d
 </span></span></code></pre></td></tr></table>
 </div>
-</div></blockquote>
+</div><p>I obtain the flag.</p>
+</blockquote>
 <h3 id="flag-capture">Flag capture</h3>
 <blockquote>
-<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/manual_flag.png" title="Manual Flag" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/manual_flag.png" title="Manual Flag" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/manual_flag.png"
-            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/manual_flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/manual_flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/manual_flag.png 2x"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/manual_flag.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/manual_flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/manual_flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/manual_flag.png 2x"
             data-sizes="auto"
-            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/manual_flag.png" />
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/manual_flag.png" />
     </a><figcaption class="image-caption">Manual Flag</figcaption>
     </figure></p>
 </blockquote>
 <h1 id="-exploitation-process">🛠️ Exploitation Process</h1>
 <h2 id="approach">Approach</h2>
 <blockquote>
-<p>The exploit sends the request with the SQL Injection payload as the <code>p</code> parameter, and then it extracts the flag in <code>base64</code> format using a regex and decodes it.</p>
+<p>The exploit sends a request leveraging SQL Injection and extracts the flag from the response text using a regex.</p>
 <ul>
-<li><a href="/resources/NullCon-Goa-HackIM-CTF-2025/Paginator/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
+<li><a href="/resources/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
 </ul>
 </blockquote>
 <h1 id="-flag-capture">🚩 Flag Capture</h1>
@@ -352,14 +355,14 @@
 </blockquote>
 <h2 id="proof-of-execution">Proof of Execution</h2>
 <blockquote>
-<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/automated_flag.png" title="Automated Flag" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/automated_flag.png" title="Automated Flag" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/automated_flag.png"
-            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/automated_flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/automated_flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginator/automated_flag.png 2x"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/automated_flag.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/automated_flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/automated_flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/automated_flag.png 2x"
             data-sizes="auto"
-            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginator/automated_flag.png" />
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Paginatorv2/automated_flag.png" />
     </a><figcaption class="image-caption">Automated Flag</figcaption>
     </figure>
 <em>Screenshot of successful exploitation</em></p>
@@ -407,12 +410,12 @@
 <tbody>
 <tr>
 <td>Time to Solve</td>
-<td>00:02</td>
+<td>00:20</td>
 <td>From start to flag</td>
 </tr>
 <tr>
-<td>Global Ranking</td>
-<td>23/595</td>
+<td>Global Ranking (At the time of flag submission)</td>
+<td>11/1115</td>
 <td>Challenge ranking</td>
 </tr>
 <tr>
@@ -422,8 +425,8 @@
 </tr>
 </tbody>
 </table>
-<p><em>Created: 01-02-2025 • Last Modified: 01-02-2025</em>
-*Author: mH4ck3r0n3 • Team: QnQSec</p>
+<p><em>Created: 02-02-2025 • Last Modified: 02-02-2025</em>
+<em>Author: mH4ck3r0n3 • Team: QnQSec</em></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -432,24 +435,23 @@
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/posts/2025/02/07/paginator/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/posts/2025/02/07/paginator-v2/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" data-title="🌐 Paginator" data-hashtags="💉 SQL Injection,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" data-hashtag="💉 SQL Injection"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" data-title="🌐 Paginator" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" data-title="🌐 Paginator"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" data-title="🌐 Paginator"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator/" data-title="🌐 Paginator"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" data-title="🌐 Paginator V2" data-hashtags="💉 SQL Injection,💉 Union Based SQL Injection,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" data-hashtag="💉 SQL Injection"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" data-title="🌐 Paginator V2" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" data-title="🌐 Paginator V2"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" data-title="🌐 Paginator V2"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/" data-title="🌐 Paginator V2"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/sql-injection/">💉 SQL Injection</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/sql-injection/">💉 SQL Injection</a>,&nbsp;<a href="/tags/union-based-sql-injection/">💉 Union Based SQL Injection</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
 
-    <div class="post-nav"><a href="/posts/2025/02/07/numberizer/" class="prev" rel="prev" title="🌐 Numberizer"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Numberizer</a>
-        <a href="/posts/2025/02/07/paginator-v2/" class="next" rel="next" title="🌐 Paginator V2">🌐 Paginator V2<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/2025/02/07/paginator/" class="prev" rel="prev" title="🌐 Paginator"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Paginator</a></div>
 </div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
@@ -461,7 +463,7 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"ENO{SQL1_W1th_0uT_C0mm4_W0rks_SomeHow!}","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":6,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"ENO{SQL1_W1th_0uT_C0mm4_W0rks_SomeHow_AgA1n_And_Ag41n!}","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":6,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-597RCC8B41', { 'anonymize_ip': true });
         </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-597RCC8B41" async></script></body>
