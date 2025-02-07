@@ -4,9 +4,17 @@
         <link>https://mh4ck3r0n3.github.io/</link>
         <description>Welcome to mH4ck3r0n3&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
-            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 19:15:15 &#43;0100</lastBuildDate>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 19:35:39 &#43;0100</lastBuildDate>
             <atom:link href="https://mh4ck3r0n3.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>🌐 Temptation</title>
+    <link>https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/</link>
+    <pubDate>Fri, 07 Feb 2025 19:35:39 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/07/temptation/</guid>
+    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Temptation&rsquo; from NullCon Goa HackIM CTF - 2025]]></description>
+</item>
+<item>
     <title>🌐 Sess.io</title>
     <link>https://mh4ck3r0n3.github.io/posts/2025/02/07/sess.io/</link>
     <pubDate>Fri, 07 Feb 2025 19:15:15 &#43;0100</pubDate>
@@ -77,14 +85,6 @@
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/posts/2025/02/05/average-http/3-enjoyer/</guid>
     <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Average HTTP/3 Enjoyer&rsquo; from SrdnlenCTF - 2025]]></description>
-</item>
-<item>
-    <title>🌐 Focus. Speed. I Am Speed.</title>
-    <link>https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./</link>
-    <pubDate>Wed, 05 Feb 2025 11:03:38 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/05/focus.-speed.-i-am-speed./</guid>
-    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Focus. Speed. I Am Speed.&rsquo; from SrdnlenCTF - 2025]]></description>
 </item>
 </channel>
 </rss>
