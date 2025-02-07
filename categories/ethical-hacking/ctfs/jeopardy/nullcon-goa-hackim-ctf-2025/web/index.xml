@@ -4,7 +4,15 @@
         <link>https://mh4ck3r0n3.github.io/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/web/</link>
         <description>Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web - Category - mH4ck3r0n3&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
-            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 19:02:35 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/web/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 19:15:15 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/web/" rel="self" type="application/rss+xml" /><item>
+    <title>🌐 Sess.io</title>
+    <link>https://mh4ck3r0n3.github.io/posts/2025/02/07/sess.io/</link>
+    <pubDate>Fri, 07 Feb 2025 19:15:15 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/07/sess.io/</guid>
+    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Sess.io&rsquo; from NullCon Goa HackIM CTF - 2025]]></description>
+</item>
+<item>
     <title>🌐 Paginator V2</title>
     <link>https://mh4ck3r0n3.github.io/posts/2025/02/07/paginator-v2/</link>
     <pubDate>Fri, 07 Feb 2025 19:02:35 &#43;0100</pubDate>

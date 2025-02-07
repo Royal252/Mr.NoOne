@@ -6,6 +6,330 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
+        "content": "A detailed write-up of the Web challenge 'Sess.io' from NullCon Goa HackIM CTF - 2025",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:0:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event Nullcon Goa HackIM 2025 CTF Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe1 Medium Personal Rating: 5/10 \ud83d\udc64 Author @gehaxelt Profile \ud83c\udfae Solves (At the time of flag submission) 75 solve rate \ud83d\udcc5 Date 02-02-2025 Nullcon Goa HackIM 2025 CTF \ud83e\uddbe Solved By mH4ck3r0n3 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:1:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information Long sessions must be secure, right? http://52.59.124.14:5008 ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:2:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:3:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None \ud83d\udd0d Initial Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:3:1",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: Site Presentation Taking a look at the source: Source Code I understood that the presented PHP code has a vulnerability related to predictable session IDs: define(\"ALPHA\", str_split(\"abcdefghijklmnopqrstuvwxyz0123456789_-\")); ini_set(\"error_reporting\", 0); ALPHA: An array of possible characters used to build the session ID. Disable errors to prevent giving attackers any information. include \"flag.php\"; // $FLAG $SEEDS = str_split($FLAG, 4); The file flag.php contains the flag (e.g., $FLAG = \"ENO{...}\"). *$SEEDS is an array of substrings of the flag, each 4 characters long: function session_id_secure($id) { global $SEEDS; mt_srand(intval(bin2hex($SEEDS[md5($id)[0] % (count($SEEDS))]), 16)); $id = \"\"; for($i = 0; $i < 1000; $i++) { $id .= ALPHA[mt_rand(0, count(ALPHA) - 1)]; } return $id; } This function generates a custom session ID: Calculates the seed for the Mersenne Twister random number generator (MT) based on the first character of the MD5 hash of the combined input of username and password. Regenerates the session ID of 1000 characters using the characters defined in ALPHA. The main vulnerability lies in the fact that the session ID is predictable if we know the flag segments (seed) used to initialize mt_rand. Since the seed is derived from segments of the flag, it is possible to determine the flag itself by understanding the behavior of the Mersenne Twister generator. if (isset($_POST['username']) && isset($_POST['password'])) { session_id(session_id_secure($_POST['username'] . $_POST['password'])); session_start(); echo \"Thank you for signing up!\"; } else { echo \"Please provide the necessary data!\"; } If the username and password are provided, a PHPSESSID is generated based on them. This allows an attacker to register multiple sessions and observe the generated session ID to deduce the seed. So, to summarize: Using mt_rand to generate sessions: Mersenne Twister is fast but not secure for cryptographic operations. Seed derived from flag segments: This allows using php_mt_seed to predict the seed and, consequently, deduce the flag. Predictability of the seed: Since the seed is calculated using a part of the flag (four characters at a time), it\u2019s possible to iteratively decode the entire flag (once we have the first 4 characters, we know the flag starts with ENO{, which gives us the format of the flag). Searching online, I found a tool for cracking the seed: (https://www.openwall.com/php_mt_seed/). Now that we have all this information, we can move on to the exploitation. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:4:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:5:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities Predictable Session ID Vulnerability \ud83c\udfaf Solution Path ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:5:1",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:6:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Initial setup The exploitation is divided into four phases: Multiple Registration: Register usernames with random combinations of username and password. Session ID Retrieval: Observe the PHPSESSID value assigned by the server. Using php_mt_seed: Use php_mt_seed to find the seed used and trace back to the part of the flag that generated it. Iterate on the Flag: Repeat the process to reconstruct the full flag. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:6:1",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation To perform the above-described procedure, I wrote an exploit in Python, which uses: php_mt_seed.c To crack the seed and extract parts of the flag one by one. Once the seed is deduced, we can proceed with reconstructing the flag. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:6:2",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Flag capture Automated Flag \ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:6:3",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Approach The automated exploit literally follows the process described above: cd php_mt_seed-4.0 make python exploit.py \u00a0Exploit php_mt_seed \ud83d\udea9 Flag Capture Flag ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:7:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Python Exploit php_mt_seed Seed Cracking \ud83d\udca1 Key Learnings ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:8:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "New Knowledge I have learned that the mt_rand function in PHP is vulnerable because the seed used for random generation can be extracted to gather information. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:9:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcda References & Resources ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:10:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Learning Resources https://www.openwall.com/php_mt_seed/ \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:45 From start to flag Global Ranking (At the time of flag submission) 11/1115 Challenge ranking Points Earned 500 Team contribution Created: 02-02-2025 \u2022 Last Modified: 02-02-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/sess.io/:11:0",
+        "tags": [
+          "\ud83d\udd13 Predictable Session ID Vulnerability",
+          "\ud83c\udfb2 Mersenne Twister",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Sess.io",
+        "uri": "/posts/2025/02/07/sess.io/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
         "content": "A detailed write-up of the Web challenge 'Paginator V2' from NullCon Goa HackIM CTF - 2025",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/paginator-v2/",
