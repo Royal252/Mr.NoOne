@@ -6,6 +6,278 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
+        "content": "A detailed write-up of the Web challenge 'Numberizer' from NullCon Goa HackIM CTF - 2025",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:0:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event Nullcon Goa HackIM 2025 CTF Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 1/10 \ud83d\udc64 Author @gehaxelt Profile \ud83c\udfae Solves (At the time of flag submission) 194 solve rate \ud83d\udcc5 Date 01-02-2025 Nullcon Goa HackIM 2025 CTF \ud83e\uddbe Solved By mH4ck3r0n3 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:1:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information Are you good with numbers? http://52.59.124.14:5004 ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:2:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:3:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None \ud83d\udd0d Initial Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:3:1",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: Site Presentation Let\u2019s take a look at the source code by clicking on the link: Source Code As we can see, it is written in php, and we need to calculate a negative sum in order to access the flag. The numbers entered must be numeric and have a maximum of 4 digits, as we can see from the checks. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:4:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:5:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities Integer Overflow \ud83c\udfaf Solution Path ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:5:1",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:6:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Initial setup Here, once we understand that we can exploit an Integer Overflow, by exceeding the maximum number we will cause the overflow, resulting in a negative number. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:6:1",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation The exploit consists in sending numbers like 9e99, which is equivalent to 9^99. Since the maximum number of digits allowed is 4, by exploiting the exponential notation, we can trigger the integer overflow. Exploit And as a result, we obtain the flag. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:6:2",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Flag capture Manual Flag \ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:6:3",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Approach The exploit follows the same procedure mentioned above and extracts the flag using a regex. \u00a0Exploit \ud83d\udea9 Flag Capture Flag ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:7:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Python Exploit \ud83d\udca1 Key Learnings ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:8:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:01 From start to flag Global Ranking (At the time of flag submission) 27/686 Challenge ranking Points Earned 500 Team contribution Created: 01-02-2025 \u2022 Last Modified: 01-02-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/numberizer/:9:0",
+        "tags": [
+          "\ud83d\udca5 Integer Overflow",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Numberizer",
+        "uri": "/posts/2025/02/07/numberizer/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
         "content": "A detailed write-up of the Web challenge 'Crahp' from NullCon Goa HackIM CTF - 2025",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/crahp/",
