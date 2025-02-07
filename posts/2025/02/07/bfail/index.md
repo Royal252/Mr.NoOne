@@ -111,7 +111,7 @@ ENO{BCRYPT_FAILS_TO_B_COOL_IF_THE_PW_IS_TOO_LONG}
 >- [ ] Binary Exploitation
 >- [ ] Reverse Engineering
 >- [x] Web Exploitation
->- [ ] Cryptography
+>- [x] Cryptography
 >- [ ] Forensics
 >- [ ] OSINT
 >- [ ] Miscellaneous

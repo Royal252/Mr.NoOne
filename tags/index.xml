@@ -4,12 +4,20 @@
         <link>https://mh4ck3r0n3.github.io/tags/</link>
         <description>Tags - Tag - mH4ck3r0n3&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
-            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 17:36:33 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 18:11:36 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
     <title>🌐 Web Security</title>
     <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
-    <pubDate>Fri, 07 Feb 2025 17:36:33 &#43;0100</pubDate>
+    <pubDate>Fri, 07 Feb 2025 18:11:36 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>💥 CRC Collision</title>
+    <link>https://mh4ck3r0n3.github.io/tags/crc-collision/</link>
+    <pubDate>Fri, 07 Feb 2025 18:11:36 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/crc-collision/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -21,11 +29,11 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>🔓 Partial Hash Exposure</title>
-    <link>https://mh4ck3r0n3.github.io/tags/partial-hash-exposure/</link>
+    <title>🔓 Partial Password Exposure</title>
+    <link>https://mh4ck3r0n3.github.io/tags/partial-password-exposure/</link>
     <pubDate>Fri, 07 Feb 2025 17:36:33 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/partial-hash-exposure/</guid>
+    <guid>https://mh4ck3r0n3.github.io/tags/partial-password-exposure/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -74,14 +82,6 @@
     <pubDate>Wed, 05 Feb 2025 21:02:02 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/403-bypass/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>🚫 Proxy Rule Bypass</title>
-    <link>https://mh4ck3r0n3.github.io/tags/proxy-rule-bypass/</link>
-    <pubDate>Wed, 05 Feb 2025 21:02:02 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/proxy-rule-bypass/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

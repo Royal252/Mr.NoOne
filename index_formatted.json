@@ -4,13 +4,319 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "A detailed write-up of the Web challenge 'Crahp' from NullCon Goa HackIM CTF - 2025",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:0:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event Nullcon Goa HackIM 2025 CTF Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 3/10 \ud83d\udc64 Author @gehaxelt Profile \ud83c\udfae Solves (At the time of flag submission) 221 solve rate \ud83d\udcc5 Date 01-02-2025 Nullcon Goa HackIM 2025 CTF \ud83e\uddbe Solved By jsnv Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:1:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information Oh Crahp, I forgot my credentials! Can you login nontheless? http://52.59.124.14:5006 ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:2:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:3:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None \ud83d\udd0d Initial Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:3:1",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: Site Presentation By taking a look at the source code of the page by clicking on the /?source link: Source Code 2 Source Code 2 I noticed that a CRC (Cyclic Redundancy Check) function is used, so I researched how it works. It is an algorithm that calculates a checksum (a control value) to verify that the data hasn\u2019t been altered during transmission or storage. It works by performing mathematical operations on a string of data, generating a short code that represents the data itself. I then discovered that CRC is not cryptographically secure. The CRC16 and CRC8 functions are designed to detect accidental errors, not to ensure the integrity or security of the data. CRC is linear, predictable, and easily reversible: an attacker can manipulate the data to obtain the same CRC signature. The attack involves finding an alternative password with the same CRC. The code compares two CRC hashes: one of the stored password and one of the password entered by the user. If both the CRC16 and CRC8 values match those of the original password, access is granted. An attacker can generate a different password with the same CRC16 and CRC8 and bypass the check. Having understood this, let\u2019s proceed to the exploitation. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:4:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:5:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities CRC (Cyclic Redundancy Check) collision \ud83c\udfaf Solution Path ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:5:1",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:6:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Initial setup The exploitation involves generating a password that has the same checksum as the password AdM1nP@assW0rd!. To do this, we simply need to calculate the CRC16 and CRC8 of the real password (\u201cAdM1nP@assW0rd!\u201d), then generate an alternative string with the same CRC16 and CRC8. Since CRC is linear, there are known techniques (such as manipulating the final bytes) to find collisions. The attacker could use tools like hashclash, brute force, or create a string of the same length as the original password but producing the same checksums. By entering the alternative string, the attacker gains access because the code only verifies the hashes and not the original password \u2192 bypass successful! ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:6:1",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation I wrote a script that does all of this, and I ran it to obtain the password with the same checksum. Afterward, I entered it in the input box and submitted it, which granted me access and, consequently, the flag. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:6:2",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Flag capture Manual Flag \ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:6:3",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Approach The exploit follows exactly the procedure described above, and then it sends the request, extracting the flag using a regex and printing it. \u00a0Exploit \ud83d\udea9 Flag Capture Flag ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:7:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Python Exploit \ud83d\udca1 Key Learnings ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:8:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "New Knowledge I have learned what a CRC function is and how it can be exploited to find a similar string that has the same checksum to pass the checks. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:9:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcda References & Resources ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:10:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Learning Resources https://stackoverflow.com/questions/18569984/crc16-collision-2-crc-values-of-blocks-of-different-size https://fastercapital.com/content/Understanding-CRC-Collision--Preventing-Data-Corruption.html \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:33 From start to flag Global Ranking (At the time of flag submission) 28/1017 Challenge ranking Points Earned 500 Team contribution Created: 01-02-2025 \u2022 Last Modified: 01-02-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/crahp/:11:0",
+        "tags": [
+          "\ud83d\udca5 CRC Collision",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Crahp",
+        "uri": "/posts/2025/02/07/crahp/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "A detailed write-up of the Web challenge 'Bfail' from NullCon Goa HackIM CTF - 2025",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -22,13 +328,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": " Challenge Presentation ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:0:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -40,13 +346,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event Nullcon Goa HackIM 2025 CTF Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 3/10 \ud83d\udc64 Author @gehaxelt Profile \ud83c\udfae Solves (At the time of flag submission) 21 XX% solve rate \ud83d\udcc5 Date 01-02-2025 Nullcon Goa HackIM 2025 CTF Day X \ud83e\uddbe Solved By mH4ck3r0n3 Team: QnQSec ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:1:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -58,13 +364,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "\ud83d\udcdd Challenge Information To \u2018B\u2019 secure or to \u2018b\u2019 fail? Strong passwords for admins are always great, right? http://52.59.124.14:5013 ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:2:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -76,13 +382,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:3:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -94,13 +400,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Provided Files Files: None \ud83d\udd0d Initial Analysis ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:3:1",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -112,13 +418,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "First Steps Initially, the website appears as follows: Site Presentation While inspecting the code with ChromeDevTools, I found this: Page Source Interesting, so by visiting /source, we will have the source code of the page: Source Code As we can see, it leaks the password in bytes: \\xec\\x9f\\xe0a\\x978\\xfc\\xb6:T\\xe2\\xa0\\xc9<\\x9e\\x1a\\xa5\\xfao\\xb2\\x15\\x86\\xe5$\\x86Z\\x1a\\xd4\\xca#\\x15\\xd2x\\xa0\\x0e0\\xca\\xbc\\x89T\\xc5V6\\xf1\\xa4\\xa8S\\x8a%I\\xd8gI\\x15\\xe9\\xe7$M\\x15\\xdc@\\xa9\\xa1@\\x9c\\xeee\\xe0\\xe0\\xf76 and the full password in hash: $2b$12$8bMrI6D9TMYXeMv8pq8RjemsZg.HekhkQUqLymBic/cRhiKRa3YPK and honestly, this comment is also very interesting: # This is super strong! The password was generated quite securely. Here are the first 70 bytes, since you won't be able to brute-force the rest anyway... strongpw = bcrypt.hashpw(os.urandom(128),bcrypt.gensalt()) # >>> strongpw[:71] As we can see, the leak is of the first 70 bytes of the password, while a total of 71 bytes are used. Let\u2019s proceed with the exploit. ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:4:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -130,13 +436,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "\ud83d\udd2c Vulnerability Analysis ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:5:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -148,13 +454,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Potential Vulnerabilities Partial Hash Exposure (bcrypt) \ud83c\udfaf Solution Path ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:5:1",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -166,13 +472,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Exploitation Steps ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:6:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -184,13 +490,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Initial setup The exploit was based on brute-forcing that remaining byte since 71-70=1. That\u2019s a total of 256 combinations (nothing too challenging for a brute force). Once completed, we have the full password, which we will obviously verify by converting it into a hash and comparing it with the previously obtained hash. ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:6:1",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -202,13 +508,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Exploitation I wrote a Python script to do all of this, and then I executed it: python exploit.py I also sent the request directly to the server using Http, since a simple GET or POST returned Method Not Allowed. I then took the server\u2019s response, extracted the flag using a regex, and subsequently printed it. ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:6:2",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -220,13 +526,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Flag capture Manual Flag \ud83d\udee0\ufe0f Exploitation Process ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:6:3",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -238,13 +544,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Approach The exploit literally follows the procedure described above: \u00a0Exploit \ud83d\udea9 Flag Capture Flag ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:7:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -256,13 +562,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Python Exploit \ud83d\udca1 Key Learnings ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:8:0",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -274,13 +580,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "New Knowledge I discovered that if you know part of the hash with bcrypt, you can perform a brute force. ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:8:1",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],
@@ -292,13 +598,13 @@
       "action": "updateObject",
       "body": {
         "categories": [
-          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025"
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
         "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:08 From start to flag Global Ranking (At the time of flag submission) 9/535 Challenge ranking Points Earned 500 Team contribution Created: 01-02-2025 \u2022 Last Modified: 01-02-2025 Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/bfail/:8:2",
         "tags": [
-          "\ud83d\udd13 Partial Hash Exposure",
+          "\ud83d\udd13 Partial Password Exposure",
           "\ud83d\udd11 bcrypt",
           "\ud83c\udf10 Web Security"
         ],

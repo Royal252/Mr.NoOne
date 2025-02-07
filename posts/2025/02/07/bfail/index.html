@@ -14,7 +14,7 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-07T17:36:33+01:00">
     <meta property="article:modified_time" content="2025-02-07T17:36:33+01:00">
-    <meta property="article:tag" content="🔓 Partial Hash Exposure">
+    <meta property="article:tag" content="🔓 Partial Password Exposure">
     <meta property="article:tag" content="🔑 Bcrypt">
     <meta property="article:tag" content="🌐 Web Security">
     <meta property="og:image" content="https://mh4ck3r0n3.github.io/logo.png">
@@ -26,7 +26,7 @@
 <meta name="application-name" content="mH4ck3r0n3&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="mH4ck3r0n3&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" /><link rel="prev" href="https://mh4ck3r0n3.github.io/posts/2025/02/06/submission/" /><link rel="next" href="https://mh4ck3r0n3.github.io/posts/2025/02/07/crahp/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><meta name="google-site-verification" content="Z-UoSLcRkeqd45L7xfo6KhHLAHRigsRvXpv1cYBypy4" /><script type="application/ld+json">
     {
@@ -37,7 +37,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/bfail\/"
-        },"genre": "posts","keywords": "🔓 Partial Hash Exposure, 🔑 bcrypt, 🌐 Web Security","wordcount":  465 ,
+        },"genre": "posts","keywords": "🔓 Partial Password Exposure, 🔑 bcrypt, 🌐 Web Security","wordcount":  465 ,
         "url": "https:\/\/mh4ck3r0n3.github.io\/posts\/2025\/02\/07\/bfail\/","datePublished": "2025-02-07T17:36:33+01:00","dateModified": "2025-02-07T17:36:33+01:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,8 +110,8 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">🌐 Bfail</h1><h2 class="single-subtitle">A detailed write-up of the Web challenge &#39;Bfail&#39; from NullCon Goa HackIM CTF - 2025</h2><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/">
-                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025
+            <div class="post-meta-line"><span class="post-author"><a href="https://mh4ck3r0n3.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mH4ck3r0n3</a></span><span class="post-category"><a href="/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/web/">
+                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i> Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web
                                 </a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="07/02/2025">07/02/2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;465 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
@@ -419,7 +419,7 @@ http://52.59.124.14:5013</p>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Binary Exploitation</li>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Reverse Engineering</li>
 <li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Web Exploitation</li>
-<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Cryptography</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> Cryptography</li>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Forensics</li>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> OSINT</li>
 <li><i class="far fa-square fa-fw" aria-hidden="true"></i> Miscellaneous</li>
@@ -466,20 +466,21 @@ http://52.59.124.14:5013</p>
                             <a class="link-to-markdown" href="/posts/2025/02/07/bfail/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail" data-hashtags="🔓 Partial Hash Exposure,🔑 bcrypt,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-hashtag="🔓 Partial Hash Exposure"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail" data-hashtags="🔓 Partial Password Exposure,🔑 bcrypt,🌐 Web Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-hashtag="🔓 Partial Password Exposure"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/" data-title="🌐 Bfail"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/partial-hash-exposure/">🔓 Partial Hash Exposure</a>,&nbsp;<a href="/tags/bcrypt/">🔑 bcrypt</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/partial-password-exposure/">🔓 Partial Password Exposure</a>,&nbsp;<a href="/tags/bcrypt/">🔑 bcrypt</a>,&nbsp;<a href="/tags/web-security/">🌐 Web Security</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
 
-    <div class="post-nav"><a href="/posts/2025/02/06/submission/" class="prev" rel="prev" title="🌐 Submission"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Submission</a></div>
+    <div class="post-nav"><a href="/posts/2025/02/06/submission/" class="prev" rel="prev" title="🌐 Submission"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>🌐 Submission</a>
+        <a href="/posts/2025/02/07/crahp/" class="next" rel="next" title="🌐 Crahp">🌐 Crahp<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://mh4ck3r0n3.github.io/" target="_blank">mH4ck3r0n3</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
