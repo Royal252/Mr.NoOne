@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025 - Category - mH4ck3r0n3&#39;s Blog</title>
+        <link>https://mh4ck3r0n3.github.io/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/</link>
+        <description>Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025 - Category - mH4ck3r0n3&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 17:36:33 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/categories/ethical-hacking/ctfs/jeopardy/nullcon-goa-hackim-ctf-2025/" rel="self" type="application/rss+xml" /><item>
+    <title>🌐 Bfail</title>
+    <link>https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/</link>
+    <pubDate>Fri, 07 Feb 2025 17:36:33 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/posts/2025/02/07/bfail/</guid>
+    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;Bfail&rsquo; from NullCon Goa HackIM CTF - 2025]]></description>
+</item>
+</channel>
+</rss>
