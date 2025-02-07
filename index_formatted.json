@@ -6,6 +6,278 @@
         "categories": [
           "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
         ],
+        "content": "A detailed write-up of the Web challenge 'Paginator' from NullCon Goa HackIM CTF - 2025",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": " Challenge Presentation ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:0:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcca Challenge Overview Category Details Additional Info \ud83c\udfc6 Event Nullcon Goa HackIM 2025 CTF Event Link \ud83d\udd30 Category Web \ud83c\udf10 \ud83d\udc8e Points 500 Out of 500 total \u2b50 Difficulty \ud83d\udfe2 Easy Personal Rating: 1/10 \ud83d\udc64 Author @gehaxelt Profile \ud83c\udfae Solves (At the time of flag submission) 257 solve rate \ud83d\udcc5 Date 01-02-2025 Nullcon Goa HackIM 2025 CTF \ud83e\uddbe Solved By mH4ck3r0n3 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:1:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udcdd Challenge Information There can\u2019t much go wrong with pagination, right? http://52.59.124.14:5012 ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:2:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83c\udfaf Challenge Files & Infrastructure ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:3:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Provided Files Files: None \ud83d\udd0d Initial Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:3:1",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "First Steps Initially, the website appears as follows: Site Presentation When I clicked on show pages 2,10, it showed me the rows from the database by setting the parameter p=2,10. Then, I decided to click the link to the source, which directed me to /?source: Source Code I saved the source in the file source.php. As we can see, a QUERY is made that retrieves all the pages by setting a minimum and maximum ID based on the parameter p we pass. Let\u2019s move on to the exploitation. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:4:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "\ud83d\udd2c Vulnerability Analysis ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:5:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Potential Vulnerabilities SQL Injection \ud83c\udfaf Solution Path ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:5:1",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Steps ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:6:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Initial setup As we can notice, there is a check on the minimum value, so when passing /?p=1,10 OR 1=1, I get this post is not accessible. Therefore, I need to bypass that check, perhaps by setting the minimum value to 2, for example. ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:6:1",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Exploitation Indeed, the exploit payload is exactly as follows: /?p=2,10 OR 1=1. The query would then be: SELECT * FROM pages WHERE id>= 2 AND id<= 10 OR 1=1 By setting the minimum value to 2, we bypass the check. Using OR 1=1 ensures that the query returns all the pages, so the page with the flag will also be displayed. Flag Base64 As we can see from the source, the flag is encoded in base64. So, using the terminal, I perform the decode and obtain the flag: echo \"RU5Pe1NRTDFfVzF0aF8wdVRfQzBtbTRfVzBya3NfU29tZUhvdyF9\" | base64 -d ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:6:2",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Flag capture Manual Flag \ud83d\udee0\ufe0f Exploitation Process ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:6:3",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Approach The exploit sends the request with the SQL Injection payload as the p parameter, and then it extracts the flag in base64 format using a regex and decodes it. \u00a0Exploit \ud83d\udea9 Flag Capture Flag ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:7:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Proof of Execution Automated Flag Screenshot of successful exploitation \ud83d\udd27 Tools Used Tool Purpose Python Exploit \ud83d\udca1 Key Learnings ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:8:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
+        "content": "Skills Improved Binary Exploitation Reverse Engineering Web Exploitation Cryptography Forensics OSINT Miscellaneous \ud83d\udcca Final Statistics Metric Value Notes Time to Solve 00:02 From start to flag Global Ranking 23/595 Challenge ranking Points Earned 500 Team contribution Created: 01-02-2025 \u2022 Last Modified: 01-02-2025 *Author: mH4ck3r0n3 \u2022 Team: QnQSec ",
+        "date": "07/02/2025",
+        "objectID": "/posts/2025/02/07/paginator/:9:0",
+        "tags": [
+          "\ud83d\udc89 SQL Injection",
+          "\ud83c\udf10 Web Security"
+        ],
+        "title": "\ud83c\udf10 Paginator",
+        "uri": "/posts/2025/02/07/paginator/"
+      }
+    },
+    {
+      "action": "updateObject",
+      "body": {
+        "categories": [
+          "Ethical Hacking/CTFs/Jeopardy/Nullcon-Goa-HackIM-CTF-2025/Web"
+        ],
         "content": "A detailed write-up of the Web challenge 'Numberizer' from NullCon Goa HackIM CTF - 2025",
         "date": "07/02/2025",
         "objectID": "/posts/2025/02/07/numberizer/",

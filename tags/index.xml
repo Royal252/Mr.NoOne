@@ -4,12 +4,20 @@
         <link>https://mh4ck3r0n3.github.io/tags/</link>
         <description>Tags - Tag - mH4ck3r0n3&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
-            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 18:34:06 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Fri, 07 Feb 2025 18:46:43 &#43;0100</lastBuildDate><atom:link href="https://mh4ck3r0n3.github.io/tags/" rel="self" type="application/rss+xml" /><item>
     <title>🌐 Web Security</title>
     <link>https://mh4ck3r0n3.github.io/tags/web-security/</link>
-    <pubDate>Fri, 07 Feb 2025 18:34:06 &#43;0100</pubDate>
+    <pubDate>Fri, 07 Feb 2025 18:46:43 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/web-security/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>💉 SQL Injection</title>
+    <link>https://mh4ck3r0n3.github.io/tags/sql-injection/</link>
+    <pubDate>Fri, 07 Feb 2025 18:46:43 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>https://mh4ck3r0n3.github.io/tags/sql-injection/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -74,14 +82,6 @@
     <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
     <author>mH4ck3r0n3</author>
     <guid>https://mh4ck3r0n3.github.io/tags/%EF%B8%8F-cve-2021-44228-log4shell/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>📜 Log4j</title>
-    <link>https://mh4ck3r0n3.github.io/tags/log4j/</link>
-    <pubDate>Wed, 05 Feb 2025 21:54:05 &#43;0100</pubDate>
-    <author>mH4ck3r0n3</author>
-    <guid>https://mh4ck3r0n3.github.io/tags/log4j/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
