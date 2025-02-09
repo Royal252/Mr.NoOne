@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Ethical Hacking/CTFs/Jeopardy/BITSCTF-2025/Web - Category - mH4ck3r0n3&#39;s Blog</title>
+        <link>http://localhost:1313/categories/ethical-hacking/ctfs/jeopardy/bitsctf-2025/web/</link>
+        <description>Ethical Hacking/CTFs/Jeopardy/BITSCTF-2025/Web - Category - mH4ck3r0n3&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>matteopio082@gmail.com (mH4ck3r0n3)</managingEditor>
+            <webMaster>matteopio082@gmail.com (mH4ck3r0n3)</webMaster><lastBuildDate>Sun, 09 Feb 2025 12:16:40 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/categories/ethical-hacking/ctfs/jeopardy/bitsctf-2025/web/" rel="self" type="application/rss+xml" /><item>
+    <title>🌐 BrokenCode</title>
+    <link>http://localhost:1313/posts/2025/02/09/brokencode/</link>
+    <pubDate>Sun, 09 Feb 2025 12:16:40 &#43;0100</pubDate>
+    <author>mH4ck3r0n3</author>
+    <guid>http://localhost:1313/posts/2025/02/09/brokencode/</guid>
+    <description><![CDATA[A detailed write-up of the Web challenge &lsquo;BrokenCode&rsquo; from BITSCTF - 2025]]></description>
+</item>
+</channel>
+</rss>
