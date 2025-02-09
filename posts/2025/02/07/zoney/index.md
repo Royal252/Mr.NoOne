@@ -67,7 +67,7 @@
 
 # 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
-ENO{1337_FL4G_NSeC_W4LK3R}
+> ENO{1337_FL4G_NSeC_W4LK3R}
 >{{< /admonition >}}
 >
 ## Proof of Execution

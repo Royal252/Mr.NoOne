@@ -174,7 +174,7 @@
 > `exploit.py` is a Python web server that runs locally, and with ngrok tunneling, it forwards the port. So once the request with the payload is sent, the response will first go to `ngrok` and then to the local Python server. Upon receiving the request, I extract the `content` parameter, format the flag by adding `{}` as mentioned earlier, and then print it:
 > 
 > - [:(far fa-file-archive fa-fw): Exploit](/resources/NullCon-Goa-HackIM-CTF-2025/Temptation/exploit.py)
-> > - [:(far fa-file-archive fa-fw): Request](/resources/NullCon-Goa-HackIM-CTF-2025/Temptation/request.py)
+> - [:(far fa-file-archive fa-fw): Request](/resources/NullCon-Goa-HackIM-CTF-2025/Temptation/request.py)
 
 # 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
