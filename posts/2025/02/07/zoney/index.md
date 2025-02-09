@@ -67,9 +67,7 @@
 
 # 🚩 Flag Capture
 >{{< admonition danger "Flag" >}}
->{{< typeit tag=h4 >}}
->ENO{1337_FL4G_NSeC_W4LK3R}
->{{< /typeit >}}
+ENO{1337_FL4G_NSeC_W4LK3R}
 >{{< /admonition >}}
 >
 ## Proof of Execution
